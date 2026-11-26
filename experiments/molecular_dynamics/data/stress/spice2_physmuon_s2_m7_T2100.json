@@ -1,0 +1,144 @@
+{
+ "dataset": "spice2",
+ "opt": "physmuon",
+ "seed": 2,
+ "mol": 7,
+ "natoms": 60,
+ "frame": 306,
+ "formula": {
+  "O": 3,
+  "C": 25,
+  "N": 5,
+  "H": 27
+ },
+ "temps": [
+  2100.0,
+  2100.0,
+  2100.0,
+  2100.0,
+  2100.0,
+  2100.0,
+  2100.0
+ ],
+ "stress_T": 2100.0,
+ "replica_failures": [
+  {
+   "t_ps": 21.55,
+   "fragments": 2,
+   "dmin": 0.944,
+   "finite": true,
+   "fragment_formulas": [
+    "C12H13N2O",
+    "C13H14N3O2"
+   ],
+   "broken_bonds": [
+    "C5-C32 2.37A"
+   ],
+   "confirmed_ps": 21.64,
+   "broken_bonds_confirmed": [
+    "C5-C32 3.18A"
+   ]
+  },
+  null,
+  null,
+  {
+   "t_ps": 1.62,
+   "fragments": 2,
+   "dmin": 0.941,
+   "finite": true,
+   "fragment_formulas": [
+    "H",
+    "C25H26N5O3"
+   ],
+   "broken_bonds": [
+    "N23-H44 1.83A"
+   ],
+   "confirmed_ps": 1.71,
+   "broken_bonds_confirmed": [
+    "N23-H44 9.83A"
+   ]
+  },
+  {
+   "t_ps": 26.53,
+   "fragments": 2,
+   "dmin": 0.926,
+   "finite": true,
+   "fragment_formulas": [
+    "H",
+    "C25H26N5O3"
+   ],
+   "broken_bonds": [
+    "N23-H44 1.77A"
+   ],
+   "confirmed_ps": 26.62,
+   "broken_bonds_confirmed": [
+    "N23-H44 7.43A"
+   ]
+  },
+  {
+   "t_ps": 37.5,
+   "fragments": 2,
+   "dmin": 0.959,
+   "finite": true,
+   "fragment_formulas": [
+    "C9H8N",
+    "C16H19N4O3"
+   ],
+   "broken_bonds": [
+    "C29-C31 2.40A"
+   ],
+   "confirmed_ps": 37.59,
+   "broken_bonds_confirmed": [
+    "C29-C31 4.74A"
+   ]
+  },
+  {
+   "t_ps": 35.72,
+   "fragments": 2,
+   "dmin": 0.964,
+   "finite": true,
+   "fragment_formulas": [
+    "H",
+    "C25H26N5O3"
+   ],
+   "broken_bonds": [
+    "N23-H44 1.70A"
+   ],
+   "confirmed_ps": 35.81,
+   "broken_bonds_confirmed": [
+    "N23-H44 8.29A"
+   ]
+  }
+ ],
+ "transient_splits": [
+  5,
+  3,
+  3,
+  1,
+  9,
+  4,
+  2
+ ],
+ "longest_transient_checks": [
+  1,
+  2,
+  1,
+  1,
+  4,
+  1,
+  1
+ ],
+ "persist_checks": 10,
+ "open_split_at_end_ps": [
+  null,
+  null,
+  null,
+  null,
+  null,
+  null,
+  null
+ ],
+ "ms_per_call": 61.29,
+ "ps_per_replica": 42.0,
+ "stopped_at_ps": 42.0
+}

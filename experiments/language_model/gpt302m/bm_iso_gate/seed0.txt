@@ -1,0 +1,84 @@
+[The source code of the training script, printed at this place in the original log, has been removed; see experiments/language_model/README.md.]
+====================================================================================================
+Running PyTorch 2.14.0+cu130 compiled for CUDA 13.0 on NVIDIA GeForce RTX 5090 with world_size 1
+bi-Maxwell recipe: bf=0.85 bs=0.985 w=0.4385 start=1000 seed=0
+theory32: WD_LR_SCALE=0.0
+theory37: BM_XCH_GN=0.0 (tn mode); IsoMuon+BM exchange in the whitened frame
+theory36: BM_XCH=nor exchanges only the stretch part Q sym(Q^T (M_f - M_s))
+theory35: MU_ROT=0.0 ROT_START=1000
+theory33: BM_XCH=tan exchanges only the tangent part of M_f - M_s w.r.t. this step's NS response
+theory31: fork shapes tan/nor use the unscaled Muon response of the step before the fork
+theory30 fork: FORK_AT=[] K=128 H=[1, 2, 4, 8, 16, 32, 64, 128] GAMMA=1.0 SHAPES=['ddd', 'lin', 'rand'] EVAL_SEQS=64
+theory29: BM_XCH='' BM_XCH_G=0.5 RADIUS_FREEZE_AT=-1
+theory28 gauge: GAUGE_MODE='' AT=1000 EVERY=0 SIGMA=0.5 STATS=False STATS_EVERY=125
+====================================================================================================
+model: 24 layers x 1024 dim, non-embedding params 302.3M, total 405.3M
+screen: MODE=nemp LR_MULT=0.7 BUS_LR_MULT=1.0 TRAIN_STEPS=3250 WLR=1.0 RLR=1.0 BM_START=1000 TOKCLIP=2.0 MARS_LAMBDA=0.5 SHAM=False SHARED_R=128 SHARED_ALPHA=0.5 bus_groups=[]
+bm_start: 750 of 3250 steps (frac 0.2308)
+step:0/3250 val_loss:10.82580 train_time:0.000s step_avg:nanms
+step:125/3250 val_loss:4.77226 train_time:531.519s step_avg:4252.15ms
+step:250/3250 val_loss:4.20153 train_time:1015.137s step_avg:3868.94ms
+step:375/3250 val_loss:3.99768 train_time:1497.819s step_avg:3861.45ms
+step:500/3250 val_loss:3.88229 train_time:1980.215s step_avg:3859.17ms
+step:625/3250 val_loss:3.80412 train_time:2462.551s step_avg:3858.69ms
+step:750/3250 val_loss:3.74861 train_time:2945.263s step_avg:3861.70ms
+step:875/3250 val_loss:3.69879 train_time:3434.250s step_avg:3911.89ms
+step:1000/3250 val_loss:3.65734 train_time:3919.089s step_avg:3878.72ms
+step:1125/3250 val_loss:3.61050 train_time:4404.151s step_avg:3880.49ms
+step:1250/3250 val_loss:3.57280 train_time:4889.341s step_avg:3881.52ms
+step:1375/3250 val_loss:3.54079 train_time:5374.244s step_avg:3879.22ms
+step:1500/3250 val_loss:3.51187 train_time:5859.136s step_avg:3879.14ms
+step:1625/3250 val_loss:3.48557 train_time:6344.036s step_avg:3879.21ms
+step:1750/3250 val_loss:3.46065 train_time:6829.145s step_avg:3880.87ms
+step:1875/3250 val_loss:3.43506 train_time:7314.323s step_avg:3881.42ms
+step:2000/3250 val_loss:3.40993 train_time:7799.348s step_avg:3880.20ms
+step:2125/3250 val_loss:3.38838 train_time:8284.449s step_avg:3880.81ms
+step:2250/3250 val_loss:3.36782 train_time:8769.523s step_avg:3880.60ms
+step:2375/3250 val_loss:3.34501 train_time:9254.669s step_avg:3881.16ms
+step:2500/3250 val_loss:3.32279 train_time:9739.838s step_avg:3881.35ms
+step:2625/3250 val_loss:3.30225 train_time:10224.805s step_avg:3879.74ms
+step:2750/3250 val_loss:3.28228 train_time:10709.834s step_avg:3880.23ms
+step:2875/3250 val_loss:3.26221 train_time:11195.047s step_avg:3881.70ms
+step:2900/3250 val_loss:3.25839 train_time:11292.172s step_avg:3884.99ms
+step:2910/3250 val_loss:3.25682 train_time:11330.937s step_avg:3876.56ms
+step:2920/3250 val_loss:3.25514 train_time:11369.710s step_avg:3877.29ms
+step:2925/3250 val_loss:3.25437 train_time:11389.098s step_avg:3877.66ms
+step:2930/3250 val_loss:3.25324 train_time:11408.495s step_avg:3879.34ms
+step:2940/3250 val_loss:3.25189 train_time:11447.259s step_avg:3876.45ms
+step:2950/3250 val_loss:3.25048 train_time:11486.046s step_avg:3878.68ms
+step:2960/3250 val_loss:3.24902 train_time:11524.807s step_avg:3876.04ms
+step:2970/3250 val_loss:3.24736 train_time:11563.563s step_avg:3875.68ms
+step:2975/3250 val_loss:3.24695 train_time:11582.940s step_avg:3875.41ms
+step:2980/3250 val_loss:3.24618 train_time:11602.335s step_avg:3878.95ms
+step:2990/3250 val_loss:3.24501 train_time:11641.145s step_avg:3880.97ms
+step:3000/3250 val_loss:3.24345 train_time:11679.949s step_avg:3880.40ms
+step:3010/3250 val_loss:3.24278 train_time:11718.754s step_avg:3880.48ms
+step:3020/3250 val_loss:3.24144 train_time:11757.724s step_avg:3897.02ms
+step:3025/3250 val_loss:3.24044 train_time:11777.128s step_avg:3880.85ms
+step:3030/3250 val_loss:3.23978 train_time:11796.541s step_avg:3882.58ms
+step:3040/3250 val_loss:3.23859 train_time:11835.346s step_avg:3880.53ms
+step:3050/3250 val_loss:3.23731 train_time:11874.213s step_avg:3886.62ms
+step:3060/3250 val_loss:3.23602 train_time:11913.041s step_avg:3882.86ms
+step:3070/3250 val_loss:3.23494 train_time:11951.838s step_avg:3879.69ms
+step:3075/3250 val_loss:3.23521 train_time:11971.240s step_avg:3880.39ms
+step:3080/3250 val_loss:3.23419 train_time:11990.646s step_avg:3881.27ms
+step:3090/3250 val_loss:3.23287 train_time:12029.451s step_avg:3880.50ms
+step:3100/3250 val_loss:3.23176 train_time:12068.234s step_avg:3878.23ms
+step:3110/3250 val_loss:3.23076 train_time:12106.990s step_avg:3875.62ms
+step:3120/3250 val_loss:3.22973 train_time:12145.769s step_avg:3877.97ms
+step:3125/3250 val_loss:3.22941 train_time:12165.166s step_avg:3879.31ms
+step:3130/3250 val_loss:3.22876 train_time:12184.713s step_avg:3909.41ms
+step:3140/3250 val_loss:3.22777 train_time:12223.493s step_avg:3877.98ms
+step:3150/3250 val_loss:3.22681 train_time:12262.285s step_avg:3879.18ms
+step:3160/3250 val_loss:3.22604 train_time:12301.058s step_avg:3877.32ms
+step:3170/3250 val_loss:3.22533 train_time:12339.840s step_avg:3878.19ms
+step:3175/3250 val_loss:3.22491 train_time:12359.246s step_avg:3881.18ms
+step:3180/3250 val_loss:3.22468 train_time:12378.636s step_avg:3878.04ms
+step:3190/3250 val_loss:3.22388 train_time:12417.422s step_avg:3878.62ms
+step:3200/3250 val_loss:3.22333 train_time:12456.207s step_avg:3878.45ms
+step:3210/3250 val_loss:3.22284 train_time:12494.994s step_avg:3878.71ms
+step:3220/3250 val_loss:3.22240 train_time:12533.791s step_avg:3879.71ms
+step:3225/3250 val_loss:3.22218 train_time:12553.195s step_avg:3880.83ms
+step:3230/3250 val_loss:3.22208 train_time:12572.593s step_avg:3879.53ms
+step:3240/3250 val_loss:3.22183 train_time:12611.381s step_avg:3878.88ms
+step:3250/3250 val_loss:3.22172 train_time:12650.127s step_avg:3874.55ms

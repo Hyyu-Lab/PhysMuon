@@ -1,0 +1,518 @@
+"""
+train_gpt_bm_oscgate_v2.py
+
+This file descends from the [NanoGPT speedrun](https://github.com/KellerJordan/modded-nanogpt).
+It was prepared as a simplified version of the speedrun for use in neural net optimization research.
+
+The tuned Muon + aux AdamW baseline (result #36, PR #323) with one change to the Muon momentum: a
+bi-Maxwell (two-timescale) memory whose fast-unit weight is set, per matrix and every step, by how
+much of the fast unit's content is drift rather than oscillation. No step count or learning rate enters.
+
+The two units and the gate statistics follow the raw gradient from step 0; from Muon step 750 onward the
+readout uses them:
+
+    o <- EMA_0.9[ max(0, -cos(g, M_fast)) ]       # oscillation: the gradient pushing back on recent memory
+    d <- EMA_0.9[ |M_slow| / |g| ]                 # drift: persistent signal per unit gradient
+    w  = 0.6 * max(0, 1 - rho_f * o / d)           # rho_f = (1-0.85)/(1+0.85), the fast unit's period-2 gain
+    M_fast <- lerp(M_fast, g, 1 - 0.85)            # fast unit, relaxation ~6 steps
+    M_slow <- lerp(M_slow, g, 1 - 0.985)           # slow unit, relaxation ~66 steps
+    M_eff  = w * M_fast + (1 - w) * M_slow
+    update = g.lerp(M_eff, mu)                     # unchanged Nesterov mix
+
+The fast unit carries rho_f times the oscillating part of the gradient into the readout; while
+oscillation dominates drift (high learning rate) the law reads mostly the slow unit, and as the
+oscillation dies out with the learning rate the readout shifts toward the fast unit. Before step 750
+the update is the baseline's plain Muon step; only the readout switches at step 750, with units that
+are already mature (no momentum snapshot). Everything else (architecture, data, batch size, one forward-backward
+per step, aux AdamW, LR/mu schedule, weight decay) is the #36 baseline, unchanged.
+Run: `torchrun --nproc_per_node=1 train_gpt_bm_oscgate.py --seed 0`.
+"""
+
+import os
+import sys
+with open(sys.argv[0]) as f:
+    code = f.read() # read the code of this file ASAP, for logging
+import uuid
+import time
+from pathlib import Path
+
+import torch
+from torch import Tensor, nn
+from torch.optim import AdamW
+import torch.nn.functional as F
+import torch.distributed as dist
+
+# single reproducibility argument: the trial seed (paired across the fleet)
+SEED = 0
+if "--seed" in sys.argv:
+    SEED = int(sys.argv[sys.argv.index("--seed") + 1])
+
+# bi-Maxwell momentum constants and the oscillation gate (hardcoded recipe)
+BM_BF, BM_BS = 0.85, 0.985                # fast/slow EMA rates
+BM_START = 750                            # first Muon step on the bi-Maxwell path
+OSC_WMAX, OSC_BETA = 0.6, 0.9             # largest fast-unit weight; EMA rate of the oscillation/drift statistics
+OSC_RHO_F = (1 - BM_BF) / (1 + BM_BF)     # period-2 (Nyquist) gain of the fast unit
+
+
+########################################
+#              Dataloader              #
+########################################
+
+def _load_data_shard(file: Path):
+    header = torch.from_file(str(file), False, 256, dtype=torch.int32) # header is 256 int32
+    assert header[0] == 20240520, "magic number mismatch in the data .bin file"
+    assert header[1] == 1, "unsupported version"
+    num_tokens = int(header[2]) # number of tokens (claimed)
+    with file.open("rb", buffering=0) as f:
+        tokens = torch.empty(num_tokens, dtype=torch.uint16, pin_memory=True)
+        f.seek(256 * 4)
+        nbytes = f.readinto(tokens.numpy()) # avoid bytes->array copy
+        assert nbytes == 2 * num_tokens, "number of tokens read does not match header"
+    return tokens
+
+def distributed_data_generator(filename_pattern: str, batch_size: int, seq_len=1024):
+    files = sorted(Path.cwd().glob(filename_pattern))
+    assert batch_size % dist.get_world_size() == 0
+    local_batch_size = batch_size // dist.get_world_size()
+    file_iter = iter(files)
+    tokens, pos = _load_data_shard(next(file_iter)), 0
+    while True:
+        if pos + batch_size + 1 >= len(tokens):
+            tokens, pos = _load_data_shard(next(file_iter)), 0
+        buf = tokens[pos + dist.get_rank() * local_batch_size:][:local_batch_size + 1]
+        inputs = buf[:-1].to(device="cuda", dtype=torch.int32, non_blocking=True)
+        targets = buf[1:].to(device="cuda", dtype=torch.int64, non_blocking=True)
+        pos += batch_size
+        yield inputs.view(-1, seq_len), targets.view(-1, seq_len)
+
+
+########################################
+#             Architecture             #
+########################################
+
+class RMSNorm(nn.Module):
+    def __init__(self, dim):
+        super().__init__()
+        self.gains = nn.Parameter(torch.ones(dim))
+
+    def forward(self, x):
+        return F.rms_norm(x, (x.size(-1),), weight=self.gains.type_as(x))
+
+class Linear(nn.Linear):
+    def __init__(self, in_features, out_features):
+        super().__init__(in_features, out_features, bias=True)
+
+    def forward(self, x):
+        return F.linear(x, self.weight.type_as(x), self.bias.type_as(x))
+
+class Rotary(nn.Module):
+    def __init__(self, dim: int):
+        super().__init__()
+        # half-truncate RoPE (w/ base freq tuning)
+        angular_freq = (1 / 1024) ** torch.linspace(0, 1, steps=dim//4, dtype=torch.float32)
+        self.register_buffer("angular_freq", torch.cat([angular_freq, angular_freq.new_zeros(dim//4)]))
+
+    def forward(self, x_BTHD: Tensor):
+        pos = torch.arange(x_BTHD.size(1), dtype=torch.float32, device=x_BTHD.device)
+        theta = torch.outer(pos, self.angular_freq)[None, :, None, :]
+        cos, sin = theta.cos(), theta.sin()
+        x1, x2 = x_BTHD.to(dtype=torch.float32).chunk(2, dim=-1)
+        y1 = x1 * cos + x2 * sin
+        y2 = x1 * (-sin) + x2 * cos
+        return torch.cat((y1, y2), 3).type_as(x_BTHD)
+
+class CausalSelfAttention(nn.Module):
+    def __init__(self, dim: int, head_dim=128):
+        super().__init__()
+        self.num_heads = dim // head_dim
+        self.head_dim = head_dim
+        hdim = self.num_heads * self.head_dim
+        self.q = Linear(dim, hdim)
+        self.k = Linear(dim, hdim)
+        self.v = Linear(dim, hdim)
+        self.proj = Linear(hdim, dim)
+        self.rotary = Rotary(head_dim)
+
+    def forward(self, x: Tensor):
+        B, T = x.size(0), x.size(1)
+        q = self.q(x).view(B, T, self.num_heads, self.head_dim)
+        k = self.k(x).view(B, T, self.num_heads, self.head_dim)
+        v = self.v(x).view(B, T, self.num_heads, self.head_dim)
+        q, k = F.rms_norm(q, (q.size(-1),)), F.rms_norm(k, (k.size(-1),))
+        q, k = self.rotary(q), self.rotary(k)
+        y = F.scaled_dot_product_attention(q.transpose(1, 2), k.transpose(1, 2),
+                                           v.transpose(1, 2), scale=0.12, is_causal=True).transpose(1, 2)
+        y = y.contiguous().view(B, T, self.num_heads * self.head_dim)
+        y = self.proj(y)
+        return y
+
+class MLP(nn.Module):
+    def __init__(self, dim: int):
+        super().__init__()
+        hdim = 4 * dim
+        self.fc = Linear(dim, hdim)
+        self.proj = Linear(hdim, dim)
+
+    def forward(self, x: Tensor):
+        x = self.fc(x)
+        x = x.relu().square()
+        x = self.proj(x)
+        return x
+
+class Block(nn.Module):
+    def __init__(self, dim: int):
+        super().__init__()
+        self.attn = CausalSelfAttention(dim)
+        self.mlp = MLP(dim)
+        self.norm1 = RMSNorm(dim)
+        self.norm2 = RMSNorm(dim)
+
+    def forward(self, x: Tensor):
+        x = x + self.attn(self.norm1(x))
+        x = x + self.mlp(self.norm2(x))
+        return x
+
+class GPT(nn.Module):
+    def __init__(self, vocab_size: int, num_layers: int, model_dim: int):
+        super().__init__()
+        self.embed = nn.Embedding(vocab_size, model_dim).bfloat16()
+        self.blocks = nn.ModuleList([Block(model_dim) for _ in range(num_layers)])
+        self.proj = Linear(model_dim, vocab_size)
+        self.norm1 = RMSNorm(model_dim)
+        self.norm2 = RMSNorm(model_dim)
+
+    def forward(self, inputs: Tensor, targets: Tensor):
+        x = self.norm1(self.embed(inputs))
+        for block in self.blocks:
+            x = block(x)
+        logits = self.proj(self.norm2(x)).float()
+        logits = 15 * logits * (logits.square() + 15**2).rsqrt()
+        return F.cross_entropy(logits.view(targets.numel(), -1), targets.view(-1), reduction="sum")
+
+
+########################################
+#              Optimizer               #
+########################################
+
+def zeropower_via_newtonschulz5(G: Tensor) -> Tensor:
+    assert G.ndim >= 2
+    X = G.bfloat16()
+    if G.size(-2) > G.size(-1):
+        X = X.mT
+
+    # Ensure spectral norm is at most 1
+    X = X / (X.norm(dim=(-2, -1), keepdim=True) + 1e-7)
+    # Perform the NS iterations, not optimizing for wallclock speed
+    a, b, c = 2, -1.5, 0.5
+    for _ in range(12):
+        A = X @ X.mT
+        B = b * A + c * A @ A
+        X = a * X + B @ X
+
+    if G.size(-2) > G.size(-1):
+        X = X.mT
+    return X
+
+@torch.compile
+def muon_update(grad, momentum, mu=0.95, nesterov=True):
+    momentum.lerp_(grad, 1 - mu)
+    update = grad.lerp_(momentum, mu) if nesterov else momentum
+    update = zeropower_via_newtonschulz5(update)
+    update *= max(1, grad.size(-2) / grad.size(-1))**0.5
+    return update
+
+@torch.compile
+def muon_update_bimaxwell(grad, m_fast, m_slow, w, mu=0.95):
+    # bi-Maxwell stress memory: two fixed-rate EMA units, convex combination with the gated weight w (0-d tensor);
+    # the Nesterov mix and the orthogonalization downstream are the baseline's, unchanged.
+    m_fast.lerp_(grad, 1 - BM_BF)
+    m_slow.lerp_(grad, 1 - BM_BS)
+    m_eff = w * m_fast + (1 - w) * m_slow
+    update = grad.lerp_(m_eff, mu)
+    update = zeropower_via_newtonschulz5(update)
+    update *= max(1, grad.size(-2) / grad.size(-1))**0.5
+    return update
+
+class Muon(torch.optim.Optimizer):
+    def __init__(self, params, lr=0.02, weight_decay=0, mu=0.95):
+        assert isinstance(params, list) and len(params) >= 1 and isinstance(params[0], torch.nn.Parameter)
+        params = sorted(params, key=lambda x: x.size(), reverse=True)
+        defaults = dict(lr=lr, weight_decay=weight_decay, mu=mu)
+        super().__init__(params, defaults)
+        self._step = 0
+
+    @torch.no_grad()
+    def step(self):
+        world_size = dist.get_world_size()
+        rank = dist.get_rank()
+        for group in self.param_groups:
+            params = group["params"]
+            params_pad = params + [torch.empty_like(params[-1])] * (world_size - len(params) % world_size)
+            for base_i in range(0, len(params), world_size):
+                if base_i + rank < len(params):
+                    p = params[base_i + rank]
+                    state = self.state[p]
+                    if len(state) == 0:
+                        state["momentum"] = torch.zeros_like(p)
+                        state["m_fast"] = torch.zeros_like(p)
+                        state["m_slow"] = torch.zeros_like(p)
+                    # oscillation gate statistics, tracked from step 0: units measured before they take this gradient
+                    g = p.grad.float(); g_norm = g.norm().clamp_min(1e-20)
+                    m_fast = state["m_fast"].float()
+                    osc = (-(g * m_fast).sum() / (g_norm * m_fast.norm().clamp_min(1e-20))).clamp_min(0.0)
+                    drift = state["m_slow"].float().norm() / g_norm
+                    if "osc" not in state:
+                        state["osc"], state["drift"] = osc, drift
+                    else:
+                        state["osc"].lerp_(osc, 1 - OSC_BETA); state["drift"].lerp_(drift, 1 - OSC_BETA)
+                    if self._step >= BM_START:
+                        w = OSC_WMAX * (1 - OSC_RHO_F * state["osc"] / state["drift"].clamp_min(1e-20)).clamp(0.0, 1.0)
+                        update = muon_update_bimaxwell(p.grad, state["m_fast"], state["m_slow"], w, mu=group["mu"])
+                    else:
+                        # before the switch: the baseline's Muon step; the two units follow the raw gradient
+                        state["m_fast"].lerp_(p.grad, 1 - BM_BF); state["m_slow"].lerp_(p.grad, 1 - BM_BS)
+                        update = muon_update(p.grad, state["momentum"], mu=group["mu"])
+                    p.mul_(1 - group["lr"] * group["weight_decay"])
+                    p.add_(update, alpha=-group["lr"])
+                dist.all_gather(params_pad[base_i:base_i + world_size], params_pad[base_i + rank])
+        self._step += 1
+
+
+########################################
+#                Setup                 #
+########################################
+
+# torchrun sets these env variables
+device = torch.device("cuda", int(os.environ["LOCAL_RANK"]))
+torch.cuda.set_device(device)
+dist.init_process_group(backend="nccl", device_id=device)
+dist.barrier()
+# this code can be run equivalently with 1, 2, 4, or 8 gpus.
+assert 8 % dist.get_world_size() == 0
+
+# logging setup
+if dist.get_rank() == 0:
+    os.makedirs("logs", exist_ok=True)
+    logfile = f"logs/{uuid.uuid4()}.txt"
+    print(logfile)
+def print0(s, console=False, log=True):
+    if dist.get_rank() == 0:
+        if console:
+            print(s)
+        if log:
+            with open(logfile, "a") as f:
+                print(s, file=f)
+
+# we begin by logging this file itself
+print0(code)
+print0("="*100)
+print0(f"Running PyTorch {torch.version.__version__} compiled for CUDA {torch.version.cuda}"
+       + f" on {torch.cuda.get_device_name(device)} with world_size {dist.get_world_size()}")
+print0(f"bi-Maxwell + oscillation gate: bf={BM_BF} bs={BM_BS} w_max={OSC_WMAX} osc_beta={OSC_BETA} start={BM_START} seed={SEED}")
+print0("="*100)
+
+val_tokens = 20 * 524288
+batch_size = 8 * 64 * 1024
+mbs = int(os.environ.get("MBS", "64"))   # micro-batch sequences; changes only the gradient-accumulation chunking
+print0(f"micro-batch sequences: {mbs}")
+val_inputs, val_targets = next(distributed_data_generator("data/fineweb10B/fineweb_val_*.bin", val_tokens))
+
+model = GPT(vocab_size=50304, num_layers=12, model_dim=768).cuda()
+model.compile(dynamic=False)
+
+
+num_trials = 1
+
+for _ in range(num_trials):
+
+
+    ########################################
+    #       Init & Optim Hyperparams       #
+    ########################################
+
+    # we want to minimize this while still reaching 3.28 val loss
+    train_steps = 3250
+
+    # deterministic paired trials: seed the global RNG right before param init
+    torch.manual_seed(1337 + SEED)
+
+    # initialize model parameters
+    for name, p in model.named_parameters():
+        w = p.data
+        if name.endswith("weight"):
+            if "proj" in name:
+                w.zero_()
+            elif "embed" in name:
+                w.normal_()  # default torch init
+            else:
+                w.normal_(std=0.33**0.5 / w.size(-1)**0.5)  # default torch init
+        elif name.endswith("bias"):
+            w.zero_()
+        elif name.endswith("gains"):
+            w.normal_(mean=1, std=0)
+        else:
+            raise Exception(f"Uninitialized parameter: {name}")
+
+    # create the optimizer(s)
+    optimizer1 = AdamW([dict(params=[model.embed.weight], lr=0.7),
+                        dict(params=[model.proj.weight], lr=0.004),
+                        dict(params=[p for p in model.parameters() if p.ndim < 2], lr=0.015)],
+                       betas=(0.8, 0.95), eps=1e-10, weight_decay=0.001, fused=True)
+    optimizer2 = Muon([p for p in model.blocks.parameters() if p.ndim >= 2],
+                      lr=0.025, weight_decay=0.05)
+    optimizers = [optimizer1, optimizer2]
+    assert set(p for opt in optimizers for group in opt.param_groups
+               for p in group["params"]) == set(model.parameters())
+    for opt in optimizers:
+        for group in opt.param_groups:
+            group["initial_lr"] = group["lr"]
+
+    # learning rate schedule: stable then decay
+    def set_hparams(step, cooldown_frac=0.7):
+        progress = step / train_steps
+        assert 0 <= progress < 1
+        if progress < 1 - cooldown_frac:
+            eta = 1.0
+        else:
+            eta = (1 - progress) / cooldown_frac
+        for opt in optimizers:
+            for group in opt.param_groups:
+                group["lr"] = group["initial_lr"] * eta
+
+
+    ########################################
+    #        Training and Validation       #
+    ########################################
+
+    train_loader = distributed_data_generator("data/fineweb10B/fineweb_train_*.bin", batch_size)
+    for p in model.parameters():
+        dist.broadcast(p.detach(), 0)
+    # start the clock
+    training_time = 0
+    last_val_step = 0
+    dist.barrier()
+    t0 = time.perf_counter()
+    for step in range(train_steps + 1):
+
+        # --------------- VALIDATION SECTION -----------------
+        # dense eval-only validation over the crossing zone (uniform across all seeds;
+        # the earliest formally-passing step is selected the same way for every trial)
+        dense = 2900 <= step <= 3250 and step % 10 == 0
+        val_step_freq = 125 if step / train_steps < 0.9 else 25
+        if step == train_steps or step % val_step_freq == 0 or dense:
+            # stop the clock
+            dist.barrier()
+            time_since_last_val = time.perf_counter() - t0
+            step_avg = time_since_last_val / (step - last_val_step) if step > 0 else float("nan")
+            last_val_step = step
+            training_time += time_since_last_val
+            model.eval()
+            val_loss = 0
+            with torch.no_grad():
+                assert len(val_inputs) % mbs == 0
+                for i in range(len(val_inputs) // mbs):
+                    val_loss += model(val_inputs[i*mbs:(i+1)*mbs], val_targets[i*mbs:(i+1)*mbs])
+            dist.all_reduce(val_loss, op=dist.ReduceOp.SUM)
+            val_loss /= val_tokens
+            print0(f"step:{step}/{train_steps} val_loss:{val_loss:.5f} train_time:{training_time:.3f}s"
+                   + f" step_avg:{1000*step_avg:.2f}ms", console=True)
+            model.train()
+            # start the clock again
+            dist.barrier()
+            t0 = time.perf_counter()
+
+        if step == train_steps:
+            break
+
+        # --------------- TRAINING SECTION -----------------
+        inputs, targets = next(train_loader)
+        # accumulate across microbatches in case we are running with fewer than 8 gpus
+        assert len(inputs) % mbs == 0
+        for i in range(len(inputs) // mbs):
+            model(inputs[i*mbs:(i+1)*mbs], targets[i*mbs:(i+1)*mbs]).backward()
+        for name, p in model.named_parameters():
+            assert p.grad is not None, name
+            dist.all_reduce(p.grad, op=dist.ReduceOp.SUM)
+        # set optimization hyperparameters and take a step
+        set_hparams(step)
+        for opt in optimizers:
+            opt.step()
+        model.zero_grad(set_to_none=True)
+        approx_training_time = training_time + (time.perf_counter() - t0)
+        print0(f"step:{step+1}/{train_steps} train_time:{approx_training_time:.3f}s"
+               + f" step_avg:{1000*approx_training_time/(step + 1):.2f}ms", console=True, log=False)
+
+dist.destroy_process_group()
+
+====================================================================================================
+Running PyTorch 2.14.0+cu130 compiled for CUDA 13.0 on NVIDIA GeForce RTX 5090 with world_size 1
+bi-Maxwell + oscillation gate: bf=0.85 bs=0.985 w_max=0.6 osc_beta=0.9 start=750 seed=2
+====================================================================================================
+micro-batch sequences: 64
+step:0/3250 val_loss:10.82583 train_time:0.000s step_avg:nanms
+step:125/3250 val_loss:4.58045 train_time:359.708s step_avg:2877.66ms
+step:250/3250 val_loss:4.09130 train_time:688.240s step_avg:2628.26ms
+step:375/3250 val_loss:3.92592 train_time:1016.495s step_avg:2626.04ms
+step:500/3250 val_loss:3.82785 train_time:1344.648s step_avg:2625.23ms
+step:625/3250 val_loss:3.76441 train_time:1672.590s step_avg:2623.54ms
+step:750/3250 val_loss:3.72028 train_time:2000.532s step_avg:2623.54ms
+step:875/3250 val_loss:3.68731 train_time:2331.839s step_avg:2650.45ms
+step:1000/3250 val_loss:3.64825 train_time:2659.955s step_avg:2624.93ms
+step:1125/3250 val_loss:3.61087 train_time:2987.872s step_avg:2623.34ms
+step:1250/3250 val_loss:3.57629 train_time:3315.968s step_avg:2624.77ms
+step:1375/3250 val_loss:3.54837 train_time:3643.848s step_avg:2623.04ms
+step:1500/3250 val_loss:3.51972 train_time:3971.663s step_avg:2622.52ms
+step:1625/3250 val_loss:3.49658 train_time:4299.734s step_avg:2624.57ms
+step:1750/3250 val_loss:3.47361 train_time:4627.796s step_avg:2624.50ms
+step:1875/3250 val_loss:3.45210 train_time:4955.857s step_avg:2624.49ms
+step:2000/3250 val_loss:3.43232 train_time:5283.965s step_avg:2624.87ms
+step:2125/3250 val_loss:3.41231 train_time:5612.122s step_avg:2625.26ms
+step:2250/3250 val_loss:3.39326 train_time:5940.021s step_avg:2623.19ms
+step:2375/3250 val_loss:3.37503 train_time:6268.216s step_avg:2625.56ms
+step:2500/3250 val_loss:3.35719 train_time:6596.293s step_avg:2624.61ms
+step:2625/3250 val_loss:3.33895 train_time:6924.191s step_avg:2623.19ms
+step:2750/3250 val_loss:3.32211 train_time:7252.090s step_avg:2623.19ms
+step:2875/3250 val_loss:3.30648 train_time:7580.137s step_avg:2624.38ms
+step:2900/3250 val_loss:3.30305 train_time:7645.692s step_avg:2622.19ms
+step:2910/3250 val_loss:3.30166 train_time:7671.933s step_avg:2624.12ms
+step:2920/3250 val_loss:3.30031 train_time:7698.170s step_avg:2623.70ms
+step:2925/3250 val_loss:3.29977 train_time:7711.286s step_avg:2623.10ms
+step:2930/3250 val_loss:3.29957 train_time:7724.407s step_avg:2624.20ms
+step:2940/3250 val_loss:3.29808 train_time:7750.642s step_avg:2623.52ms
+step:2950/3250 val_loss:3.29696 train_time:7776.868s step_avg:2622.57ms
+step:2960/3250 val_loss:3.29576 train_time:7803.100s step_avg:2623.23ms
+step:2970/3250 val_loss:3.29444 train_time:7829.306s step_avg:2620.60ms
+step:2975/3250 val_loss:3.29402 train_time:7842.412s step_avg:2621.21ms
+step:2980/3250 val_loss:3.29343 train_time:7855.521s step_avg:2621.81ms
+step:2990/3250 val_loss:3.29250 train_time:7881.760s step_avg:2623.86ms
+step:3000/3250 val_loss:3.29119 train_time:7908.001s step_avg:2624.10ms
+step:3010/3250 val_loss:3.29001 train_time:7934.231s step_avg:2623.00ms
+step:3020/3250 val_loss:3.28860 train_time:7960.467s step_avg:2623.65ms
+step:3025/3250 val_loss:3.28790 train_time:7973.590s step_avg:2624.59ms
+step:3030/3250 val_loss:3.28738 train_time:7986.714s step_avg:2624.86ms
+step:3040/3250 val_loss:3.28634 train_time:8012.949s step_avg:2623.50ms
+step:3050/3250 val_loss:3.28544 train_time:8039.211s step_avg:2626.14ms
+step:3060/3250 val_loss:3.28476 train_time:8065.446s step_avg:2623.52ms
+step:3070/3250 val_loss:3.28347 train_time:8091.682s step_avg:2623.55ms
+step:3075/3250 val_loss:3.28287 train_time:8104.798s step_avg:2623.22ms
+step:3080/3250 val_loss:3.28236 train_time:8117.916s step_avg:2623.60ms
+step:3090/3250 val_loss:3.28158 train_time:8144.171s step_avg:2625.54ms
+step:3100/3250 val_loss:3.28048 train_time:8170.414s step_avg:2624.24ms
+step:3110/3250 val_loss:3.27962 train_time:8196.658s step_avg:2624.41ms
+step:3120/3250 val_loss:3.27884 train_time:8222.903s step_avg:2624.57ms
+step:3125/3250 val_loss:3.27839 train_time:8236.027s step_avg:2624.81ms
+step:3130/3250 val_loss:3.27788 train_time:8249.149s step_avg:2624.22ms
+step:3140/3250 val_loss:3.27708 train_time:8275.392s step_avg:2624.39ms
+step:3150/3250 val_loss:3.27628 train_time:8301.636s step_avg:2624.35ms
+step:3160/3250 val_loss:3.27563 train_time:8327.873s step_avg:2623.73ms
+step:3170/3250 val_loss:3.27497 train_time:8354.106s step_avg:2623.27ms
+step:3175/3250 val_loss:3.27463 train_time:8367.232s step_avg:2625.19ms
+step:3180/3250 val_loss:3.27435 train_time:8380.355s step_avg:2624.69ms
+step:3190/3250 val_loss:3.27376 train_time:8406.593s step_avg:2623.74ms
+step:3200/3250 val_loss:3.27319 train_time:8432.848s step_avg:2625.50ms
+step:3210/3250 val_loss:3.27273 train_time:8459.088s step_avg:2624.02ms
+step:3220/3250 val_loss:3.27229 train_time:8485.333s step_avg:2624.50ms
+step:3225/3250 val_loss:3.27211 train_time:8498.454s step_avg:2624.25ms
+step:3230/3250 val_loss:3.27200 train_time:8511.568s step_avg:2622.86ms
+step:3240/3250 val_loss:3.27178 train_time:8537.857s step_avg:2628.81ms
+step:3250/3250 val_loss:3.27168 train_time:8564.100s step_avg:2624.36ms

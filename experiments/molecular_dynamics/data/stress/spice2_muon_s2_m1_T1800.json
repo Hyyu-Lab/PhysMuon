@@ -1,0 +1,160 @@
+{
+ "dataset": "spice2",
+ "opt": "muon",
+ "seed": 2,
+ "mol": 1,
+ "natoms": 24,
+ "frame": 832,
+ "formula": {
+  "O": 2,
+  "C": 8,
+  "N": 1,
+  "H": 13
+ },
+ "temps": [
+  1800.0,
+  1800.0,
+  1800.0,
+  1800.0,
+  1800.0,
+  1800.0,
+  1800.0
+ ],
+ "stress_T": 1800.0,
+ "replica_failures": [
+  {
+   "t_ps": 14.88,
+   "fragments": 2,
+   "dmin": 0.96,
+   "finite": true,
+   "fragment_formulas": [
+    "H",
+    "C8H12NO2"
+   ],
+   "broken_bonds": [
+    "C10-H22 2.08A"
+   ],
+   "confirmed_ps": 14.97,
+   "broken_bonds_confirmed": [
+    "C10-H22 10.60A"
+   ]
+  },
+  {
+   "t_ps": 7.09,
+   "fragments": 2,
+   "dmin": 1.018,
+   "finite": true,
+   "fragment_formulas": [
+    "CH3",
+    "C7H10NO2"
+   ],
+   "broken_bonds": [
+    "O1-C8 2.14A"
+   ],
+   "confirmed_ps": 7.18,
+   "broken_bonds_confirmed": [
+    "O1-C8 3.98A"
+   ]
+  },
+  {
+   "t_ps": 20.73,
+   "fragments": 2,
+   "dmin": 1.008,
+   "finite": true,
+   "fragment_formulas": [
+    "H",
+    "C8H12NO2"
+   ],
+   "broken_bonds": [
+    "C10-H23 2.37A"
+   ],
+   "confirmed_ps": 20.82,
+   "broken_bonds_confirmed": [
+    "C10-H23 14.86A"
+   ]
+  },
+  {
+   "t_ps": 19.08,
+   "fragments": 2,
+   "dmin": 0.934,
+   "finite": true,
+   "fragment_formulas": [
+    "H",
+    "C8H12NO2"
+   ],
+   "broken_bonds": [
+    "C10-H22 1.75A"
+   ],
+   "confirmed_ps": 19.17,
+   "broken_bonds_confirmed": [
+    "C10-H22 9.20A"
+   ]
+  },
+  {
+   "t_ps": 5.13,
+   "fragments": 2,
+   "dmin": 0.972,
+   "finite": true,
+   "fragment_formulas": [
+    "CH3",
+    "C7H10NO2"
+   ],
+   "broken_bonds": [
+    "O1-C8 2.24A"
+   ],
+   "confirmed_ps": 5.22,
+   "broken_bonds_confirmed": [
+    "O1-C8 4.54A"
+   ]
+  },
+  null,
+  {
+   "t_ps": 12.8,
+   "fragments": 2,
+   "dmin": 1.033,
+   "finite": true,
+   "fragment_formulas": [
+    "H",
+    "C8H12NO2"
+   ],
+   "broken_bonds": [
+    "C10-H23 2.18A"
+   ],
+   "confirmed_ps": 12.89,
+   "broken_bonds_confirmed": [
+    "C10-H23 10.56A"
+   ]
+  }
+ ],
+ "transient_splits": [
+  0,
+  0,
+  2,
+  0,
+  0,
+  4,
+  0
+ ],
+ "longest_transient_checks": [
+  0,
+  0,
+  1,
+  0,
+  0,
+  3,
+  0
+ ],
+ "persist_checks": 10,
+ "open_split_at_end_ps": [
+  null,
+  null,
+  null,
+  null,
+  null,
+  null,
+  null
+ ],
+ "ms_per_call": 9.55,
+ "ps_per_replica": 42.0,
+ "stopped_at_ps": 42.0
+}

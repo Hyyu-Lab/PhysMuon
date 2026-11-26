@@ -1,0 +1,47 @@
+data_set,model,optimizer,seed,force_mae_meV_per_A,energy_mae_meV_per_atom,force_rmse_meV_per_A,virial_mae_meV_per_atom
+MPtrj,DPA-3,Muon,0,128.63,41.73,302.71,60.39
+MPtrj,DPA-3,Muon,1,126.35,42.68,309.81,58.16
+MPtrj,DPA-3,Muon,2,121.20,42.17,306.66,58.85
+MPtrj,DPA-3,Muon,3,117.71,40.78,262.68,56.11
+MPtrj,DPA-3,PhysMuon,0,97.52,31.10,216.54,48.42
+MPtrj,DPA-3,PhysMuon,1,95.11,31.60,211.26,49.07
+MPtrj,DPA-3,PhysMuon,2,100.33,33.87,218.58,52.10
+MPtrj,DPA-3,PhysMuon,3,97.33,32.36,213.78,48.25
+SPICE2,DPA-3,Muon,0,70.19,20.08,121.48,
+SPICE2,DPA-3,Muon,1,68.91,16.13,121.12,
+SPICE2,DPA-3,Muon,2,71.42,17.95,122.18,
+SPICE2,DPA-3,Muon,3,68.54,18.66,116.63,
+SPICE2,DPA-3,Muon,4,65.24,20.05,114.55,
+SPICE2,DPA-3,Muon,5,73.16,18.12,129.42,
+SPICE2,DPA-3,PhysMuon,0,63.27,16.35,109.77,
+SPICE2,DPA-3,PhysMuon,1,60.84,14.91,106.18,
+SPICE2,DPA-3,PhysMuon,2,66.39,16.78,116.94,
+SPICE2,DPA-3,PhysMuon,3,63.68,17.09,111.21,
+SPICE2,DPA-3,PhysMuon,4,63.57,15.83,112.16,
+SPICE2,DPA-3,PhysMuon,5,64.58,16.33,114.95,
+"SPICE2, large batch",DPA-3,Muon,0,30.58,5.64,57.19,
+"SPICE2, large batch",DPA-3,Muon,1,30.31,5.56,57.40,
+"SPICE2, large batch",DPA-3,Muon,2,31.54,5.84,58.05,
+"SPICE2, large batch",DPA-3,Muon,3,30.67,5.70,56.59,
+"SPICE2, large batch",DPA-3,Muon,4,30.50,6.12,57.32,
+"SPICE2, large batch",DPA-3,Muon,5,31.97,6.24,59.13,
+"SPICE2, large batch",DPA-3,PhysMuon,0,27.50,5.32,52.23,
+"SPICE2, large batch",DPA-3,PhysMuon,1,28.08,4.54,53.68,
+"SPICE2, large batch",DPA-3,PhysMuon,2,28.55,5.25,52.62,
+"SPICE2, large batch",DPA-3,PhysMuon,3,27.68,4.62,51.96,
+"SPICE2, large batch",DPA-3,PhysMuon,4,28.02,4.81,52.53,
+"SPICE2, large batch",DPA-3,PhysMuon,5,28.98,4.67,53.97,
+ANI-1x,DPA-3,Muon,0,46.88,6.70,84.30,
+ANI-1x,DPA-3,Muon,1,46.19,6.91,85.09,
+ANI-1x,DPA-3,Muon,2,47.26,9.07,89.44,
+ANI-1x,DPA-3,Muon,3,47.37,7.38,82.97,
+ANI-1x,DPA-3,PhysMuon,0,42.16,5.30,78.28,
+ANI-1x,DPA-3,PhysMuon,1,41.38,5.03,74.59,
+ANI-1x,DPA-3,PhysMuon,2,43.05,7.24,77.32,
+ANI-1x,DPA-3,PhysMuon,3,42.01,5.70,76.09,
+MPtrj,DPA4-Mini,HybridMuon,0,47.38,18.77,131.09,34.07
+MPtrj,DPA4-Mini,HybridMuon,1,46.23,18.34,134.11,33.36
+MPtrj,DPA4-Mini,HybridMuon,2,46.56,18.51,163.45,33.79
+MPtrj,DPA4-Mini,PhysMuon,0,43.54,16.93,123.15,32.43
+MPtrj,DPA4-Mini,PhysMuon,1,43.48,16.93,119.98,32.12
+MPtrj,DPA4-Mini,PhysMuon,2,42.81,16.55,119.94,32.44

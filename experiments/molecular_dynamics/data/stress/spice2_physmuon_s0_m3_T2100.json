@@ -1,0 +1,160 @@
+{
+ "dataset": "spice2",
+ "opt": "physmuon",
+ "seed": 0,
+ "mol": 3,
+ "natoms": 36,
+ "frame": 127,
+ "formula": {
+  "C": 17,
+  "Si": 1,
+  "H": 18
+ },
+ "temps": [
+  2100.0,
+  2100.0,
+  2100.0,
+  2100.0,
+  2100.0,
+  2100.0,
+  2100.0
+ ],
+ "stress_T": 2100.0,
+ "replica_failures": [
+  {
+   "t_ps": 30.87,
+   "fragments": 2,
+   "dmin": 0.925,
+   "finite": true,
+   "fragment_formulas": [
+    "C9H7",
+    "C8H11Si"
+   ],
+   "broken_bonds": [
+    "C16-Si17 3.36A"
+   ],
+   "confirmed_ps": 30.96,
+   "broken_bonds_confirmed": [
+    "C16-Si17 3.65A"
+   ]
+  },
+  null,
+  {
+   "t_ps": 13.43,
+   "fragments": 2,
+   "dmin": 1.035,
+   "finite": true,
+   "fragment_formulas": [
+    "H",
+    "C17H17Si"
+   ],
+   "broken_bonds": [
+    "C16-H35 1.79A"
+   ],
+   "confirmed_ps": 13.52,
+   "broken_bonds_confirmed": [
+    "C13-Si17 3.10A",
+    "C16-H35 6.62A"
+   ]
+  },
+  {
+   "t_ps": 37.74,
+   "fragments": 2,
+   "dmin": 1.007,
+   "finite": true,
+   "fragment_formulas": [
+    "C9H7",
+    "C8H11Si"
+   ],
+   "broken_bonds": [
+    "C16-Si17 2.82A"
+   ],
+   "confirmed_ps": 37.83,
+   "broken_bonds_confirmed": [
+    "C16-Si17 3.58A"
+   ]
+  },
+  {
+   "t_ps": 2.05,
+   "fragments": 2,
+   "dmin": 0.967,
+   "finite": true,
+   "fragment_formulas": [
+    "C9H7",
+    "C8H11Si"
+   ],
+   "broken_bonds": [
+    "C16-Si17 3.32A"
+   ],
+   "confirmed_ps": 2.14,
+   "broken_bonds_confirmed": [
+    "C16-Si17 3.84A"
+   ]
+  },
+  {
+   "t_ps": 14.88,
+   "fragments": 2,
+   "dmin": 1.008,
+   "finite": true,
+   "fragment_formulas": [
+    "H",
+    "C17H17Si"
+   ],
+   "broken_bonds": [
+    "C16-H35 1.99A"
+   ],
+   "confirmed_ps": 14.97,
+   "broken_bonds_confirmed": [
+    "C16-H35 8.86A"
+   ]
+  },
+  {
+   "t_ps": 16.13,
+   "fragments": 2,
+   "dmin": 0.959,
+   "finite": true,
+   "fragment_formulas": [
+    "C9H7",
+    "C8H11Si"
+   ],
+   "broken_bonds": [
+    "C16-Si17 3.09A"
+   ],
+   "confirmed_ps": 16.22,
+   "broken_bonds_confirmed": [
+    "C16-Si17 3.88A"
+   ]
+  }
+ ],
+ "transient_splits": [
+  0,
+  2,
+  0,
+  0,
+  1,
+  1,
+  1
+ ],
+ "longest_transient_checks": [
+  0,
+  1,
+  0,
+  0,
+  1,
+  1,
+  1
+ ],
+ "persist_checks": 10,
+ "open_split_at_end_ps": [
+  null,
+  null,
+  null,
+  null,
+  null,
+  null,
+  null
+ ],
+ "ms_per_call": 59.06,
+ "ps_per_replica": 42.0,
+ "stopped_at_ps": 42.0
+}

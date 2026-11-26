@@ -1,0 +1,500 @@
+[muon_bm_dp] installed arm=muon iso=0
+[2026-10-12 10:25:06,176] DEEPMD INFO    DeePMD version: 3.2.0
+[2026-10-12 10:25:06,176] DEEPMD INFO    Configuration path: input.json
+[2026-10-12 10:25:06,177] DEEPMD INFO     _____               _____   __  __  _____           _     _  _   
+[2026-10-12 10:25:06,177] DEEPMD INFO    |  __ \             |  __ \ |  \/  ||  __ \         | |   (_)| |  
+[2026-10-12 10:25:06,177] DEEPMD INFO    | |  | |  ___   ___ | |__) || \  / || |  | | ______ | | __ _ | |_ 
+[2026-10-12 10:25:06,177] DEEPMD INFO    | |  | | / _ \ / _ \|  ___/ | |\/| || |  | ||______|| |/ /| || __|
+[2026-10-12 10:25:06,177] DEEPMD INFO    | |__| ||  __/|  __/| |     | |  | || |__| |        |   < | || |_ 
+[2026-10-12 10:25:06,177] DEEPMD INFO    |_____/  \___| \___||_|     |_|  |_||_____/         |_|\_\|_| \__|
+[2026-10-12 10:25:06,177] DEEPMD INFO    Please read and cite:
+[2026-10-12 10:25:06,177] DEEPMD INFO    Wang, Zhang, Han and E, Comput.Phys.Comm. 228, 178-184 (2018)
+[2026-10-12 10:25:06,177] DEEPMD INFO    Zeng et al, J. Chem. Phys., 159, 054801 (2023)
+[2026-10-12 10:25:06,177] DEEPMD INFO    Zeng et al, J. Chem. Theory Comput., 21, 4375-4385 (2025)
+[2026-10-12 10:25:06,177] DEEPMD INFO    See https://deepmd.rtfd.io/credits/ for details.
+[2026-10-12 10:25:06,177] DEEPMD INFO    ------------------------------------------------------------------------------
+[2026-10-12 10:25:06,177] DEEPMD INFO    Installed to:         (path removed)
+[2026-10-12 10:25:06,177] DEEPMD INFO    Source:               v3.2.0
+[2026-10-12 10:25:06,177] DEEPMD INFO    Source Branch:        HEAD
+[2026-10-12 10:25:06,177] DEEPMD INFO    Source Commit:        8cfd46e3
+[2026-10-12 10:25:06,177] DEEPMD INFO    Source Commit at:     2026-08-19 09:50:00 +0000
+[2026-10-12 10:25:06,177] DEEPMD INFO    Float Precision:      Double
+[2026-10-12 10:25:06,177] DEEPMD INFO    Build Variant:        CUDA
+[2026-10-12 10:25:06,177] DEEPMD INFO    Backend:              PyTorch
+[2026-10-12 10:25:06,177] DEEPMD INFO    PT Ver:               v2.14.0+cu130-g08187d9e0fb
+[2026-10-12 10:25:06,177] DEEPMD INFO    Custom OP Enabled:    False
+[2026-10-12 10:25:06,177] DEEPMD INFO    Running on:           (host name removed)
+[2026-10-12 10:25:06,177] DEEPMD INFO    Computing Device:     CUDA:0
+[2026-10-12 10:25:06,177] DEEPMD INFO    Device Name:          NVIDIA GeForce RTX 4090
+[2026-10-12 10:25:06,177] DEEPMD INFO    CUDA_VISIBLE_DEVICES: 0
+[2026-10-12 10:25:06,177] DEEPMD INFO    Visible GPU Count:    1
+[2026-10-12 10:25:06,177] DEEPMD INFO    Num Intra Threads:    8
+[2026-10-12 10:25:06,177] DEEPMD INFO    Num Inter Threads:    2
+[2026-10-12 10:25:06,177] DEEPMD INFO    ------------------------------------------------------------------------------
+[2026-10-12 10:25:08,179] DEEPMD INFO    Constructing DataLoaders from 108 systems
+[2026-10-12 10:25:13,646] DEEPMD INFO    Constructing DataLoaders from 98 systems
+[2026-10-12 10:25:15,671] DEEPMD INFO    Packing data for statistics from 108 systems
+[2026-10-12 10:25:45,205] DEEPMD INFO    RMSE of energy per atom after linear regression is: 0.259394298010326 in the unit of energy.
+[2026-10-12 10:25:52,458] DEEPMD INFO    ---Summary of DataSystem: Training     -----------------------------------------------
+[2026-10-12 10:25:52,458] DEEPMD INFO    Found 108 System(s):
+[2026-10-12 10:25:52,459] DEEPMD INFO                                        system  natoms  bch_sz  n_bch   prob       pbc
+[2026-10-12 10:25:52,459] DEEPMD INFO    -- spice2/data_mixed/train/69      69       4     287  1.300e-03    F
+[2026-10-12 10:25:52,459] DEEPMD INFO    -- spice2/data_mixed/train/34      34       8    4366  1.971e-02    F
+[2026-10-12 10:25:52,459] DEEPMD INFO    -- spice2/data_mixed/train/37      37       7    5530  2.497e-02    F
+[2026-10-12 10:25:52,459] DEEPMD INFO    -- spice2/data_mixed/train/85      85       4      62  2.844e-04    F
+[2026-10-12 10:25:52,459] DEEPMD INFO    -- spice2/data_mixed/train/80      80       4      62  2.844e-04    F
+[2026-10-12 10:25:52,459] DEEPMD INFO    -- spice2/data_mixed/train/88      88       3     123  5.598e-04    F
+[2026-10-12 10:25:52,459] DEEPMD INFO    -- spice2/data_mixed/train/107     107       3     143  6.501e-04    F
+[2026-10-12 10:25:52,459] DEEPMD INFO    -- spice2/data_mixed/train/83      83       4      69  3.160e-04    F
+[2026-10-12 10:25:52,459] DEEPMD INFO    -- spice2/data_mixed/train/103     103       3     106  4.830e-04    F
+[2026-10-12 10:25:52,459] DEEPMD INFO    -- spice2/data_mixed/train/53      53       5    1334  6.027e-03    F
+[2026-10-12 10:25:52,459] DEEPMD INFO    -- spice2/data_mixed/train/7       7      37     327  1.481e-03    F
+[2026-10-12 10:25:52,459] DEEPMD INFO    -- spice2/data_mixed/train/56      56       5    1304  5.891e-03    F
+[2026-10-12 10:25:52,459] DEEPMD INFO    -- spice2/data_mixed/train/51      51       6     880  3.977e-03    F
+[2026-10-12 10:25:52,459] DEEPMD INFO    -- spice2/data_mixed/train/21      21      13    2003  9.047e-03    F
+[2026-10-12 10:25:52,459] DEEPMD INFO    -- spice2/data_mixed/train/59      59       5    1249  5.638e-03    F
+[2026-10-12 10:25:52,459] DEEPMD INFO    -- spice2/data_mixed/train/24      24      11    3158  1.426e-02    F
+[2026-10-12 10:25:52,459] DEEPMD INFO    -- spice2/data_mixed/train/27      27      10    2691  1.215e-02    F
+[2026-10-12 10:25:52,459] DEEPMD INFO    -- spice2/data_mixed/train/75      75       4      42  1.941e-04    F
+[2026-10-12 10:25:52,459] DEEPMD INFO    -- spice2/data_mixed/train/70      70       4     154  6.997e-04    F
+[2026-10-12 10:25:52,459] DEEPMD INFO    -- spice2/data_mixed/train/78      78       4      72  3.296e-04    F
+[2026-10-12 10:25:52,459] DEEPMD INFO    -- spice2/data_mixed/train/73      73       4      50  2.302e-04    F
+[2026-10-12 10:25:52,459] DEEPMD INFO    -- spice2/data_mixed/train/43      43       6    8466  3.822e-02    F
+[2026-10-12 10:25:52,459] DEEPMD INFO    -- spice2/data_mixed/train/6       6      43     348  1.576e-03    F
+[2026-10-12 10:25:52,459] DEEPMD INFO    -- spice2/data_mixed/train/3       3      86      13  6.320e-05    F
+[2026-10-12 10:25:52,459] DEEPMD INFO    -- spice2/data_mixed/train/108     108       3     152  6.907e-04    F
+[2026-10-12 10:25:52,459] DEEPMD INFO    -- spice2/data_mixed/train/46      46       6    9847  4.446e-02    F
+[2026-10-12 10:25:52,459] DEEPMD INFO    -- spice2/data_mixed/train/41      41       7    6258  2.826e-02    F
+[2026-10-12 10:25:52,459] DEEPMD INFO    -- spice2/data_mixed/train/11      11      24     590  2.668e-03    F
+[2026-10-12 10:25:52,459] DEEPMD INFO    -- spice2/data_mixed/train/49      49       6   13802  6.231e-02    F
+[2026-10-12 10:25:52,459] DEEPMD INFO    -- spice2/data_mixed/train/19      19      14    1967  8.884e-03    F
+[2026-10-12 10:25:52,459] DEEPMD INFO    -- spice2/data_mixed/train/97      97       3     106  4.830e-04    F
+[2026-10-12 10:25:52,459] DEEPMD INFO    -- spice2/data_mixed/train/14      14      19    1295  5.851e-03    F
+[2026-10-12 10:25:52,459] DEEPMD INFO    -- spice2/data_mixed/train/92      92       3      90  4.063e-04    F
+[2026-10-12 10:25:52,459] DEEPMD INFO    -- spice2/data_mixed/train/110     110       3     183  8.307e-04    F
+[2026-10-12 10:25:52,459] DEEPMD INFO    -- spice2/data_mixed/train/17      17      16    1485  6.708e-03    F
+[2026-10-12 10:25:52,459] DEEPMD INFO    -- spice2/data_mixed/train/65      65       4    1083  4.894e-03    F
+[2026-10-12 10:25:52,459] DEEPMD INFO    -- spice2/data_mixed/train/60      60       5    1190  5.377e-03    F
+[2026-10-12 10:25:52,459] DEEPMD INFO    -- spice2/data_mixed/train/68      68       4     530  2.397e-03    F
+[2026-10-12 10:25:52,459] DEEPMD INFO    -- spice2/data_mixed/train/63      63       5    1031  4.659e-03    F
+[2026-10-12 10:25:52,459] DEEPMD INFO    -- spice2/data_mixed/train/33      33       8    4329  1.955e-02    F
+[2026-10-12 10:25:52,459] DEEPMD INFO    -- spice2/data_mixed/train/5       5      52      51  2.347e-04    F
+[2026-10-12 10:25:52,459] DEEPMD INFO    -- spice2/data_mixed/train/36      36       8    4899  2.212e-02    F
+[2026-10-12 10:25:52,459] DEEPMD INFO    -- spice2/data_mixed/train/31      31       9    3506  1.583e-02    F
+[2026-10-12 10:25:52,459] DEEPMD INFO    -- spice2/data_mixed/train/109     109       3     173  7.855e-04    F
+[2026-10-12 10:25:52,459] DEEPMD INFO    -- spice2/data_mixed/train/39      39       7    6382  2.882e-02    F
+[2026-10-12 10:25:52,459] DEEPMD INFO    -- spice2/data_mixed/train/87      87       3      86  3.928e-04    F
+[2026-10-12 10:25:52,459] DEEPMD INFO    -- spice2/data_mixed/train/82      82       4      60  2.709e-04    F
+[2026-10-12 10:25:52,459] DEEPMD INFO    -- spice2/data_mixed/train/55      55       5    1391  6.284e-03    F
+[2026-10-12 10:25:52,459] DEEPMD INFO    -- spice2/data_mixed/train/50      50       6   15348  6.929e-02    F
+[2026-10-12 10:25:52,459] DEEPMD INFO    -- spice2/data_mixed/train/58      58       5    1358  6.135e-03    F
+[2026-10-12 10:25:52,459] DEEPMD INFO    -- spice2/data_mixed/train/23      23      12    1869  8.437e-03    F
+[2026-10-12 10:25:52,459] DEEPMD INFO    -- spice2/data_mixed/train/4       4      64      53  2.438e-04    F
+[2026-10-12 10:25:52,459] DEEPMD INFO    -- spice2/data_mixed/train/26      26      10    3176  1.434e-02    F
+[2026-10-12 10:25:52,459] DEEPMD INFO    -- spice2/data_mixed/train/74      74       4      30  1.354e-04    F
+[2026-10-12 10:25:52,459] DEEPMD INFO    -- spice2/data_mixed/train/29      29       9    3301  1.491e-02    F
+[2026-10-12 10:25:52,459] DEEPMD INFO    -- spice2/data_mixed/train/77      77       4      22  1.038e-04    F
+[2026-10-12 10:25:52,459] DEEPMD INFO    -- spice2/data_mixed/train/72      72       4     153  6.907e-04    F
+[2026-10-12 10:25:52,459] DEEPMD INFO    -- spice2/data_mixed/train/45      45       6    9356  4.224e-02    F
+[2026-10-12 10:25:52,459] DEEPMD INFO    -- spice2/data_mixed/train/40      40       7    6379  2.880e-02    F
+[2026-10-12 10:25:52,459] DEEPMD INFO    -- spice2/data_mixed/train/48      48       6   11317  5.109e-02    F
+[2026-10-12 10:25:52,459] DEEPMD INFO    -- spice2/data_mixed/train/96      96       3     146  6.636e-04    F
+[2026-10-12 10:25:52,459] DEEPMD INFO    -- spice2/data_mixed/train/13      13      20     986  4.456e-03    F
+[2026-10-12 10:25:52,459] DEEPMD INFO    -- spice2/data_mixed/train/91      91       3     122  5.553e-04    F
+[2026-10-12 10:25:52,459] DEEPMD INFO    -- spice2/data_mixed/train/104     104       3     143  6.501e-04    F
+[2026-10-12 10:25:52,459] DEEPMD INFO    -- spice2/data_mixed/train/99      99       3     118  5.372e-04    F
+[2026-10-12 10:25:52,459] DEEPMD INFO    -- spice2/data_mixed/train/100     100       3     109  4.966e-04    F
+[2026-10-12 10:25:52,459] DEEPMD INFO    -- spice2/data_mixed/train/16      16      16    1848  8.347e-03    F
+[2026-10-12 10:25:52,459] DEEPMD INFO    -- spice2/data_mixed/train/94      94       3      80  3.612e-04    F
+[2026-10-12 10:25:52,459] DEEPMD INFO    -- spice2/data_mixed/train/64      64       4    1220  5.512e-03    F
+[2026-10-12 10:25:52,459] DEEPMD INFO    -- spice2/data_mixed/train/67      67       4     944  4.266e-03    F
+[2026-10-12 10:25:52,459] DEEPMD INFO    -- spice2/data_mixed/train/62      62       5    1229  5.553e-03    F
+[2026-10-12 10:25:52,459] DEEPMD INFO    -- spice2/data_mixed/train/32      32       8    3749  1.693e-02    F
+[2026-10-12 10:25:52,459] DEEPMD INFO    -- spice2/data_mixed/train/35      35       8    4432  2.001e-02    F
+[2026-10-12 10:25:52,459] DEEPMD INFO    -- spice2/data_mixed/train/30      30       9    3789  1.711e-02    F
+[2026-10-12 10:25:52,459] DEEPMD INFO    -- spice2/data_mixed/train/38      38       7    5867  2.649e-02    F
+[2026-10-12 10:25:52,459] DEEPMD INFO    -- spice2/data_mixed/train/86      86       3     120  5.417e-04    F
+[2026-10-12 10:25:52,459] DEEPMD INFO    -- spice2/data_mixed/train/81      81       4      55  2.483e-04    F
+[2026-10-12 10:25:52,460] DEEPMD INFO    -- spice2/data_mixed/train/89      89       3     116  5.282e-04    F
+[2026-10-12 10:25:52,460] DEEPMD INFO    -- spice2/data_mixed/train/84      84       4      67  3.070e-04    F
+[2026-10-12 10:25:52,460] DEEPMD INFO    -- spice2/data_mixed/train/54      54       5    1230  5.557e-03    F
+[2026-10-12 10:25:52,460] DEEPMD INFO    -- spice2/data_mixed/train/105     105       3     153  6.952e-04    F
+[2026-10-12 10:25:52,460] DEEPMD INFO    -- spice2/data_mixed/train/101     101       3     120  5.417e-04    F
+[2026-10-12 10:25:52,460] DEEPMD INFO    -- spice2/data_mixed/train/57      57       5    1390  6.275e-03    F
+[2026-10-12 10:25:52,460] DEEPMD INFO    -- spice2/data_mixed/train/52      52       5    1262  5.702e-03    F
+[2026-10-12 10:25:52,460] DEEPMD INFO    -- spice2/data_mixed/train/22      22      12    2494  1.126e-02    F
+[2026-10-12 10:25:52,460] DEEPMD INFO    -- spice2/data_mixed/train/25      25      11    2288  1.033e-02    F
+[2026-10-12 10:25:52,460] DEEPMD INFO    -- spice2/data_mixed/train/20      20      13    2268  1.024e-02    F
+[2026-10-12 10:25:52,460] DEEPMD INFO    -- spice2/data_mixed/train/9       9      29     320  1.449e-03    F
+[2026-10-12 10:25:52,460] DEEPMD INFO    -- spice2/data_mixed/train/28      28      10    3086  1.394e-02    F
+[2026-10-12 10:25:52,460] DEEPMD INFO    -- spice2/data_mixed/train/76      76       4      55  2.483e-04    F
+[2026-10-12 10:25:52,460] DEEPMD INFO    -- spice2/data_mixed/train/71      71       4     145  6.546e-04    F
+[2026-10-12 10:25:52,460] DEEPMD INFO    -- spice2/data_mixed/train/79      79       4      57  2.618e-04    F
+[2026-10-12 10:25:52,460] DEEPMD INFO    -- spice2/data_mixed/train/44      44       6    8762  3.956e-02    F
+[2026-10-12 10:25:52,460] DEEPMD INFO    -- spice2/data_mixed/train/47      47       6   10800  4.876e-02    F
+[2026-10-12 10:25:52,460] DEEPMD INFO    -- spice2/data_mixed/train/95      95       3     106  4.830e-04    F
+[2026-10-12 10:25:52,460] DEEPMD INFO    -- spice2/data_mixed/train/42      42       7    6974  3.149e-02    F
+[2026-10-12 10:25:52,460] DEEPMD INFO    -- spice2/data_mixed/train/106     106       3     133  6.049e-04    F
+[2026-10-12 10:25:52,460] DEEPMD INFO    -- spice2/data_mixed/train/12      12      22     959  4.334e-03    F
+[2026-10-12 10:25:52,460] DEEPMD INFO    -- spice2/data_mixed/train/90      90       3     393  1.779e-03    F
+[2026-10-12 10:25:52,460] DEEPMD INFO    -- spice2/data_mixed/train/102     102       3      99  4.514e-04    F
+[2026-10-12 10:25:52,460] DEEPMD INFO    -- spice2/data_mixed/train/98      98       3      93  4.244e-04    F
+[2026-10-12 10:25:52,460] DEEPMD INFO    -- spice2/data_mixed/train/15      15      18    1448  6.537e-03    F
+[2026-10-12 10:25:52,460] DEEPMD INFO    -- spice2/data_mixed/train/93      93       3     136  6.185e-04    F
+[2026-10-12 10:25:52,460] DEEPMD INFO    -- spice2/data_mixed/train/10      10      26     545  2.465e-03    F
+[2026-10-12 10:25:52,460] DEEPMD INFO    -- spice2/data_mixed/train/8       8      32     762  3.444e-03    F
+[2026-10-12 10:25:52,460] DEEPMD INFO    -- spice2/data_mixed/train/18      18      15    2272  1.026e-02    F
+[2026-10-12 10:25:52,460] DEEPMD INFO    -- spice2/data_mixed/train/66      66       4    1000  4.519e-03    F
+[2026-10-12 10:25:52,460] DEEPMD INFO    -- spice2/data_mixed/train/61      61       5    1243  5.616e-03    F
+[2026-10-12 10:25:52,460] DEEPMD INFO    --------------------------------------------------------------------------------------
+[2026-10-12 10:25:54,692] DEEPMD INFO    ---Summary of DataSystem: Validation   -----------------------------------------------
+[2026-10-12 10:25:54,692] DEEPMD INFO    Found 98 System(s):
+[2026-10-12 10:25:54,692] DEEPMD INFO                                        system  natoms  bch_sz  n_bch   prob       pbc
+[2026-10-12 10:25:54,692] DEEPMD INFO    -- spice2/data_mixed/valid/69      69       4      13  1.232e-03    F
+[2026-10-12 10:25:54,692] DEEPMD INFO    -- spice2/data_mixed/valid/34      34       8     238  2.104e-02    F
+[2026-10-12 10:25:54,692] DEEPMD INFO    -- spice2/data_mixed/valid/37      37       7     263  2.324e-02    F
+[2026-10-12 10:25:54,692] DEEPMD INFO    -- spice2/data_mixed/valid/107     107       3      13  1.232e-03    F
+[2026-10-12 10:25:54,692] DEEPMD INFO    -- spice2/data_mixed/valid/83      83       4       5  4.401e-04    F
+[2026-10-12 10:25:54,692] DEEPMD INFO    -- spice2/data_mixed/valid/103     103       3       3  3.521e-04    F
+[2026-10-12 10:25:54,692] DEEPMD INFO    -- spice2/data_mixed/valid/53      53       5      55  4.929e-03    F
+[2026-10-12 10:25:54,692] DEEPMD INFO    -- spice2/data_mixed/valid/7       7      37       4  4.401e-04    F
+[2026-10-12 10:25:54,692] DEEPMD INFO    -- spice2/data_mixed/valid/56      56       5      64  5.721e-03    F
+[2026-10-12 10:25:54,692] DEEPMD INFO    -- spice2/data_mixed/valid/51      51       6      52  4.665e-03    F
+[2026-10-12 10:25:54,692] DEEPMD INFO    -- spice2/data_mixed/valid/21      21      13     125  1.109e-02    F
+[2026-10-12 10:25:54,692] DEEPMD INFO    -- spice2/data_mixed/valid/59      59       5      63  5.633e-03    F
+[2026-10-12 10:25:54,692] DEEPMD INFO    -- spice2/data_mixed/valid/24      24      11     136  1.206e-02    F
+[2026-10-12 10:25:54,692] DEEPMD INFO    -- spice2/data_mixed/valid/27      27      10     163  1.443e-02    F
+[2026-10-12 10:25:54,692] DEEPMD INFO    -- spice2/data_mixed/valid/75      75       4       2  2.640e-04    F
+[2026-10-12 10:25:54,692] DEEPMD INFO    -- spice2/data_mixed/valid/70      70       4      17  1.496e-03    F
+[2026-10-12 10:25:54,692] DEEPMD INFO    -- spice2/data_mixed/valid/78      78       4       2  2.640e-04    F
+[2026-10-12 10:25:54,692] DEEPMD INFO    -- spice2/data_mixed/valid/73      73       4       2  2.640e-04    F
+[2026-10-12 10:25:54,692] DEEPMD INFO    -- spice2/data_mixed/valid/43      43       6     524  4.621e-02    F
+[2026-10-12 10:25:54,692] DEEPMD INFO    -- spice2/data_mixed/valid/6       6      43       4  4.401e-04    F
+[2026-10-12 10:25:54,692] DEEPMD INFO    -- spice2/data_mixed/valid/3       3      86       1  8.801e-05    F
+[2026-10-12 10:25:54,692] DEEPMD INFO    -- spice2/data_mixed/valid/108     108       3      10  8.801e-04    F
+[2026-10-12 10:25:54,692] DEEPMD INFO    -- spice2/data_mixed/valid/46      46       6     579  5.105e-02    F
+[2026-10-12 10:25:54,692] DEEPMD INFO    -- spice2/data_mixed/valid/41      41       7     381  3.362e-02    F
+[2026-10-12 10:25:54,692] DEEPMD INFO    -- spice2/data_mixed/valid/11      11      24      21  1.936e-03    F
+[2026-10-12 10:25:54,692] DEEPMD INFO    -- spice2/data_mixed/valid/49      49       6     625  5.510e-02    F
+[2026-10-12 10:25:54,692] DEEPMD INFO    -- spice2/data_mixed/valid/19      19      14      54  4.841e-03    F
+[2026-10-12 10:25:54,692] DEEPMD INFO    -- spice2/data_mixed/valid/97      97       3       6  6.161e-04    F
+[2026-10-12 10:25:54,692] DEEPMD INFO    -- spice2/data_mixed/valid/14      14      19      25  2.288e-03    F
+[2026-10-12 10:25:54,692] DEEPMD INFO    -- spice2/data_mixed/valid/92      92       3       6  6.161e-04    F
+[2026-10-12 10:25:54,692] DEEPMD INFO    -- spice2/data_mixed/valid/110     110       3       5  5.281e-04    F
+[2026-10-12 10:25:54,692] DEEPMD INFO    -- spice2/data_mixed/valid/17      17      16      84  7.481e-03    F
+[2026-10-12 10:25:54,692] DEEPMD INFO    -- spice2/data_mixed/valid/65      65       4      50  4.401e-03    F
+[2026-10-12 10:25:54,692] DEEPMD INFO    -- spice2/data_mixed/valid/60      60       5      64  5.721e-03    F
+[2026-10-12 10:25:54,692] DEEPMD INFO    -- spice2/data_mixed/valid/68      68       4      24  2.112e-03    F
+[2026-10-12 10:25:54,692] DEEPMD INFO    -- spice2/data_mixed/valid/63      63       5      54  4.841e-03    F
+[2026-10-12 10:25:54,692] DEEPMD INFO    -- spice2/data_mixed/valid/33      33       8     298  2.632e-02    F
+[2026-10-12 10:25:54,692] DEEPMD INFO    -- spice2/data_mixed/valid/5       5      52       4  4.401e-04    F
+[2026-10-12 10:25:54,692] DEEPMD INFO    -- spice2/data_mixed/valid/36      36       8     272  2.403e-02    F
+[2026-10-12 10:25:54,692] DEEPMD INFO    -- spice2/data_mixed/valid/31      31       9     163  1.443e-02    F
+[2026-10-12 10:25:54,692] DEEPMD INFO    -- spice2/data_mixed/valid/109     109       3      10  8.801e-04    F
+[2026-10-12 10:25:54,692] DEEPMD INFO    -- spice2/data_mixed/valid/39      39       7     261  2.306e-02    F
+[2026-10-12 10:25:54,692] DEEPMD INFO    -- spice2/data_mixed/valid/87      87       3       3  3.521e-04    F
+[2026-10-12 10:25:54,692] DEEPMD INFO    -- spice2/data_mixed/valid/82      82       4       2  2.640e-04    F
+[2026-10-12 10:25:54,692] DEEPMD INFO    -- spice2/data_mixed/valid/55      55       5      64  5.721e-03    F
+[2026-10-12 10:25:54,692] DEEPMD INFO    -- spice2/data_mixed/valid/50      50       6     544  4.797e-02    F
+[2026-10-12 10:25:54,692] DEEPMD INFO    -- spice2/data_mixed/valid/58      58       5      86  7.569e-03    F
+[2026-10-12 10:25:54,692] DEEPMD INFO    -- spice2/data_mixed/valid/23      23      12     103  9.153e-03    F
+[2026-10-12 10:25:54,692] DEEPMD INFO    -- spice2/data_mixed/valid/4       4      64       2  2.640e-04    F
+[2026-10-12 10:25:54,692] DEEPMD INFO    -- spice2/data_mixed/valid/26      26      10      98  8.713e-03    F
+[2026-10-12 10:25:54,692] DEEPMD INFO    -- spice2/data_mixed/valid/74      74       4       5  4.401e-04    F
+[2026-10-12 10:25:54,692] DEEPMD INFO    -- spice2/data_mixed/valid/29      29       9     139  1.232e-02    F
+[2026-10-12 10:25:54,692] DEEPMD INFO    -- spice2/data_mixed/valid/72      72       4       5  5.281e-04    F
+[2026-10-12 10:25:54,692] DEEPMD INFO    -- spice2/data_mixed/valid/45      45       6     476  4.198e-02    F
+[2026-10-12 10:25:54,692] DEEPMD INFO    -- spice2/data_mixed/valid/40      40       7     346  3.054e-02    F
+[2026-10-12 10:25:54,692] DEEPMD INFO    -- spice2/data_mixed/valid/48      48       6     627  5.518e-02    F
+[2026-10-12 10:25:54,692] DEEPMD INFO    -- spice2/data_mixed/valid/96      96       3       3  3.521e-04    F
+[2026-10-12 10:25:54,692] DEEPMD INFO    -- spice2/data_mixed/valid/13      13      20      23  2.112e-03    F
+[2026-10-12 10:25:54,692] DEEPMD INFO    -- spice2/data_mixed/valid/91      91       3      10  8.801e-04    F
+[2026-10-12 10:25:54,692] DEEPMD INFO    -- spice2/data_mixed/valid/104     104       3       6  6.161e-04    F
+[2026-10-12 10:25:54,692] DEEPMD INFO    -- spice2/data_mixed/valid/16      16      16      74  6.601e-03    F
+[2026-10-12 10:25:54,692] DEEPMD INFO    -- spice2/data_mixed/valid/94      94       3      10  8.801e-04    F
+[2026-10-12 10:25:54,692] DEEPMD INFO    -- spice2/data_mixed/valid/64      64       4      64  5.721e-03    F
+[2026-10-12 10:25:54,692] DEEPMD INFO    -- spice2/data_mixed/valid/67      67       4      41  3.697e-03    F
+[2026-10-12 10:25:54,693] DEEPMD INFO    -- spice2/data_mixed/valid/62      62       5      71  6.337e-03    F
+[2026-10-12 10:25:54,693] DEEPMD INFO    -- spice2/data_mixed/valid/32      32       8     212  1.875e-02    F
+[2026-10-12 10:25:54,693] DEEPMD INFO    -- spice2/data_mixed/valid/35      35       8     226  1.998e-02    F
+[2026-10-12 10:25:54,693] DEEPMD INFO    -- spice2/data_mixed/valid/30      30       9     231  2.042e-02    F
+[2026-10-12 10:25:54,693] DEEPMD INFO    -- spice2/data_mixed/valid/38      38       7     297  2.623e-02    F
+[2026-10-12 10:25:54,693] DEEPMD INFO    -- spice2/data_mixed/valid/86      86       3      10  8.801e-04    F
+[2026-10-12 10:25:54,693] DEEPMD INFO    -- spice2/data_mixed/valid/81      81       4       5  4.401e-04    F
+[2026-10-12 10:25:54,693] DEEPMD INFO    -- spice2/data_mixed/valid/89      89       3      20  1.760e-03    F
+[2026-10-12 10:25:54,693] DEEPMD INFO    -- spice2/data_mixed/valid/84      84       4       7  7.041e-04    F
+[2026-10-12 10:25:54,693] DEEPMD INFO    -- spice2/data_mixed/valid/54      54       5      61  5.457e-03    F
+[2026-10-12 10:25:54,693] DEEPMD INFO    -- spice2/data_mixed/valid/105     105       3      13  1.232e-03    F
+[2026-10-12 10:25:54,693] DEEPMD INFO    -- spice2/data_mixed/valid/101     101       3      16  1.496e-03    F
+[2026-10-12 10:25:54,693] DEEPMD INFO    -- spice2/data_mixed/valid/57      57       5      61  5.369e-03    F
+[2026-10-12 10:25:54,693] DEEPMD INFO    -- spice2/data_mixed/valid/52      52       5      86  7.657e-03    F
+[2026-10-12 10:25:54,693] DEEPMD INFO    -- spice2/data_mixed/valid/22      22      12     127  1.127e-02    F
+[2026-10-12 10:25:54,693] DEEPMD INFO    -- spice2/data_mixed/valid/25      25      11      99  8.801e-03    F
+[2026-10-12 10:25:54,693] DEEPMD INFO    -- spice2/data_mixed/valid/20      20      13     123  1.091e-02    F
+[2026-10-12 10:25:54,693] DEEPMD INFO    -- spice2/data_mixed/valid/9       9      29     109  9.681e-03    F
+[2026-10-12 10:25:54,693] DEEPMD INFO    -- spice2/data_mixed/valid/28      28      10     164  1.452e-02    F
+[2026-10-12 10:25:54,693] DEEPMD INFO    -- spice2/data_mixed/valid/76      76       4       2  2.640e-04    F
+[2026-10-12 10:25:54,693] DEEPMD INFO    -- spice2/data_mixed/valid/71      71       4       5  4.401e-04    F
+[2026-10-12 10:25:54,693] DEEPMD INFO    -- spice2/data_mixed/valid/79      79       4       2  2.640e-04    F
+[2026-10-12 10:25:54,693] DEEPMD INFO    -- spice2/data_mixed/valid/44      44       6     432  3.811e-02    F
+[2026-10-12 10:25:54,693] DEEPMD INFO    -- spice2/data_mixed/valid/47      47       6     562  4.955e-02    F
+[2026-10-12 10:25:54,693] DEEPMD INFO    -- spice2/data_mixed/valid/42      42       7     474  4.181e-02    F
+[2026-10-12 10:25:54,693] DEEPMD INFO    -- spice2/data_mixed/valid/12      12      22      36  3.256e-03    F
+[2026-10-12 10:25:54,693] DEEPMD INFO    -- spice2/data_mixed/valid/102     102       3       6  6.161e-04    F
+[2026-10-12 10:25:54,693] DEEPMD INFO    -- spice2/data_mixed/valid/98      98       3      26  2.376e-03    F
+[2026-10-12 10:25:54,693] DEEPMD INFO    -- spice2/data_mixed/valid/15      15      18     125  1.109e-02    F
+[2026-10-12 10:25:54,693] DEEPMD INFO    -- spice2/data_mixed/valid/10      10      26       9  8.801e-04    F
+[2026-10-12 10:25:54,693] DEEPMD INFO    -- spice2/data_mixed/valid/8       8      32      22  2.024e-03    F
+[2026-10-12 10:25:54,693] DEEPMD INFO    -- spice2/data_mixed/valid/18      18      15      55  4.929e-03    F
+[2026-10-12 10:25:54,693] DEEPMD INFO    -- spice2/data_mixed/valid/66      66       4      43  3.873e-03    F
+[2026-10-12 10:25:54,693] DEEPMD INFO    -- spice2/data_mixed/valid/61      61       5      68  6.073e-03    F
+[2026-10-12 10:25:54,693] DEEPMD INFO    --------------------------------------------------------------------------------------
+[muon_bm_dp] arm=muon muon_params=1300992 adam_params=10049 lr=0.016 wd=0.0 mu=0.95 bm_phases=[]
+[2026-10-12 10:25:54,791] DEEPMD INFO    Model Params:  1.311 M   (Trainable: 1.311 M)
+[2026-10-12 10:25:54,794] DEEPMD INFO    Start to train 8000 steps.
+[2026-10-12 10:25:57,939] DEEPMD INFO    Batch       1: trn: rmse = 3.28e+01, rmse_e = 3.13e-01, rmse_f = 1.04e+00, lr = 1.60e-02
+[2026-10-12 10:25:57,939] DEEPMD INFO    Batch       1: val: rmse = 2.94e+01, rmse_e = 8.24e-02, rmse_f = 9.28e-01
+[2026-10-12 10:25:57,940] DEEPMD INFO    Batch       1: total wall time = 3.15 s
+[2026-10-12 10:26:17,826] DEEPMD INFO    Batch     100: trn: rmse = 2.88e+01, rmse_e = 2.07e-01, rmse_f = 9.11e-01, lr = 1.60e-02
+[2026-10-12 10:26:17,827] DEEPMD INFO    Batch     100: val: rmse = 3.37e+01, rmse_e = 1.96e-01, rmse_f = 1.06e+00
+[2026-10-12 10:26:17,827] DEEPMD INFO    Batch     100: total wall time = 19.89 s, eta = 0:26:26 at 2026-10-12 10:52
+[2026-10-12 10:26:35,799] DEEPMD INFO    Batch     200: trn: rmse = 3.29e+01, rmse_e = 3.43e-01, rmse_f = 1.08e+00, lr = 1.49e-02
+[2026-10-12 10:26:35,799] DEEPMD INFO    Batch     200: val: rmse = 2.67e+01, rmse_e = 2.94e-01, rmse_f = 8.73e-01
+[2026-10-12 10:26:35,799] DEEPMD INFO    Batch     200: total wall time = 17.97 s, eta = 0:23:21 at 2026-10-12 10:49
+[2026-10-12 10:26:53,737] DEEPMD INFO    Batch     300: trn: rmse = 2.01e+01, rmse_e = 1.29e-01, rmse_f = 6.58e-01, lr = 1.49e-02
+[2026-10-12 10:26:53,737] DEEPMD INFO    Batch     300: val: rmse = 2.34e+01, rmse_e = 2.06e-01, rmse_f = 7.66e-01
+[2026-10-12 10:26:53,738] DEEPMD INFO    Batch     300: total wall time = 17.94 s, eta = 0:23:01 at 2026-10-12 10:49
+[2026-10-12 10:27:12,053] DEEPMD INFO    Batch     400: trn: rmse = 1.76e+01, rmse_e = 1.07e-01, rmse_f = 5.96e-01, lr = 1.39e-02
+[2026-10-12 10:27:12,053] DEEPMD INFO    Batch     400: val: rmse = 1.62e+01, rmse_e = 2.83e-01, rmse_f = 5.47e-01
+[2026-10-12 10:27:12,053] DEEPMD INFO    Batch     400: total wall time = 18.32 s, eta = 0:23:12 at 2026-10-12 10:50
+[2026-10-12 10:27:30,147] DEEPMD INFO    Batch     500: trn: rmse = 1.62e+01, rmse_e = 1.85e-01, rmse_f = 5.68e-01, lr = 1.30e-02
+[2026-10-12 10:27:30,148] DEEPMD INFO    Batch     500: val: rmse = 1.38e+01, rmse_e = 1.96e-01, rmse_f = 4.83e-01
+[2026-10-12 10:27:30,148] DEEPMD INFO    Batch     500: total wall time = 18.09 s, eta = 0:22:37 at 2026-10-12 10:50
+[2026-10-12 10:27:48,917] DEEPMD INFO    Batch     600: trn: rmse = 1.43e+01, rmse_e = 3.94e-01, rmse_f = 4.99e-01, lr = 1.30e-02
+[2026-10-12 10:27:48,917] DEEPMD INFO    Batch     600: val: rmse = 1.50e+01, rmse_e = 2.92e-01, rmse_f = 5.26e-01
+[2026-10-12 10:27:48,917] DEEPMD INFO    Batch     600: total wall time = 18.77 s, eta = 0:23:08 at 2026-10-12 10:50
+[2026-10-12 10:28:08,387] DEEPMD INFO    Batch     700: trn: rmse = 1.25e+01, rmse_e = 3.31e-01, rmse_f = 4.50e-01, lr = 1.21e-02
+[2026-10-12 10:28:08,388] DEEPMD INFO    Batch     700: val: rmse = 1.28e+01, rmse_e = 1.33e-01, rmse_f = 4.66e-01
+[2026-10-12 10:28:08,388] DEEPMD INFO    Batch     700: total wall time = 19.47 s, eta = 0:23:41 at 2026-10-12 10:51
+[2026-10-12 10:28:26,303] DEEPMD INFO    Batch     800: trn: rmse = 1.41e+01, rmse_e = 1.41e-01, rmse_f = 5.12e-01, lr = 1.21e-02
+[2026-10-12 10:28:26,303] DEEPMD INFO    Batch     800: val: rmse = 1.41e+01, rmse_e = 1.10e-01, rmse_f = 5.12e-01
+[2026-10-12 10:28:26,303] DEEPMD INFO    Batch     800: total wall time = 17.92 s, eta = 0:21:29 at 2026-10-12 10:49
+[2026-10-12 10:28:44,700] DEEPMD INFO    Batch     900: trn: rmse = 1.34e+01, rmse_e = 1.06e-01, rmse_f = 5.03e-01, lr = 1.13e-02
+[2026-10-12 10:28:44,700] DEEPMD INFO    Batch     900: val: rmse = 1.11e+01, rmse_e = 1.02e-01, rmse_f = 4.16e-01
+[2026-10-12 10:28:44,700] DEEPMD INFO    Batch     900: total wall time = 18.40 s, eta = 0:21:46 at 2026-10-12 10:50
+[2026-10-12 10:29:02,658] DEEPMD INFO    Batch    1000: trn: rmse = 1.22e+01, rmse_e = 7.77e-02, rmse_f = 4.75e-01, lr = 1.05e-02
+[2026-10-12 10:29:02,658] DEEPMD INFO    Batch    1000: val: rmse = 9.75e+00, rmse_e = 1.48e-01, rmse_f = 3.80e-01
+[2026-10-12 10:29:02,658] DEEPMD INFO    Batch    1000: total wall time = 17.96 s, eta = 0:20:57 at 2026-10-12 10:49
+[2026-10-12 10:29:22,915] DEEPMD INFO    Batch    1100: trn: rmse = 7.42e+00, rmse_e = 1.85e-01, rmse_f = 2.89e-01, lr = 1.05e-02
+[2026-10-12 10:29:22,915] DEEPMD INFO    Batch    1100: val: rmse = 8.63e+00, rmse_e = 1.55e-01, rmse_f = 3.36e-01
+[2026-10-12 10:29:22,916] DEEPMD INFO    Batch    1100: total wall time = 20.26 s, eta = 0:23:17 at 2026-10-12 10:52
+[2026-10-12 10:29:43,061] DEEPMD INFO    Batch    1200: trn: rmse = 7.42e+00, rmse_e = 3.67e-02, rmse_f = 3.00e-01, lr = 9.79e-03
+[2026-10-12 10:29:43,062] DEEPMD INFO    Batch    1200: val: rmse = 8.75e+00, rmse_e = 6.12e-02, rmse_f = 3.54e-01
+[2026-10-12 10:29:43,062] DEEPMD INFO    Batch    1200: total wall time = 20.15 s, eta = 0:22:49 at 2026-10-12 10:52
+[2026-10-12 10:30:01,275] DEEPMD INFO    Batch    1300: trn: rmse = 1.04e+01, rmse_e = 4.65e-02, rmse_f = 4.37e-01, lr = 9.13e-03
+[2026-10-12 10:30:01,275] DEEPMD INFO    Batch    1300: val: rmse = 7.29e+00, rmse_e = 4.50e-02, rmse_f = 3.05e-01
+[2026-10-12 10:30:01,276] DEEPMD INFO    Batch    1300: total wall time = 18.21 s, eta = 0:20:20 at 2026-10-12 10:50
+[2026-10-12 10:30:18,703] DEEPMD INFO    Batch    1400: trn: rmse = 6.12e+00, rmse_e = 3.23e-02, rmse_f = 2.56e-01, lr = 9.13e-03
+[2026-10-12 10:30:18,704] DEEPMD INFO    Batch    1400: val: rmse = 7.76e+00, rmse_e = 1.22e-01, rmse_f = 3.24e-01
+[2026-10-12 10:30:18,704] DEEPMD INFO    Batch    1400: total wall time = 17.43 s, eta = 0:19:10 at 2026-10-12 10:49
+[2026-10-12 10:30:34,817] DEEPMD INFO    Batch    1500: trn: rmse = 6.88e+00, rmse_e = 1.27e-01, rmse_f = 2.97e-01, lr = 8.51e-03
+[2026-10-12 10:30:34,817] DEEPMD INFO    Batch    1500: val: rmse = 8.15e+00, rmse_e = 9.40e-02, rmse_f = 3.52e-01
+[2026-10-12 10:30:34,818] DEEPMD INFO    Batch    1500: total wall time = 16.11 s, eta = 0:17:27 at 2026-10-12 10:48
+[2026-10-12 10:30:50,826] DEEPMD INFO    Batch    1600: trn: rmse = 6.81e+00, rmse_e = 7.65e-02, rmse_f = 2.94e-01, lr = 8.51e-03
+[2026-10-12 10:30:50,826] DEEPMD INFO    Batch    1600: val: rmse = 7.31e+00, rmse_e = 1.01e-01, rmse_f = 3.16e-01
+[2026-10-12 10:30:50,826] DEEPMD INFO    Batch    1600: total wall time = 16.01 s, eta = 0:17:04 at 2026-10-12 10:47
+[2026-10-12 10:31:07,722] DEEPMD INFO    Batch    1700: trn: rmse = 5.93e+00, rmse_e = 5.17e-02, rmse_f = 2.66e-01, lr = 7.93e-03
+[2026-10-12 10:31:07,723] DEEPMD INFO    Batch    1700: val: rmse = 6.81e+00, rmse_e = 8.69e-02, rmse_f = 3.05e-01
+[2026-10-12 10:31:07,723] DEEPMD INFO    Batch    1700: total wall time = 16.90 s, eta = 0:17:44 at 2026-10-12 10:48
+[2026-10-12 10:31:25,531] DEEPMD INFO    Batch    1800: trn: rmse = 4.88e+00, rmse_e = 4.32e-02, rmse_f = 2.27e-01, lr = 7.40e-03
+[2026-10-12 10:31:25,532] DEEPMD INFO    Batch    1800: val: rmse = 5.29e+00, rmse_e = 1.26e-01, rmse_f = 2.44e-01
+[2026-10-12 10:31:25,532] DEEPMD INFO    Batch    1800: total wall time = 17.81 s, eta = 0:18:24 at 2026-10-12 10:49
+[2026-10-12 10:31:43,856] DEEPMD INFO    Batch    1900: trn: rmse = 5.41e+00, rmse_e = 4.47e-02, rmse_f = 2.51e-01, lr = 7.40e-03
+[2026-10-12 10:31:43,856] DEEPMD INFO    Batch    1900: val: rmse = 4.27e+00, rmse_e = 6.37e-02, rmse_f = 1.98e-01
+[2026-10-12 10:31:43,856] DEEPMD INFO    Batch    1900: total wall time = 18.32 s, eta = 0:18:37 at 2026-10-12 10:50
+[2026-10-12 10:32:01,043] DEEPMD INFO    Batch    2000: trn: rmse = 4.74e+00, rmse_e = 1.35e-01, rmse_f = 2.26e-01, lr = 6.90e-03
+[2026-10-12 10:32:01,044] DEEPMD INFO    Batch    2000: val: rmse = 5.58e+00, rmse_e = 5.19e-02, rmse_f = 2.68e-01
+[2026-10-12 10:32:01,044] DEEPMD INFO    Batch    2000: total wall time = 17.19 s, eta = 0:17:11 at 2026-10-12 10:49
+[2026-10-12 10:32:19,413] DEEPMD INFO    Batch    2100: trn: rmse = 5.49e+00, rmse_e = 5.20e-01, rmse_f = 2.39e-01, lr = 6.43e-03
+[2026-10-12 10:32:19,414] DEEPMD INFO    Batch    2100: val: rmse = 4.98e+00, rmse_e = 2.90e-01, rmse_f = 2.36e-01
+[2026-10-12 10:32:19,414] DEEPMD INFO    Batch    2100: total wall time = 18.37 s, eta = 0:18:03 at 2026-10-12 10:50
+[2026-10-12 10:32:36,462] DEEPMD INFO    Batch    2200: trn: rmse = 5.90e+00, rmse_e = 5.46e-02, rmse_f = 2.94e-01, lr = 6.43e-03
+[2026-10-12 10:32:36,463] DEEPMD INFO    Batch    2200: val: rmse = 6.37e+00, rmse_e = 7.63e-02, rmse_f = 3.17e-01
+[2026-10-12 10:32:36,463] DEEPMD INFO    Batch    2200: total wall time = 17.05 s, eta = 0:16:28 at 2026-10-12 10:49
+[2026-10-12 10:32:53,068] DEEPMD INFO    Batch    2300: trn: rmse = 4.17e+00, rmse_e = 8.89e-02, rmse_f = 2.14e-01, lr = 5.99e-03
+[2026-10-12 10:32:53,068] DEEPMD INFO    Batch    2300: val: rmse = 4.37e+00, rmse_e = 6.30e-02, rmse_f = 2.25e-01
+[2026-10-12 10:32:53,069] DEEPMD INFO    Batch    2300: total wall time = 16.61 s, eta = 0:15:46 at 2026-10-12 10:48
+[2026-10-12 10:33:12,315] DEEPMD INFO    Batch    2400: trn: rmse = 5.40e+00, rmse_e = 8.64e-02, rmse_f = 2.78e-01, lr = 5.99e-03
+[2026-10-12 10:33:12,316] DEEPMD INFO    Batch    2400: val: rmse = 4.37e+00, rmse_e = 4.69e-02, rmse_f = 2.25e-01
+[2026-10-12 10:33:12,316] DEEPMD INFO    Batch    2400: total wall time = 19.25 s, eta = 0:17:57 at 2026-10-12 10:51
+[2026-10-12 10:33:29,020] DEEPMD INFO    Batch    2500: trn: rmse = 4.52e+00, rmse_e = 3.37e-02, rmse_f = 2.42e-01, lr = 5.59e-03
+[2026-10-12 10:33:29,021] DEEPMD INFO    Batch    2500: val: rmse = 4.48e+00, rmse_e = 3.84e-02, rmse_f = 2.39e-01
+[2026-10-12 10:33:29,021] DEEPMD INFO    Batch    2500: total wall time = 16.70 s, eta = 0:15:18 at 2026-10-12 10:48
+[2026-10-12 10:33:45,366] DEEPMD INFO    Batch    2600: trn: rmse = 4.00e+00, rmse_e = 1.04e-01, rmse_f = 2.19e-01, lr = 5.21e-03
+[2026-10-12 10:33:45,366] DEEPMD INFO    Batch    2600: val: rmse = 3.34e+00, rmse_e = 5.90e-02, rmse_f = 1.84e-01
+[2026-10-12 10:33:45,366] DEEPMD INFO    Batch    2600: total wall time = 16.35 s, eta = 0:14:42 at 2026-10-12 10:48
+[2026-10-12 10:34:01,538] DEEPMD INFO    Batch    2700: trn: rmse = 4.26e+00, rmse_e = 8.54e-02, rmse_f = 2.35e-01, lr = 5.21e-03
+[2026-10-12 10:34:01,539] DEEPMD INFO    Batch    2700: val: rmse = 4.10e+00, rmse_e = 3.54e-02, rmse_f = 2.27e-01
+[2026-10-12 10:34:01,539] DEEPMD INFO    Batch    2700: total wall time = 16.17 s, eta = 0:14:17 at 2026-10-12 10:48
+[2026-10-12 10:34:18,962] DEEPMD INFO    Batch    2800: trn: rmse = 3.36e+00, rmse_e = 5.66e-02, rmse_f = 1.92e-01, lr = 4.86e-03
+[2026-10-12 10:34:18,962] DEEPMD INFO    Batch    2800: val: rmse = 3.45e+00, rmse_e = 5.23e-02, rmse_f = 1.97e-01
+[2026-10-12 10:34:18,963] DEEPMD INFO    Batch    2800: total wall time = 17.42 s, eta = 0:15:06 at 2026-10-12 10:49
+[2026-10-12 10:34:36,689] DEEPMD INFO    Batch    2900: trn: rmse = 2.67e+00, rmse_e = 5.83e-02, rmse_f = 1.57e-01, lr = 4.53e-03
+[2026-10-12 10:34:36,690] DEEPMD INFO    Batch    2900: val: rmse = 3.18e+00, rmse_e = 4.58e-02, rmse_f = 1.88e-01
+[2026-10-12 10:34:36,690] DEEPMD INFO    Batch    2900: total wall time = 17.73 s, eta = 0:15:04 at 2026-10-12 10:49
+[2026-10-12 10:34:54,684] DEEPMD INFO    Batch    3000: trn: rmse = 2.61e+00, rmse_e = 2.55e-02, rmse_f = 1.55e-01, lr = 4.53e-03
+[2026-10-12 10:34:54,684] DEEPMD INFO    Batch    3000: val: rmse = 3.55e+00, rmse_e = 3.69e-02, rmse_f = 2.11e-01
+[2026-10-12 10:34:54,685] DEEPMD INFO    Batch    3000: total wall time = 17.99 s, eta = 0:14:59 at 2026-10-12 10:49
+[2026-10-12 10:35:13,365] DEEPMD INFO    Batch    3100: trn: rmse = 5.37e+00, rmse_e = 5.64e-02, rmse_f = 3.29e-01, lr = 4.22e-03
+[2026-10-12 10:35:13,365] DEEPMD INFO    Batch    3100: val: rmse = 5.68e+00, rmse_e = 6.37e-02, rmse_f = 3.48e-01
+[2026-10-12 10:35:13,366] DEEPMD INFO    Batch    3100: total wall time = 18.68 s, eta = 0:15:15 at 2026-10-12 10:50
+[2026-10-12 10:35:31,363] DEEPMD INFO    Batch    3200: trn: rmse = 3.13e+00, rmse_e = 3.58e-02, rmse_f = 1.92e-01, lr = 4.22e-03
+[2026-10-12 10:35:31,364] DEEPMD INFO    Batch    3200: val: rmse = 2.84e+00, rmse_e = 4.62e-02, rmse_f = 1.74e-01
+[2026-10-12 10:35:31,364] DEEPMD INFO    Batch    3200: total wall time = 18.00 s, eta = 0:14:23 at 2026-10-12 10:49
+[2026-10-12 10:35:48,690] DEEPMD INFO    Batch    3300: trn: rmse = 2.85e+00, rmse_e = 3.84e-02, rmse_f = 1.81e-01, lr = 3.94e-03
+[2026-10-12 10:35:48,691] DEEPMD INFO    Batch    3300: val: rmse = 3.23e+00, rmse_e = 3.41e-02, rmse_f = 2.05e-01
+[2026-10-12 10:35:48,691] DEEPMD INFO    Batch    3300: total wall time = 17.33 s, eta = 0:13:34 at 2026-10-12 10:49
+[2026-10-12 10:36:06,417] DEEPMD INFO    Batch    3400: trn: rmse = 2.32e+00, rmse_e = 5.18e-02, rmse_f = 1.52e-01, lr = 3.67e-03
+[2026-10-12 10:36:06,418] DEEPMD INFO    Batch    3400: val: rmse = 2.57e+00, rmse_e = 3.83e-02, rmse_f = 1.69e-01
+[2026-10-12 10:36:06,418] DEEPMD INFO    Batch    3400: total wall time = 17.73 s, eta = 0:13:35 at 2026-10-12 10:49
+[2026-10-12 10:36:23,966] DEEPMD INFO    Batch    3500: trn: rmse = 1.59e+00, rmse_e = 1.67e-02, rmse_f = 1.04e-01, lr = 3.67e-03
+[2026-10-12 10:36:23,967] DEEPMD INFO    Batch    3500: val: rmse = 2.85e+00, rmse_e = 3.73e-02, rmse_f = 1.87e-01
+[2026-10-12 10:36:23,967] DEEPMD INFO    Batch    3500: total wall time = 17.55 s, eta = 0:13:09 at 2026-10-12 10:49
+[2026-10-12 10:36:41,939] DEEPMD INFO    Batch    3600: trn: rmse = 3.41e+00, rmse_e = 5.54e-02, rmse_f = 2.31e-01, lr = 3.42e-03
+[2026-10-12 10:36:41,940] DEEPMD INFO    Batch    3600: val: rmse = 2.55e+00, rmse_e = 3.39e-02, rmse_f = 1.74e-01
+[2026-10-12 10:36:41,940] DEEPMD INFO    Batch    3600: total wall time = 17.97 s, eta = 0:13:10 at 2026-10-12 10:49
+[2026-10-12 10:37:01,390] DEEPMD INFO    Batch    3700: trn: rmse = 1.96e+00, rmse_e = 1.76e-02, rmse_f = 1.39e-01, lr = 3.19e-03
+[2026-10-12 10:37:01,391] DEEPMD INFO    Batch    3700: val: rmse = 2.67e+00, rmse_e = 4.15e-02, rmse_f = 1.88e-01
+[2026-10-12 10:37:01,391] DEEPMD INFO    Batch    3700: total wall time = 19.45 s, eta = 0:13:56 at 2026-10-12 10:50
+[2026-10-12 10:37:18,515] DEEPMD INFO    Batch    3800: trn: rmse = 2.77e+00, rmse_e = 9.70e-02, rmse_f = 1.92e-01, lr = 3.19e-03
+[2026-10-12 10:37:18,515] DEEPMD INFO    Batch    3800: val: rmse = 2.64e+00, rmse_e = 5.26e-02, rmse_f = 1.85e-01
+[2026-10-12 10:37:18,516] DEEPMD INFO    Batch    3800: total wall time = 17.12 s, eta = 0:11:59 at 2026-10-12 10:49
+[2026-10-12 10:37:35,918] DEEPMD INFO    Batch    3900: trn: rmse = 1.55e+00, rmse_e = 2.79e-02, rmse_f = 1.12e-01, lr = 2.97e-03
+[2026-10-12 10:37:35,918] DEEPMD INFO    Batch    3900: val: rmse = 2.19e+00, rmse_e = 3.58e-02, rmse_f = 1.59e-01
+[2026-10-12 10:37:35,919] DEEPMD INFO    Batch    3900: total wall time = 17.40 s, eta = 0:11:53 at 2026-10-12 10:49
+[2026-10-12 10:37:53,622] DEEPMD INFO    Batch    4000: trn: rmse = 1.73e+00, rmse_e = 3.39e-02, rmse_f = 1.25e-01, lr = 2.97e-03
+[2026-10-12 10:37:53,623] DEEPMD INFO    Batch    4000: val: rmse = 2.42e+00, rmse_e = 4.22e-02, rmse_f = 1.76e-01
+[2026-10-12 10:37:53,623] DEEPMD INFO    Batch    4000: total wall time = 17.70 s, eta = 0:11:48 at 2026-10-12 10:49
+[2026-10-12 10:38:11,558] DEEPMD INFO    Batch    4100: trn: rmse = 1.91e+00, rmse_e = 1.70e-02, rmse_f = 1.45e-01, lr = 2.77e-03
+[2026-10-12 10:38:11,558] DEEPMD INFO    Batch    4100: val: rmse = 2.50e+00, rmse_e = 3.90e-02, rmse_f = 1.89e-01
+[2026-10-12 10:38:11,559] DEEPMD INFO    Batch    4100: total wall time = 17.94 s, eta = 0:11:39 at 2026-10-12 10:49
+[2026-10-12 10:38:30,674] DEEPMD INFO    Batch    4200: trn: rmse = 1.92e+00, rmse_e = 6.15e-02, rmse_f = 1.47e-01, lr = 2.58e-03
+[2026-10-12 10:38:30,674] DEEPMD INFO    Batch    4200: val: rmse = 2.04e+00, rmse_e = 6.98e-02, rmse_f = 1.56e-01
+[2026-10-12 10:38:30,674] DEEPMD INFO    Batch    4200: total wall time = 19.12 s, eta = 0:12:06 at 2026-10-12 10:50
+[2026-10-12 10:38:48,818] DEEPMD INFO    Batch    4300: trn: rmse = 3.01e+00, rmse_e = 1.24e-01, rmse_f = 2.35e-01, lr = 2.58e-03
+[2026-10-12 10:38:48,819] DEEPMD INFO    Batch    4300: val: rmse = 2.41e+00, rmse_e = 3.64e-02, rmse_f = 1.89e-01
+[2026-10-12 10:38:48,819] DEEPMD INFO    Batch    4300: total wall time = 18.14 s, eta = 0:11:11 at 2026-10-12 10:49
+[2026-10-12 10:39:07,176] DEEPMD INFO    Batch    4400: trn: rmse = 1.84e+00, rmse_e = 6.39e-02, rmse_f = 1.47e-01, lr = 2.41e-03
+[2026-10-12 10:39:07,176] DEEPMD INFO    Batch    4400: val: rmse = 2.07e+00, rmse_e = 7.41e-02, rmse_f = 1.65e-01
+[2026-10-12 10:39:07,177] DEEPMD INFO    Batch    4400: total wall time = 18.36 s, eta = 0:11:00 at 2026-10-12 10:50
+[2026-10-12 10:39:26,780] DEEPMD INFO    Batch    4500: trn: rmse = 2.09e+00, rmse_e = 3.43e-02, rmse_f = 1.75e-01, lr = 2.25e-03
+[2026-10-12 10:39:26,781] DEEPMD INFO    Batch    4500: val: rmse = 1.48e+00, rmse_e = 5.78e-02, rmse_f = 1.20e-01
+[2026-10-12 10:39:26,781] DEEPMD INFO    Batch    4500: total wall time = 19.60 s, eta = 0:11:26 at 2026-10-12 10:50
+[2026-10-12 10:39:46,166] DEEPMD INFO    Batch    4600: trn: rmse = 1.59e+00, rmse_e = 5.68e-02, rmse_f = 1.31e-01, lr = 2.25e-03
+[2026-10-12 10:39:46,166] DEEPMD INFO    Batch    4600: val: rmse = 2.23e+00, rmse_e = 7.29e-02, rmse_f = 1.83e-01
+[2026-10-12 10:39:46,167] DEEPMD INFO    Batch    4600: total wall time = 19.39 s, eta = 0:10:59 at 2026-10-12 10:50
+[2026-10-12 10:40:04,350] DEEPMD INFO    Batch    4700: trn: rmse = 1.98e+00, rmse_e = 8.33e-02, rmse_f = 1.70e-01, lr = 2.09e-03
+[2026-10-12 10:40:04,351] DEEPMD INFO    Batch    4700: val: rmse = 2.33e+00, rmse_e = 5.09e-02, rmse_f = 2.02e-01
+[2026-10-12 10:40:04,351] DEEPMD INFO    Batch    4700: total wall time = 18.18 s, eta = 0:10:00 at 2026-10-12 10:50
+[2026-10-12 10:40:22,971] DEEPMD INFO    Batch    4800: trn: rmse = 1.09e+00, rmse_e = 4.61e-02, rmse_f = 9.05e-02, lr = 2.09e-03
+[2026-10-12 10:40:22,972] DEEPMD INFO    Batch    4800: val: rmse = 1.81e+00, rmse_e = 2.94e-02, rmse_f = 1.57e-01
+[2026-10-12 10:40:22,972] DEEPMD INFO    Batch    4800: total wall time = 18.62 s, eta = 0:09:55 at 2026-10-12 10:50
+[2026-10-12 10:40:39,480] DEEPMD INFO    Batch    4900: trn: rmse = 1.70e+00, rmse_e = 4.36e-02, rmse_f = 1.51e-01, lr = 1.95e-03
+[2026-10-12 10:40:39,481] DEEPMD INFO    Batch    4900: val: rmse = 1.50e+00, rmse_e = 5.01e-02, rmse_f = 1.32e-01
+[2026-10-12 10:40:39,481] DEEPMD INFO    Batch    4900: total wall time = 16.51 s, eta = 0:08:31 at 2026-10-12 10:49
+[2026-10-12 10:40:56,940] DEEPMD INFO    Batch    5000: trn: rmse = 1.41e+00, rmse_e = 3.10e-02, rmse_f = 1.31e-01, lr = 1.82e-03
+[2026-10-12 10:40:56,940] DEEPMD INFO    Batch    5000: val: rmse = 1.52e+00, rmse_e = 1.95e-02, rmse_f = 1.41e-01
+[2026-10-12 10:40:56,941] DEEPMD INFO    Batch    5000: total wall time = 17.46 s, eta = 0:08:43 at 2026-10-12 10:49
+[2026-10-12 10:41:13,759] DEEPMD INFO    Batch    5100: trn: rmse = 1.37e+00, rmse_e = 2.60e-02, rmse_f = 1.27e-01, lr = 1.82e-03
+[2026-10-12 10:41:13,759] DEEPMD INFO    Batch    5100: val: rmse = 1.50e+00, rmse_e = 2.27e-02, rmse_f = 1.40e-01
+[2026-10-12 10:41:13,760] DEEPMD INFO    Batch    5100: total wall time = 16.82 s, eta = 0:08:07 at 2026-10-12 10:49
+[2026-10-12 10:41:31,095] DEEPMD INFO    Batch    5200: trn: rmse = 1.74e+00, rmse_e = 3.11e-02, rmse_f = 1.67e-01, lr = 1.70e-03
+[2026-10-12 10:41:31,096] DEEPMD INFO    Batch    5200: val: rmse = 1.54e+00, rmse_e = 4.41e-02, rmse_f = 1.47e-01
+[2026-10-12 10:41:31,096] DEEPMD INFO    Batch    5200: total wall time = 17.34 s, eta = 0:08:05 at 2026-10-12 10:49
+[2026-10-12 10:41:48,459] DEEPMD INFO    Batch    5300: trn: rmse = 1.58e+00, rmse_e = 4.99e-02, rmse_f = 1.56e-01, lr = 1.58e-03
+[2026-10-12 10:41:48,459] DEEPMD INFO    Batch    5300: val: rmse = 1.50e+00, rmse_e = 2.33e-02, rmse_f = 1.49e-01
+[2026-10-12 10:41:48,459] DEEPMD INFO    Batch    5300: total wall time = 17.36 s, eta = 0:07:48 at 2026-10-12 10:49
+[2026-10-12 10:42:06,620] DEEPMD INFO    Batch    5400: trn: rmse = 1.41e+00, rmse_e = 5.67e-02, rmse_f = 1.29e-01, lr = 1.58e-03
+[2026-10-12 10:42:06,620] DEEPMD INFO    Batch    5400: val: rmse = 1.25e+00, rmse_e = 2.56e-02, rmse_f = 1.25e-01
+[2026-10-12 10:42:06,621] DEEPMD INFO    Batch    5400: total wall time = 18.16 s, eta = 0:07:52 at 2026-10-12 10:49
+[2026-10-12 10:42:29,612] DEEPMD INFO    Batch    5500: trn: rmse = 1.21e+00, rmse_e = 3.44e-02, rmse_f = 1.24e-01, lr = 1.47e-03
+[2026-10-12 10:42:29,613] DEEPMD INFO    Batch    5500: val: rmse = 1.20e+00, rmse_e = 2.18e-02, rmse_f = 1.24e-01
+[2026-10-12 10:42:29,613] DEEPMD INFO    Batch    5500: total wall time = 22.99 s, eta = 0:09:34 at 2026-10-12 10:52
+[2026-10-12 10:42:52,707] DEEPMD INFO    Batch    5600: trn: rmse = 9.50e-01, rmse_e = 3.37e-02, rmse_f = 9.46e-02, lr = 1.47e-03
+[2026-10-12 10:42:52,708] DEEPMD INFO    Batch    5600: val: rmse = 1.60e+00, rmse_e = 2.97e-02, rmse_f = 1.65e-01
+[2026-10-12 10:42:52,709] DEEPMD INFO    Batch    5600: total wall time = 23.10 s, eta = 0:09:14 at 2026-10-12 10:52
+[2026-10-12 10:43:12,580] DEEPMD INFO    Batch    5700: trn: rmse = 1.16e+00, rmse_e = 3.41e-02, rmse_f = 1.22e-01, lr = 1.37e-03
+[2026-10-12 10:43:12,581] DEEPMD INFO    Batch    5700: val: rmse = 1.20e+00, rmse_e = 1.80e-02, rmse_f = 1.28e-01
+[2026-10-12 10:43:12,581] DEEPMD INFO    Batch    5700: total wall time = 19.87 s, eta = 0:07:37 at 2026-10-12 10:50
+[2026-10-12 10:43:30,465] DEEPMD INFO    Batch    5800: trn: rmse = 1.36e+00, rmse_e = 2.75e-02, rmse_f = 1.50e-01, lr = 1.28e-03
+[2026-10-12 10:43:30,465] DEEPMD INFO    Batch    5800: val: rmse = 1.47e+00, rmse_e = 2.73e-02, rmse_f = 1.63e-01
+[2026-10-12 10:43:30,466] DEEPMD INFO    Batch    5800: total wall time = 17.88 s, eta = 0:06:33 at 2026-10-12 10:50
+[2026-10-12 10:43:49,472] DEEPMD INFO    Batch    5900: trn: rmse = 1.37e+00, rmse_e = 4.28e-02, rmse_f = 1.51e-01, lr = 1.28e-03
+[2026-10-12 10:43:49,473] DEEPMD INFO    Batch    5900: val: rmse = 1.15e+00, rmse_e = 2.79e-02, rmse_f = 1.26e-01
+[2026-10-12 10:43:49,473] DEEPMD INFO    Batch    5900: total wall time = 19.01 s, eta = 0:06:39 at 2026-10-12 10:50
+[2026-10-12 10:44:08,468] DEEPMD INFO    Batch    6000: trn: rmse = 1.28e+00, rmse_e = 2.29e-02, rmse_f = 1.47e-01, lr = 1.19e-03
+[2026-10-12 10:44:08,468] DEEPMD INFO    Batch    6000: val: rmse = 1.27e+00, rmse_e = 4.10e-02, rmse_f = 1.43e-01
+[2026-10-12 10:44:08,469] DEEPMD INFO    Batch    6000: total wall time = 19.00 s, eta = 0:06:19 at 2026-10-12 10:50
+[2026-10-12 10:44:28,054] DEEPMD INFO    Batch    6100: trn: rmse = 1.06e+00, rmse_e = 1.97e-02, rmse_f = 1.25e-01, lr = 1.11e-03
+[2026-10-12 10:44:28,055] DEEPMD INFO    Batch    6100: val: rmse = 1.05e+00, rmse_e = 2.32e-02, rmse_f = 1.24e-01
+[2026-10-12 10:44:28,055] DEEPMD INFO    Batch    6100: total wall time = 19.59 s, eta = 0:06:12 at 2026-10-12 10:50
+[2026-10-12 10:44:47,647] DEEPMD INFO    Batch    6200: trn: rmse = 6.37e-01, rmse_e = 1.06e-02, rmse_f = 7.52e-02, lr = 1.11e-03
+[2026-10-12 10:44:47,647] DEEPMD INFO    Batch    6200: val: rmse = 1.05e+00, rmse_e = 2.28e-02, rmse_f = 1.23e-01
+[2026-10-12 10:44:47,648] DEEPMD INFO    Batch    6200: total wall time = 19.59 s, eta = 0:05:52 at 2026-10-12 10:50
+[2026-10-12 10:45:06,317] DEEPMD INFO    Batch    6300: trn: rmse = 1.30e+00, rmse_e = 4.27e-02, rmse_f = 1.58e-01, lr = 1.04e-03
+[2026-10-12 10:45:06,317] DEEPMD INFO    Batch    6300: val: rmse = 1.03e+00, rmse_e = 2.96e-02, rmse_f = 1.25e-01
+[2026-10-12 10:45:06,318] DEEPMD INFO    Batch    6300: total wall time = 18.67 s, eta = 0:05:17 at 2026-10-12 10:50
+[2026-10-12 10:45:24,317] DEEPMD INFO    Batch    6400: trn: rmse = 1.18e+00, rmse_e = 1.04e-02, rmse_f = 1.45e-01, lr = 1.04e-03
+[2026-10-12 10:45:24,317] DEEPMD INFO    Batch    6400: val: rmse = 1.19e+00, rmse_e = 2.39e-02, rmse_f = 1.45e-01
+[2026-10-12 10:45:24,318] DEEPMD INFO    Batch    6400: total wall time = 18.00 s, eta = 0:04:47 at 2026-10-12 10:50
+[2026-10-12 10:45:45,036] DEEPMD INFO    Batch    6500: trn: rmse = 1.55e+00, rmse_e = 6.34e-02, rmse_f = 1.93e-01, lr = 9.68e-04
+[2026-10-12 10:45:45,037] DEEPMD INFO    Batch    6500: val: rmse = 1.01e+00, rmse_e = 4.44e-02, rmse_f = 1.24e-01
+[2026-10-12 10:45:45,037] DEEPMD INFO    Batch    6500: total wall time = 20.72 s, eta = 0:05:10 at 2026-10-12 10:50
+[2026-10-12 10:46:06,931] DEEPMD INFO    Batch    6600: trn: rmse = 1.12e+00, rmse_e = 2.40e-02, rmse_f = 1.46e-01, lr = 9.02e-04
+[2026-10-12 10:46:06,931] DEEPMD INFO    Batch    6600: val: rmse = 7.45e-01, rmse_e = 1.38e-02, rmse_f = 9.76e-02
+[2026-10-12 10:46:06,932] DEEPMD INFO    Batch    6600: total wall time = 21.89 s, eta = 0:05:06 at 2026-10-12 10:51
+[2026-10-12 10:46:29,788] DEEPMD INFO    Batch    6700: trn: rmse = 7.85e-01, rmse_e = 8.30e-03, rmse_f = 1.03e-01, lr = 9.02e-04
+[2026-10-12 10:46:29,789] DEEPMD INFO    Batch    6700: val: rmse = 9.91e-01, rmse_e = 2.61e-02, rmse_f = 1.29e-01
+[2026-10-12 10:46:29,789] DEEPMD INFO    Batch    6700: total wall time = 22.86 s, eta = 0:04:57 at 2026-10-12 10:51
+[2026-10-12 10:46:51,648] DEEPMD INFO    Batch    6800: trn: rmse = 1.14e+00, rmse_e = 2.14e-02, rmse_f = 1.55e-01, lr = 8.41e-04
+[2026-10-12 10:46:51,649] DEEPMD INFO    Batch    6800: val: rmse = 1.04e+00, rmse_e = 1.82e-02, rmse_f = 1.42e-01
+[2026-10-12 10:46:51,649] DEEPMD INFO    Batch    6800: total wall time = 21.86 s, eta = 0:04:22 at 2026-10-12 10:51
+[2026-10-12 10:47:14,279] DEEPMD INFO    Batch    6900: trn: rmse = 1.08e+00, rmse_e = 1.41e-02, rmse_f = 1.52e-01, lr = 7.84e-04
+[2026-10-12 10:47:14,279] DEEPMD INFO    Batch    6900: val: rmse = 1.11e+00, rmse_e = 3.98e-02, rmse_f = 1.55e-01
+[2026-10-12 10:47:14,280] DEEPMD INFO    Batch    6900: total wall time = 22.63 s, eta = 0:04:08 at 2026-10-12 10:51
+[2026-10-12 10:47:36,212] DEEPMD INFO    Batch    7000: trn: rmse = 2.26e+00, rmse_e = 3.55e-02, rmse_f = 3.19e-01, lr = 7.84e-04
+[2026-10-12 10:47:36,213] DEEPMD INFO    Batch    7000: val: rmse = 1.17e+00, rmse_e = 2.59e-02, rmse_f = 1.64e-01
+[2026-10-12 10:47:36,213] DEEPMD INFO    Batch    7000: total wall time = 21.93 s, eta = 0:03:39 at 2026-10-12 10:51
+[2026-10-12 10:47:58,045] DEEPMD INFO    Batch    7100: trn: rmse = 1.34e+00, rmse_e = 6.13e-02, rmse_f = 1.94e-01, lr = 7.31e-04
+[2026-10-12 10:47:58,046] DEEPMD INFO    Batch    7100: val: rmse = 8.74e-01, rmse_e = 2.22e-02, rmse_f = 1.26e-01
+[2026-10-12 10:47:58,046] DEEPMD INFO    Batch    7100: total wall time = 21.83 s, eta = 0:03:16 at 2026-10-12 10:51
+[2026-10-12 10:48:19,024] DEEPMD INFO    Batch    7200: trn: rmse = 8.12e-01, rmse_e = 3.55e-02, rmse_f = 1.15e-01, lr = 7.31e-04
+[2026-10-12 10:48:19,024] DEEPMD INFO    Batch    7200: val: rmse = 7.25e-01, rmse_e = 3.29e-02, rmse_f = 1.02e-01
+[2026-10-12 10:48:19,025] DEEPMD INFO    Batch    7200: total wall time = 20.98 s, eta = 0:02:47 at 2026-10-12 10:51
+[2026-10-12 10:48:41,038] DEEPMD INFO    Batch    7300: trn: rmse = 8.91e-01, rmse_e = 1.67e-02, rmse_f = 1.34e-01, lr = 6.82e-04
+[2026-10-12 10:48:41,039] DEEPMD INFO    Batch    7300: val: rmse = 8.70e-01, rmse_e = 1.74e-02, rmse_f = 1.31e-01
+[2026-10-12 10:48:41,039] DEEPMD INFO    Batch    7300: total wall time = 22.01 s, eta = 0:02:34 at 2026-10-12 10:51
+[2026-10-12 10:49:00,052] DEEPMD INFO    Batch    7400: trn: rmse = 8.69e-01, rmse_e = 2.71e-02, rmse_f = 1.35e-01, lr = 6.35e-04
+[2026-10-12 10:49:00,052] DEEPMD INFO    Batch    7400: val: rmse = 8.61e-01, rmse_e = 1.95e-02, rmse_f = 1.34e-01
+[2026-10-12 10:49:00,053] DEEPMD INFO    Batch    7400: total wall time = 19.01 s, eta = 0:01:54 at 2026-10-12 10:50
+[2026-10-12 10:49:19,487] DEEPMD INFO    Batch    7500: trn: rmse = 6.81e-01, rmse_e = 1.37e-02, rmse_f = 1.06e-01, lr = 6.35e-04
+[2026-10-12 10:49:19,488] DEEPMD INFO    Batch    7500: val: rmse = 8.20e-01, rmse_e = 1.91e-02, rmse_f = 1.27e-01
+[2026-10-12 10:49:19,488] DEEPMD INFO    Batch    7500: total wall time = 19.44 s, eta = 0:01:37 at 2026-10-12 10:50
+[2026-10-12 10:49:38,464] DEEPMD INFO    Batch    7600: trn: rmse = 4.98e-01, rmse_e = 1.13e-02, rmse_f = 7.95e-02, lr = 5.92e-04
+[2026-10-12 10:49:38,464] DEEPMD INFO    Batch    7600: val: rmse = 7.21e-01, rmse_e = 1.92e-02, rmse_f = 1.15e-01
+[2026-10-12 10:49:38,465] DEEPMD INFO    Batch    7600: total wall time = 18.98 s, eta = 0:01:15 at 2026-10-12 10:50
+[2026-10-12 10:49:59,186] DEEPMD INFO    Batch    7700: trn: rmse = 7.06e-01, rmse_e = 2.63e-02, rmse_f = 1.15e-01, lr = 5.52e-04
+[2026-10-12 10:49:59,187] DEEPMD INFO    Batch    7700: val: rmse = 7.09e-01, rmse_e = 2.93e-02, rmse_f = 1.14e-01
+[2026-10-12 10:49:59,187] DEEPMD INFO    Batch    7700: total wall time = 20.72 s, eta = 0:01:02 at 2026-10-12 10:51
+[2026-10-12 10:50:18,124] DEEPMD INFO    Batch    7800: trn: rmse = 6.28e-01, rmse_e = 7.79e-03, rmse_f = 1.05e-01, lr = 5.52e-04
+[2026-10-12 10:50:18,125] DEEPMD INFO    Batch    7800: val: rmse = 6.15e-01, rmse_e = 1.58e-02, rmse_f = 1.01e-01
+[2026-10-12 10:50:18,125] DEEPMD INFO    Batch    7800: total wall time = 18.94 s, eta = 0:00:37 at 2026-10-12 10:50
+[2026-10-12 10:50:38,529] DEEPMD INFO    Batch    7900: trn: rmse = 7.21e-01, rmse_e = 1.99e-02, rmse_f = 1.24e-01, lr = 5.15e-04
+[2026-10-12 10:50:38,530] DEEPMD INFO    Batch    7900: val: rmse = 7.88e-01, rmse_e = 2.18e-02, rmse_f = 1.35e-01
+[2026-10-12 10:50:38,530] DEEPMD INFO    Batch    7900: total wall time = 20.40 s, eta = 0:00:20 at 2026-10-12 10:50
+[2026-10-12 10:50:59,424] DEEPMD INFO    Batch    8000: trn: rmse = 8.53e-01, rmse_e = 1.04e-02, rmse_f = 1.48e-01, lr = 5.15e-04
+[2026-10-12 10:50:59,425] DEEPMD INFO    Batch    8000: val: rmse = 5.80e-01, rmse_e = 1.42e-02, rmse_f = 9.97e-02
+[2026-10-12 10:50:59,425] DEEPMD INFO    Batch    8000: total wall time = 20.89 s, eta = 0:00:00 at 2026-10-12 10:50
+[2026-10-12 10:50:59,508] DEEPMD INFO    Saved model to model.ckpt-8000.pt
+[2026-10-12 10:50:59,511] DEEPMD INFO    average training time: 0.1875 s/batch (100 batches excluded)
+[2026-10-12 10:50:59,511] DEEPMD INFO    Trained model has been saved to: model.ckpt

@@ -1,0 +1,12 @@
+# Environment for the deepmd-kit hooks (DPA-3 and DPA4), Linux with CUDA 13.
+# The PyPI wheel of deepmd-kit 3.2.0 compiles its C++ PyTorch operators against PyTorch 2.11.0
+# and pulls mpich via the [torch] extra:
+#   pip install -r requirements.txt
+# If you need a different CUDA wheel index for PyTorch, install torch==2.11.0 from that index first.
+deepmd-kit[torch]==3.2.0
+torch==2.11.0
+e3nn==0.6.0
+vesin[torch]==0.6.1
+nvalchemi-toolkit-ops==0.4.1
+warp-lang==1.17.0
+mpich==5.0.2

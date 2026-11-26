@@ -1,0 +1,47 @@
+[
+ {
+  "mol": 0,
+  "frame": 89,
+  "natoms": 18,
+  "sec": 62,
+  "E_pyscf_eV": -38283.71557862912,
+  "E_label_eV": -38283.715221901446,
+  "force_MAE_vs_label_meV_A": 0.43367953527566555,
+  "force_max_dev_meV_A": 4.333124563679291,
+  "E_eV": -38283.71557862912,
+  "converged": true,
+  "xc": "wb97m-d3bj",
+  "nlc": "",
+  "disp": "None"
+ },
+ {
+  "mol": 1,
+  "frame": 832,
+  "natoms": 24,
+  "sec": 96,
+  "E_pyscf_eV": -14098.961938034628,
+  "E_label_eV": -14098.961542391626,
+  "force_MAE_vs_label_meV_A": 0.3803491891349253,
+  "force_max_dev_meV_A": 2.7642147973596654,
+  "E_eV": -14098.961938034628,
+  "converged": true,
+  "xc": "wb97m-d3bj",
+  "nlc": "",
+  "disp": "None"
+ },
+ {
+  "mol": 3,
+  "frame": 127,
+  "natoms": 36,
+  "sec": 350,
+  "E_pyscf_eV": -25815.010776459236,
+  "E_label_eV": -25815.012631736823,
+  "force_MAE_vs_label_meV_A": 0.3511734797564452,
+  "force_max_dev_meV_A": 1.9538471244799904,
+  "E_eV": -25815.010776459236,
+  "converged": true,
+  "xc": "wb97m-d3bj",
+  "nlc": "",
+  "disp": "None"
+ }
+]

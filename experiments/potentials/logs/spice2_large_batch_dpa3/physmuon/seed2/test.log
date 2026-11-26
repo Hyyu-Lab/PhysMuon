@@ -1,0 +1,12 @@
+[2026-11-26 10:45:36,141] DEEPMD INFO    Energy RMSE        : 4.521482e-01 eV
+[2026-11-26 10:45:36,141] DEEPMD INFO    Energy MAE/Natoms  : 2.648032e-03 eV
+[2026-11-26 10:45:36,141] DEEPMD INFO    Energy RMSE/Natoms : 4.110439e-03 eV
+[2026-11-26 10:45:36,141] DEEPMD INFO    Force  MAE         : 5.769975e-02 eV/Å
+[2026-11-26 10:45:36,141] DEEPMD INFO    Force  RMSE        : 2.479491e-01 eV/Å
+[2026-11-26 10:45:36,141] DEEPMD INFO    # ----------weighted average of errors----------- 
+[2026-11-26 10:45:36,141] DEEPMD INFO    Energy MAE         : 1.379914e-01 eV
+[2026-11-26 10:45:36,141] DEEPMD INFO    Energy RMSE        : 2.142665e-01 eV
+[2026-11-26 10:45:36,141] DEEPMD INFO    Energy MAE/Natoms  : 5.249834e-03 eV
+[2026-11-26 10:45:36,141] DEEPMD INFO    Energy RMSE/Natoms : 1.441614e-02 eV
+[2026-11-26 10:45:36,141] DEEPMD INFO    Force  MAE         : 2.855117e-02 eV/Å
+[2026-11-26 10:45:36,141] DEEPMD INFO    Force  RMSE        : 5.261861e-02 eV/Å

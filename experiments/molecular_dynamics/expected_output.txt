@@ -1,0 +1,74 @@
+##### 1. Routine test: trajectory 0 at 300 K without thermostat after 2 ps, six trajectories at two temperatures; 42 ps each
+
+=== ani1x: 12 molecules, 4 seeds ===
+      Muon: 48 tasks | 1000 K unstable 0/144 | 1500 K unstable 1/144 | 300 K without thermostat: unstable 0/48, energy drift mean |d| 0.0005 meV/atom/ps, above 1e-3 in 6 trajectories, largest 0.0020
+  PhysMuon: 48 tasks | 1000 K unstable 0/144 | 1500 K unstable 0/144 | 300 K without thermostat: unstable 0/48, energy drift mean |d| 0.0005 meV/atom/ps, above 1e-3 in 5 trajectories, largest 0.0016
+    unstable: Muon seed 2 molecule m10 (C9H12O4) at 1500 K after 28.28 ps, 2 fragments
+
+=== spice2: 8 molecules, 6 seeds ===
+      Muon: 48 tasks | 600 K unstable 0/144 | 1000 K unstable 0/144 | 300 K without thermostat: unstable 0/48, energy drift mean |d| 0.0005 meV/atom/ps, above 1e-3 in 6 trajectories, largest 0.0028
+  PhysMuon: 48 tasks | 600 K unstable 0/144 | 1000 K unstable 0/144 | 300 K without thermostat: unstable 0/48, energy drift mean |d| 0.0004 meV/atom/ps, above 1e-3 in 4 trajectories, largest 0.0016
+
+  both data sets: energy drift above 1e-3 meV/atom/ps in 12 of 96 Muon trajectories (largest 0.0028), 9 of 96 PhysMuon trajectories (largest 0.0016)
+
+##### 2. SPICE2 stress tests: seven trajectories at one temperature, 42 ps; a split counts when it lasts 100 fs
+
+=== SPICE2: 8 molecules x 6 seeds x 7 trajectories = 336 trajectories per optimizer and temperature ===
+  1200 K       Muon: unstable 2/336 (0.6%) | stable at 10/20/30/42 ps: 100/100/100/99% | 42-ps RMST 41.9 ps | healed splits per trajectory 0.01 | per seed [0, 0, 0, 1, 1, 0]
+  1200 K   PhysMuon: unstable 1/336 (0.3%) | stable at 10/20/30/42 ps: 100/100/100/100% | 42-ps RMST 41.9 ps | healed splits per trajectory 0.00 | per seed [0, 0, 1, 0, 0, 0]
+  1500 K       Muon: unstable 15/336 (4.5%) | stable at 10/20/30/42 ps: 98/98/97/96% | 42-ps RMST 41.0 ps | healed splits per trajectory 0.13 | per seed [2, 2, 2, 5, 3, 1]
+  1500 K   PhysMuon: unstable 6/336 (1.8%) | stable at 10/20/30/42 ps: 99/99/99/98% | 42-ps RMST 41.6 ps | healed splits per trajectory 0.06 | per seed [1, 1, 1, 0, 2, 1]
+  1800 K       Muon: unstable 88/336 (26.2%) | stable at 10/20/30/42 ps: 88/82/78/74% | 42-ps RMST 35.0 ps | healed splits per trajectory 0.97 | per seed [9, 8, 13, 30, 24, 4]
+  1800 K   PhysMuon: unstable 58/336 (17.3%) | stable at 10/20/30/42 ps: 93/90/87/83% | 42-ps RMST 37.8 ps | healed splits per trajectory 0.85 | per seed [7, 10, 14, 4, 8, 15]
+  2100 K       Muon: unstable 224/336 (66.7%) | stable at 10/20/30/42 ps: 71/51/41/33% | 42-ps RMST 23.4 ps | healed splits per trajectory 2.65 | per seed [23, 32, 44, 48, 48, 29]
+  2100 K   PhysMuon: unstable 164/336 (48.8%) | stable at 10/20/30/42 ps: 80/69/59/51% | 42-ps RMST 29.4 ps | healed splits per trajectory 3.00 | per seed [20, 31, 33, 20, 22, 38]
+
+  Seed-level comparison (n = 6 seeds, exact 2^6 sign-flip test and exhaustive 6^6 seed-cluster bootstrap 95% CIs)
+  1200 K: seeds fewer/more 2/1 (p = 1.0000) | pairs 2/1 | rate ratio 2.00 [0.00, inf] | RMST gain -0.02 ps [-0.20, +0.11]
+  1500 K: seeds fewer/more 5/0 (p = 0.0625) | pairs 9/4 | rate ratio 2.54 [1.46, 6.85] | RMST gain +0.61 ps [+0.17, +1.21]
+  1800 K: seeds fewer/more 3/3 (p = 0.4375) | pairs 19/9 | rate ratio 1.64 [0.62, 4.09] | RMST gain +2.81 ps [-1.85, +7.98]
+  2100 K: seeds fewer/more 5/1 (p = 0.1562) | pairs 26/9 | rate ratio 1.71 [1.01, 3.01] | RMST gain +5.96 ps [+0.47, +11.41]
+  All 4 combined: Muon 329 vs PhysMuon 229 | seeds 4/1 (p = 0.3125) | pairs 30/15 | rate ratio 1.53 [0.91, 2.65]
+
+  unstable trajectories per molecule (of 42), Muon / PhysMuon
+  m0 C5H10Cl2Si     1200 K 0/0 | 1500 K 0/0 | 1800 K 6/1 | 2100 K 13/12
+  m1 C8H13NO2       1200 K 0/0 | 1500 K 6/1 | 1800 K 20/19 | 2100 K 38/31
+  m2 C10H17NOS      1200 K 0/0 | 1500 K 0/0 | 1800 K 2/0 | 2100 K 18/13
+  m3 C17H18Si       1200 K 1/1 | 1500 K 7/4 | 1800 K 26/27 | 2100 K 42/41
+  m4 C14H23NO3Si    1200 K 0/0 | 1500 K 0/0 | 1800 K 6/1 | 2100 K 25/7
+  m5 C14H32N2       1200 K 0/0 | 1500 K 0/0 | 1800 K 3/1 | 2100 K 33/17
+  m6 C21H25N3O5     1200 K 0/0 | 1500 K 1/1 | 1800 K 10/4 | 2100 K 25/19
+  m7 C25H27N5O3     1200 K 1/0 | 1500 K 1/0 | 1800 K 15/5 | 2100 K 30/24
+  of the 32 molecule-temperature groups, PhysMuon has fewer in 19, equal in 12, more in 1
+  broken bonds, all temperatures: Muon C-H 211 C-Si 54 Cl-Si 12 other 52, PhysMuon C-H 115 C-Si 64 Cl-Si 10 other 42
+
+  equivalent tolerated temperature (linearly interpolated; exact 6^6 seed-cluster bootstrap 95% CIs)
+  Muon at 1200 K (0.6% unstable) -> PhysMuon at 1260 K (+60 K) [1200, 1500]
+  Muon at 1500 K (4.5% unstable) -> PhysMuon at 1552 K (+52 K) [1514, 1638]
+  Muon at 1800 K (26.2% unstable) -> PhysMuon at 1885 K (+85 K) [1685, 2093]
+
+##### 3. Temperature scaling: shared-prefactor Arrhenius fit, rate = A exp(-E_opt / (kB T))
+  lam = E_PhysMuon / E_Muon: PhysMuon at T breaks a bond as often as Muon at T / lam
+  all instabilities    lam = 1.065 [1.025, 1.107] | E_Muon 1.42, E_PhysMuon 1.51 eV | broken at 1200/1500/1800/2100 K: Muon 2/15/88/224, PhysMuon 1/6/58/164
+  C-H, all molecules   lam = 1.089 [1.038, 1.147] | E_Muon 1.53, E_PhysMuon 1.67 eV | broken at 1200/1500/1800/2100 K: Muon 1/8/55/147, PhysMuon 0/2/26/87
+  C-Si, m0 m3 m4       lam = 0.992 [0.905, 1.072] | E_Muon 1.07, E_PhysMuon 1.06 eV | broken at 1200/1500/1800/2100 K: Muon 1/5/16/32, PhysMuon 1/4/21/38
+  Si-Cl, m0            lam = 1.023 [0.924, 1.147] | E_Muon 1.71, E_PhysMuon 1.75 eV | broken at 1200/1500/1800/2100 K: Muon 0/0/4/8, PhysMuon 0/0/1/9
+  C-H, m1              lam = 1.070 [0.943, 1.221] | E_Muon 1.37, E_PhysMuon 1.47 eV | broken at 1200/1500/1800/2100 K: Muon 0/5/17/34, PhysMuon 0/1/16/28
+  Si-C, m3             lam = 0.995 [0.906, 1.091] | E_Muon 1.56, E_PhysMuon 1.55 eV | broken at 1200/1500/1800/2100 K: Muon 1/5/16/27, PhysMuon 1/4/21/37
+
+##### 4. ANI-1x: accuracy on configurations from the trajectories, against wB97x/6-31G(d)
+       all (360 configurations): force MAE Muon 38.0 [36.8-38.5] -> PhysMuon 34.2 [33.7-35.2] meV/A (-9.9%; PhysMuon better in 16/16 model pairs) | energy MAE 1.42 -> 1.35 meV/atom (-5.1%)
+     300 K (120 configurations): force MAE Muon 28.8 [28.5-29.2] -> PhysMuon 25.9 [25.0-27.0] meV/A (-9.8%; PhysMuon better in 16/16 model pairs) | energy MAE 0.96 -> 0.90 meV/atom (-6.4%)
+   1,000 K (120 configurations): force MAE Muon 39.1 [38.0-39.9] -> PhysMuon 35.1 [34.8-35.9] meV/A (-10.3%; PhysMuon better in 16/16 model pairs) | energy MAE 1.43 -> 1.40 meV/atom (-2.5%)
+   1,500 K (120 configurations): force MAE Muon 46.1 [44.1-47.1] -> PhysMuon 41.6 [40.4-42.8] meV/A (-9.7%; PhysMuon better in 16/16 model pairs) | energy MAE 1.88 -> 1.76 meV/atom (-6.4%)
+  the DFT setup against the labels of the data set: force difference 1.6 meV/A on 12 validation configurations
+
+##### 5. SPICE2: bond-stretch scans against wB97M-D3(BJ)/def2-TZVPPD (the lower of the restricted and the unrestricted energy)
+  Si-Cl (m0): model energy / DFT energy at +1.0 to +3.0 A: Muon 65.9%, PhysMuon 69.8% | PhysMuon above Muon by +6.0%
+      within 0.2 A of the start: largest |model - DFT| 0.015 eV | 9-point MAE: Muon 0.871, PhysMuon 0.778 eV (-10.7%)
+  C-H (m1): model energy / DFT energy at +1.0 to +3.0 A: Muon 60.0%, PhysMuon 63.4% | PhysMuon above Muon by +5.7%
+      within 0.2 A of the start: largest |model - DFT| 0.041 eV | 9-point MAE: Muon 0.816, PhysMuon 0.747 eV (-8.4%)
+  Si-C (m3): model energy / DFT energy at +1.0 to +3.0 A: Muon 83.9%, PhysMuon 89.7% | PhysMuon above Muon by +6.9%
+      within 0.2 A of the start: largest |model - DFT| 0.017 eV | 9-point MAE: Muon 0.442, PhysMuon 0.378 eV (-14.4%)
+  ranges over the three bonds: Muon 60.0%-83.9%, PhysMuon 63.4%-89.7% | full-curve MAE lower by 8.4%-14.4%
+  the DFT setup against the labels of the data set: force difference 0.4 meV/A on 3 starting configurations

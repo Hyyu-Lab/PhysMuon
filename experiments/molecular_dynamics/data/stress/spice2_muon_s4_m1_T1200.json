@@ -1,0 +1,64 @@
+{
+ "dataset": "spice2",
+ "opt": "muon",
+ "seed": 4,
+ "mol": 1,
+ "natoms": 24,
+ "frame": 832,
+ "formula": {
+  "O": 2,
+  "C": 8,
+  "N": 1,
+  "H": 13
+ },
+ "temps": [
+  1200.0,
+  1200.0,
+  1200.0,
+  1200.0,
+  1200.0,
+  1200.0,
+  1200.0
+ ],
+ "stress_T": 1200.0,
+ "replica_failures": [
+  null,
+  null,
+  null,
+  null,
+  null,
+  null,
+  null
+ ],
+ "transient_splits": [
+  0,
+  0,
+  0,
+  0,
+  0,
+  1,
+  0
+ ],
+ "longest_transient_checks": [
+  0,
+  0,
+  0,
+  0,
+  0,
+  1,
+  0
+ ],
+ "persist_checks": 10,
+ "open_split_at_end_ps": [
+  null,
+  null,
+  null,
+  null,
+  null,
+  null,
+  null
+ ],
+ "ms_per_call": 8.64,
+ "ps_per_replica": 42.0,
+ "stopped_at_ps": 42.0
+}

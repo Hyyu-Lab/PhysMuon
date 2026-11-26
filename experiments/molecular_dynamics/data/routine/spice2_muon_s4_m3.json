@@ -1,0 +1,68 @@
+{
+ "dataset": "spice2",
+ "opt": "muon",
+ "seed": 4,
+ "mol": 3,
+ "natoms": 36,
+ "frame": 127,
+ "formula": {
+  "C": 17,
+  "Si": 1,
+  "H": 18
+ },
+ "temps": [
+  300.0,
+  600.0,
+  600.0,
+  600.0,
+  1000.0,
+  1000.0,
+  1000.0
+ ],
+ "stress_T": null,
+ "replica_failures": [
+  null,
+  null,
+  null,
+  null,
+  null,
+  null,
+  null
+ ],
+ "transient_splits": [
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0
+ ],
+ "longest_transient_checks": [
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0
+ ],
+ "persist_checks": 1,
+ "open_split_at_end_ps": [
+  null,
+  null,
+  null,
+  null,
+  null,
+  null,
+  null
+ ],
+ "ms_per_call": 13.04,
+ "ps_per_replica": 42.0,
+ "stopped_at_ps": 42.0,
+ "nve_ps": 40.0,
+ "nve_drift_meV_atom_ps": -0.0002860986447659592,
+ "nve_std_meV_atom": 0.023841489303688658,
+ "nve_maxdev_meV_atom": 0.0982329121401541,
+ "nve_T_mean": 264.47561018123946
+}

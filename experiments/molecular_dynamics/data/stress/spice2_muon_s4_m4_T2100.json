@@ -1,0 +1,161 @@
+{
+ "dataset": "spice2",
+ "opt": "muon",
+ "seed": 4,
+ "mol": 4,
+ "natoms": 42,
+ "frame": 186,
+ "formula": {
+  "O": 3,
+  "C": 14,
+  "N": 1,
+  "Si": 1,
+  "H": 23
+ },
+ "temps": [
+  2100.0,
+  2100.0,
+  2100.0,
+  2100.0,
+  2100.0,
+  2100.0,
+  2100.0
+ ],
+ "stress_T": 2100.0,
+ "replica_failures": [
+  {
+   "t_ps": 3.34,
+   "fragments": 2,
+   "dmin": 0.941,
+   "finite": true,
+   "fragment_formulas": [
+    "H",
+    "C14H22NO3Si"
+   ],
+   "broken_bonds": [
+    "C12-H29 1.69A"
+   ],
+   "confirmed_ps": 3.43,
+   "broken_bonds_confirmed": [
+    "C12-H29 9.89A"
+   ]
+  },
+  null,
+  {
+   "t_ps": 27.89,
+   "fragments": 2,
+   "dmin": 0.951,
+   "finite": true,
+   "fragment_formulas": [
+    "H",
+    "C14H22NO3Si"
+   ],
+   "broken_bonds": [
+    "C6-H23 1.66A"
+   ],
+   "confirmed_ps": 27.98,
+   "broken_bonds_confirmed": [
+    "C6-H23 3.60A"
+   ]
+  },
+  {
+   "t_ps": 23.5,
+   "fragments": 2,
+   "dmin": 0.932,
+   "finite": true,
+   "fragment_formulas": [
+    "H",
+    "C14H22NO3Si"
+   ],
+   "broken_bonds": [
+    "C8-H25 1.79A"
+   ],
+   "confirmed_ps": 23.59,
+   "broken_bonds_confirmed": [
+    "C8-H25 7.96A"
+   ]
+  },
+  {
+   "t_ps": 35.55,
+   "fragments": 2,
+   "dmin": 1.003,
+   "finite": true,
+   "fragment_formulas": [
+    "H",
+    "C14H22NO3Si"
+   ],
+   "broken_bonds": [
+    "C4-H21 2.27A"
+   ],
+   "confirmed_ps": 35.64,
+   "broken_bonds_confirmed": [
+    "C4-H21 10.41A"
+   ]
+  },
+  {
+   "t_ps": 23.02,
+   "fragments": 2,
+   "dmin": 1.011,
+   "finite": true,
+   "fragment_formulas": [
+    "CH5O2Si",
+    "C13H18NO"
+   ],
+   "broken_bonds": [
+    "C17-Si18 3.03A"
+   ],
+   "confirmed_ps": 23.11,
+   "broken_bonds_confirmed": [
+    "C17-Si18 4.42A"
+   ]
+  },
+  {
+   "t_ps": 1.35,
+   "fragments": 2,
+   "dmin": 0.849,
+   "finite": true,
+   "fragment_formulas": [
+    "H",
+    "C14H22NO3Si"
+   ],
+   "broken_bonds": [
+    "O1-H19 1.90A"
+   ],
+   "confirmed_ps": 1.44,
+   "broken_bonds_confirmed": [
+    "O1-H19 5.55A"
+   ]
+  }
+ ],
+ "transient_splits": [
+  1,
+  23,
+  11,
+  3,
+  7,
+  5,
+  0
+ ],
+ "longest_transient_checks": [
+  1,
+  3,
+  2,
+  2,
+  1,
+  1,
+  0
+ ],
+ "persist_checks": 10,
+ "open_split_at_end_ps": [
+  null,
+  null,
+  null,
+  null,
+  null,
+  null,
+  null
+ ],
+ "ms_per_call": 8.25,
+ "ps_per_replica": 42.0,
+ "stopped_at_ps": 42.0
+}

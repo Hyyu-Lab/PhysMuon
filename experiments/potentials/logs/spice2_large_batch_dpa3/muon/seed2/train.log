@@ -1,0 +1,19 @@
+wrote input.json: steps=20000 seed=2 lr_mult=8.0 sched=exp batch=auto:2048 types=['H', 'B', 'C', 'N', 'O', 'F', 'Si', 'P', 'S', 'Cl', 'Br', 'I']
+[run] task=spice2_lb arm=muon steps=20000 seed=2 lr_mult=8 batch=auto:2048 mu=0.98 pm=0 gate=0 wmax= iso=0 bf= bs= bm_start=6154
+[muon_bm_dp] installed arm=muon iso=0
+[muon_bm_dp] arm=muon muon_params=1300992 adam_params=10049 lr=0.008 wd=0.0 mu=0.98 bm_phases=[]
+[2026-11-26 10:03:18,231] DEEPMD INFO    average training time: 0.2129 s/batch (100 batches excluded)
+[done] train 4388 s
+[2026-11-26 10:05:44,866] DEEPMD INFO    Energy RMSE        : 6.039363e-01 eV
+[2026-11-26 10:05:44,866] DEEPMD INFO    Energy MAE/Natoms  : 3.740254e-03 eV
+[2026-11-26 10:05:44,866] DEEPMD INFO    Energy RMSE/Natoms : 5.490330e-03 eV
+[2026-11-26 10:05:44,866] DEEPMD INFO    Force  MAE         : 6.443174e-02 eV/Å
+[2026-11-26 10:05:44,866] DEEPMD INFO    Force  RMSE        : 2.545298e-01 eV/Å
+[2026-11-26 10:05:44,866] DEEPMD INFO    # ----------weighted average of errors----------- 
+[2026-11-26 10:05:44,866] DEEPMD INFO    Energy MAE         : 1.576977e-01 eV
+[2026-11-26 10:05:44,866] DEEPMD INFO    Energy RMSE        : 2.451282e-01 eV
+[2026-11-26 10:05:44,866] DEEPMD INFO    Energy MAE/Natoms  : 5.844646e-03 eV
+[2026-11-26 10:05:44,866] DEEPMD INFO    Energy RMSE/Natoms : 1.581511e-02 eV
+[2026-11-26 10:05:44,866] DEEPMD INFO    Force  MAE         : 3.154258e-02 eV/Å
+[2026-11-26 10:05:44,866] DEEPMD INFO    Force  RMSE        : 5.805216e-02 eV/Å
+[done] test 147 s

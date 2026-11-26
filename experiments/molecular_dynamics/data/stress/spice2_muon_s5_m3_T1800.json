@@ -1,0 +1,95 @@
+{
+ "dataset": "spice2",
+ "opt": "muon",
+ "seed": 5,
+ "mol": 3,
+ "natoms": 36,
+ "frame": 127,
+ "formula": {
+  "C": 17,
+  "Si": 1,
+  "H": 18
+ },
+ "temps": [
+  1800.0,
+  1800.0,
+  1800.0,
+  1800.0,
+  1800.0,
+  1800.0,
+  1800.0
+ ],
+ "stress_T": 1800.0,
+ "replica_failures": [
+  {
+   "t_ps": 32.95,
+   "fragments": 2,
+   "dmin": 1.013,
+   "finite": true,
+   "fragment_formulas": [
+    "C9H7",
+    "C8H11Si"
+   ],
+   "broken_bonds": [
+    "C16-Si17 2.96A"
+   ],
+   "confirmed_ps": 33.04,
+   "broken_bonds_confirmed": [
+    "C16-Si17 4.29A"
+   ]
+  },
+  {
+   "t_ps": 24.57,
+   "fragments": 2,
+   "dmin": 0.997,
+   "finite": true,
+   "fragment_formulas": [
+    "C9H7",
+    "C8H11Si"
+   ],
+   "broken_bonds": [
+    "C16-Si17 2.94A"
+   ],
+   "confirmed_ps": 24.66,
+   "broken_bonds_confirmed": [
+    "C16-Si17 4.67A"
+   ]
+  },
+  null,
+  null,
+  null,
+  null,
+  null
+ ],
+ "transient_splits": [
+  1,
+  1,
+  0,
+  0,
+  0,
+  0,
+  0
+ ],
+ "longest_transient_checks": [
+  3,
+  1,
+  0,
+  0,
+  0,
+  0,
+  0
+ ],
+ "persist_checks": 10,
+ "open_split_at_end_ps": [
+  null,
+  null,
+  null,
+  null,
+  null,
+  null,
+  null
+ ],
+ "ms_per_call": 7.27,
+ "ps_per_replica": 42.0,
+ "stopped_at_ps": 42.0
+}

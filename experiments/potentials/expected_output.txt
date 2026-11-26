@@ -1,0 +1,35 @@
+##### 1. Validation errors: baseline -> PhysMuon (mean seed-paired change, seeds on which PhysMuon is lower)
+      forces in meV/A, energies and virials in meV per atom
+
+  MPtrj (DPA-3), baseline Muon: force mae 123.5 -> 97.6 (-20.9%, 4/4) | energy mae 41.8 -> 32.2 (-22.9%, 4/4) | force rmse 295.5 -> 215.0 (-26.9%, 4/4) | virial mae 58.4 -> 49.5 (-15.2%, 4/4)
+      force MAE per seed,           Muon: 128.63  126.35  121.20  117.71   mean 123.47
+      force MAE per seed,       PhysMuon: 97.52  95.11  100.33  97.33   mean 97.57
+  SPICE2 (DPA-3), baseline Muon: force mae 69.6 -> 63.7 (-8.3%, 6/6) | energy mae 18.5 -> 16.2 (-12.0%, 6/6) | force rmse 120.9 -> 111.9 (-7.4%, 6/6)
+      force MAE per seed,           Muon: 70.19  68.91  71.42  68.54  65.24  73.16   mean 69.58
+      force MAE per seed,       PhysMuon: 63.27  60.84  66.39  63.68  63.57  64.58   mean 63.72
+  SPICE2, large batch (DPA-3), baseline Muon: force mae 30.9 -> 28.1 (-9.0%, 6/6) | energy mae 5.9 -> 4.9 (-16.6%, 6/6) | force rmse 57.6 -> 52.8 (-8.3%, 6/6)
+      force MAE per seed,           Muon: 30.58  30.31  31.54  30.67  30.50  31.97   mean 30.93
+      force MAE per seed,       PhysMuon: 27.50  28.08  28.55  27.68  28.02  28.98   mean 28.14
+  ANI-1x (DPA-3), baseline Muon: force mae 46.9 -> 42.1 (-10.2%, 4/4) | energy mae 7.5 -> 5.8 (-22.8%, 4/4) | force rmse 85.5 -> 76.6 (-10.3%, 4/4)
+      force MAE per seed,           Muon: 46.88  46.19  47.26  47.37   mean 46.92
+      force MAE per seed,       PhysMuon: 42.16  41.38  43.05  42.01   mean 42.15
+  MPtrj (DPA4-Mini), baseline HybridMuon: force mae 46.7 -> 43.3 (-7.4%, 3/3) | energy mae 18.5 -> 16.8 (-9.4%, 3/3) | force rmse 142.9 -> 121.0 (-14.4%, 3/3) | virial mae 33.7 -> 32.3 (-4.2%, 3/3)
+      force MAE per seed,     HybridMuon: 47.38  46.23  46.56   mean 46.72
+      force MAE per seed,       PhysMuon: 43.54  43.48  42.81   mean 43.28
+
+##### 2. SPICE2 (large batch): force MAE per element on the validation set (meV/A, mean of 6 seeds)
+   element  share of training atoms    Muon  PhysMuon  PhysMuon vs Muon
+         H                   45.64%    16.0      14.5             -8.9%
+         B                    0.13%    63.1      57.3             -9.2%
+         C                   36.96%    41.1      37.5             -8.9%
+         N                    6.57%    58.2      52.9             -9.1%
+         O                    7.20%    40.2      36.3             -9.8%
+         F                    1.03%    27.4      25.1             -8.2%
+        Si                    0.18%    77.3      70.0             -9.4%
+         P                    0.09%   145.3     124.5            -14.2%
+         S                    1.22%    64.9      59.0             -9.1%
+        Cl                    0.72%    24.8      22.8             -8.1%
+        Br                    0.21%    28.0      24.7            -11.6%
+         I                    0.05%    40.4      33.3            -16.8%
+       all                  100.00%   30.93     28.14             -9.0%
+  change over the 12 elements: -8.1% to -16.8% | elements with more than 1% of the training atoms (H, C, N, O, F, S; 98.6% together): -8.2% to -9.8%

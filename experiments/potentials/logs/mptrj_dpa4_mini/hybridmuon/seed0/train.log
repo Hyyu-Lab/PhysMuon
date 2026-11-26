@@ -1,0 +1,621 @@
+[bm_hybrid] arm=hmuon (stock deepmd HybridMuon) grad_log=True iso=0
+[bm_hybrid] arm=hmuon (stock deepmd HybridMuon) grad_log=True iso=0
+[2026-10-12 10:25:20,327] DEEPMD INFO    DeePMD version: 3.2.0
+[2026-10-12 10:25:20,327] DEEPMD INFO    DeePMD version: 3.2.0
+[2026-10-12 10:25:20,327] DEEPMD INFO    Configuration path: input.json
+[2026-10-12 10:25:20,327] DEEPMD INFO    Configuration path: input.json
+[2026-10-12 10:25:20,328] DEEPMD INFO     _____               _____   __  __  _____           _     _  _   
+[2026-10-12 10:25:20,328] DEEPMD INFO    |  __ \             |  __ \ |  \/  ||  __ \         | |   (_)| |  
+[2026-10-12 10:25:20,328] DEEPMD INFO    | |  | |  ___   ___ | |__) || \  / || |  | | ______ | | __ _ | |_ 
+[2026-10-12 10:25:20,328] DEEPMD INFO    | |  | | / _ \ / _ \|  ___/ | |\/| || |  | ||______|| |/ /| || __|
+[2026-10-12 10:25:20,328] DEEPMD INFO    | |__| ||  __/|  __/| |     | |  | || |__| |        |   < | || |_ 
+[2026-10-12 10:25:20,328] DEEPMD INFO    |_____/  \___| \___||_|     |_|  |_||_____/         |_|\_\|_| \__|
+[2026-10-12 10:25:20,328] DEEPMD INFO    Please read and cite:
+[2026-10-12 10:25:20,328] DEEPMD INFO    Wang, Zhang, Han and E, Comput.Phys.Comm. 228, 178-184 (2018)
+[2026-10-12 10:25:20,328] DEEPMD INFO    Zeng et al, J. Chem. Phys., 159, 054801 (2023)
+[2026-10-12 10:25:20,328] DEEPMD INFO    Zeng et al, J. Chem. Theory Comput., 21, 4375-4385 (2025)
+[2026-10-12 10:25:20,328] DEEPMD INFO    See https://deepmd.rtfd.io/credits/ for details.
+[2026-10-12 10:25:20,328] DEEPMD INFO    ------------------------------------------------------------------------------
+[2026-10-12 10:25:20,328] DEEPMD INFO    Installed to:         (path removed)
+[2026-10-12 10:25:20,328] DEEPMD INFO    Source:               v3.2.0
+[2026-10-12 10:25:20,328] DEEPMD INFO    Source Branch:        HEAD
+[2026-10-12 10:25:20,328] DEEPMD INFO    Source Commit:        8cfd46e3
+[2026-10-12 10:25:20,328] DEEPMD INFO    Source Commit at:     2026-08-19 09:50:00 +0000
+[2026-10-12 10:25:20,328] DEEPMD INFO    Float Precision:      Double
+[2026-10-12 10:25:20,328] DEEPMD INFO    Build Variant:        CUDA
+[2026-10-12 10:25:20,328] DEEPMD INFO    Backend:              PyTorch
+[2026-10-12 10:25:20,328] DEEPMD INFO    PT Ver:               v2.13.0+cu130-gcf30153c4c1
+[2026-10-12 10:25:20,328] DEEPMD INFO    Custom OP Enabled:    False
+[2026-10-12 10:25:20,328] DEEPMD INFO    Running on:           (host name removed)
+[2026-10-12 10:25:20,328] DEEPMD INFO    Computing Device:     CUDA:0
+[2026-10-12 10:25:20,328] DEEPMD INFO    Device Name:          NVIDIA GeForce RTX 4090
+[2026-10-12 10:25:20,328] DEEPMD INFO    CUDA_VISIBLE_DEVICES: 0,1
+[2026-10-12 10:25:20,328] DEEPMD INFO    Visible GPU Count:    2
+[2026-10-12 10:25:20,328] DEEPMD INFO    Num Intra Threads:    8
+[2026-10-12 10:25:20,328] DEEPMD INFO    Num Inter Threads:    2
+[2026-10-12 10:25:20,328] DEEPMD INFO    ------------------------------------------------------------------------------
+[2026-10-12 10:25:24,770] DEEPMD INFO    Constructing DataLoaders from 241 systems
+[2026-10-12 10:25:29,146] DEEPMD INFO    Constructing DataLoaders from 105 systems
+[2026-10-12 10:25:30,135] DEEPMD INFO    Packing data for statistics from 241 systems
+[2026-10-12 10:28:09,969] DEEPMD INFO    RMSE of energy per atom after linear regression is: 0.8869558213863913 in the unit of energy.
+[2026-10-12 10:28:22,213] DEEPMD INFO    ---Summary of DataSystem: Training     -----------------------------------------------
+[2026-10-12 10:28:22,213] DEEPMD INFO    Found 241 System(s):
+[2026-10-12 10:28:22,214] DEEPMD INFO                                        system  natoms  bch_sz  n_bch   prob       pbc
+[2026-10-12 10:28:22,214] DEEPMD INFO    -- mptrj/data_mixed/train/69      69      51      13  9.946e-04    T
+[2026-10-12 10:28:22,214] DEEPMD INFO    -- mptrj/data_mixed/train/34      34     103     124  8.951e-03    T
+[2026-10-12 10:28:22,214] DEEPMD INFO    -- mptrj/data_mixed/train/360     360      10       1  1.421e-04    T
+[2026-10-12 10:28:22,214] DEEPMD INFO    -- mptrj/data_mixed/train/37      37      95      45  3.268e-03    T
+[2026-10-12 10:28:22,214] DEEPMD INFO    -- mptrj/data_mixed/train/352     352      10       1  1.421e-04    T
+[2026-10-12 10:28:22,214] DEEPMD INFO    -- mptrj/data_mixed/train/85      85      42       5  4.263e-04    T
+[2026-10-12 10:28:22,214] DEEPMD INFO    -- mptrj/data_mixed/train/80      80      44     390  2.785e-02    T
+[2026-10-12 10:28:22,214] DEEPMD INFO    -- mptrj/data_mixed/train/119     119      30       3  2.842e-04    T
+[2026-10-12 10:28:22,214] DEEPMD INFO    -- mptrj/data_mixed/train/157     157      23       1  1.421e-04    T
+[2026-10-12 10:28:22,214] DEEPMD INFO    -- mptrj/data_mixed/train/88      88      40     194  1.392e-02    T
+[2026-10-12 10:28:22,214] DEEPMD INFO    -- mptrj/data_mixed/train/107     107      33       3  2.842e-04    T
+[2026-10-12 10:28:22,214] DEEPMD INFO    -- mptrj/data_mixed/train/83      83      43      19  1.421e-03    T
+[2026-10-12 10:28:22,214] DEEPMD INFO    -- mptrj/data_mixed/train/103     103      34       4  4.263e-04    T
+[2026-10-12 10:28:22,214] DEEPMD INFO    -- mptrj/data_mixed/train/53      53      67      10  8.525e-04    T
+[2026-10-12 10:28:22,214] DEEPMD INFO    -- mptrj/data_mixed/train/145     145      25       1  1.421e-04    T
+[2026-10-12 10:28:22,214] DEEPMD INFO    -- mptrj/data_mixed/train/7       7     500      31  2.273e-03    T
+[2026-10-12 10:28:22,214] DEEPMD INFO    -- mptrj/data_mixed/train/208     208      17      12  9.946e-04    T
+[2026-10-12 10:28:22,214] DEEPMD INFO    -- mptrj/data_mixed/train/133     133      27       1  1.421e-04    T
+[2026-10-12 10:28:22,214] DEEPMD INFO    -- mptrj/data_mixed/train/56      56      63     378  2.700e-02    T
+[2026-10-12 10:28:22,214] DEEPMD INFO    -- mptrj/data_mixed/train/175     175      20       1  1.421e-04    T
+[2026-10-12 10:28:22,214] DEEPMD INFO    -- mptrj/data_mixed/train/246     246      15       2  1.421e-04    T
+[2026-10-12 10:28:22,214] DEEPMD INFO    -- mptrj/data_mixed/train/171     171      21       1  1.421e-04    T
+[2026-10-12 10:28:22,214] DEEPMD INFO    -- mptrj/data_mixed/train/288     288      13       6  4.263e-04    T
+[2026-10-12 10:28:22,214] DEEPMD INFO    -- mptrj/data_mixed/train/51      51      69      15  1.137e-03    T
+[2026-10-12 10:28:22,214] DEEPMD INFO    -- mptrj/data_mixed/train/125     125      28       3  2.842e-04    T
+[2026-10-12 10:28:22,214] DEEPMD INFO    -- mptrj/data_mixed/train/21      21     167      81  5.826e-03    T
+[2026-10-12 10:28:22,214] DEEPMD INFO    -- mptrj/data_mixed/train/121     121      29       2  2.842e-04    T
+[2026-10-12 10:28:22,214] DEEPMD INFO    -- mptrj/data_mixed/train/234     234      15       2  2.842e-04    T
+[2026-10-12 10:28:22,214] DEEPMD INFO    -- mptrj/data_mixed/train/59      59      60      18  1.421e-03    T
+[2026-10-12 10:28:22,214] DEEPMD INFO    -- mptrj/data_mixed/train/276     276      13       1  1.421e-04    T
+[2026-10-12 10:28:22,214] DEEPMD INFO    -- mptrj/data_mixed/train/24      24     146     475  3.382e-02    T
+[2026-10-12 10:28:22,214] DEEPMD INFO    -- mptrj/data_mixed/train/151     151      24       1  1.421e-04    T
+[2026-10-12 10:28:22,214] DEEPMD INFO    -- mptrj/data_mixed/train/222     222      16       1  1.421e-04    T
+[2026-10-12 10:28:22,214] DEEPMD INFO    -- mptrj/data_mixed/train/268     268      14       1  1.421e-04    T
+[2026-10-12 10:28:22,214] DEEPMD INFO    -- mptrj/data_mixed/train/264     264      14       2  2.842e-04    T
+[2026-10-12 10:28:22,214] DEEPMD INFO    -- mptrj/data_mixed/train/260     260      14       1  1.421e-04    T
+[2026-10-12 10:28:22,214] DEEPMD INFO    -- mptrj/data_mixed/train/27      27     130      40  2.984e-03    T
+[2026-10-12 10:28:22,214] DEEPMD INFO    -- mptrj/data_mixed/train/252     252      14       5  4.263e-04    T
+[2026-10-12 10:28:22,214] DEEPMD INFO    -- mptrj/data_mixed/train/75      75      47      14  1.137e-03    T
+[2026-10-12 10:28:22,214] DEEPMD INFO    -- mptrj/data_mixed/train/70      70      50      83  5.968e-03    T
+[2026-10-12 10:28:22,214] DEEPMD INFO    -- mptrj/data_mixed/train/240     240      15       9  7.104e-04    T
+[2026-10-12 10:28:22,214] DEEPMD INFO    -- mptrj/data_mixed/train/78      78      45      78  5.683e-03    T
+[2026-10-12 10:28:22,214] DEEPMD INFO    -- mptrj/data_mixed/train/73      73      48       8  7.104e-04    T
+[2026-10-12 10:28:22,214] DEEPMD INFO    -- mptrj/data_mixed/train/43      43      82      34  2.558e-03    T
+[2026-10-12 10:28:22,214] DEEPMD INFO    -- mptrj/data_mixed/train/6       6     584      82  5.968e-03    T
+[2026-10-12 10:28:22,214] DEEPMD INFO    -- mptrj/data_mixed/train/3       3    1167      11  8.525e-04    T
+[2026-10-12 10:28:22,214] DEEPMD INFO    -- mptrj/data_mixed/train/404     404       9       2  2.842e-04    T
+[2026-10-12 10:28:22,214] DEEPMD INFO    -- mptrj/data_mixed/train/108     108      33     106  7.673e-03    T
+[2026-10-12 10:28:22,214] DEEPMD INFO    -- mptrj/data_mixed/train/46      46      77     143  1.023e-02    T
+[2026-10-12 10:28:22,214] DEEPMD INFO    -- mptrj/data_mixed/train/146     146      24       6  5.683e-04    T
+[2026-10-12 10:28:22,214] DEEPMD INFO    -- mptrj/data_mixed/train/188     188      19      10  8.525e-04    T
+[2026-10-12 10:28:22,214] DEEPMD INFO    -- mptrj/data_mixed/train/41      41      86      36  2.700e-03    T
+[2026-10-12 10:28:22,214] DEEPMD INFO    -- mptrj/data_mixed/train/11      11     319      34  2.558e-03    T
+[2026-10-12 10:28:22,214] DEEPMD INFO    -- mptrj/data_mixed/train/138     138      26      10  8.525e-04    T
+[2026-10-12 10:28:22,214] DEEPMD INFO    -- mptrj/data_mixed/train/134     134      27       4  4.263e-04    T
+[2026-10-12 10:28:22,214] DEEPMD INFO    -- mptrj/data_mixed/train/49      49      72      25  1.847e-03    T
+[2026-10-12 10:28:22,214] DEEPMD INFO    -- mptrj/data_mixed/train/176     176      20      41  2.984e-03    T
+[2026-10-12 10:28:22,214] DEEPMD INFO    -- mptrj/data_mixed/train/19      19     185      77  5.541e-03    T
+[2026-10-12 10:28:22,214] DEEPMD INFO    -- mptrj/data_mixed/train/97      97      37       7  5.683e-04    T
+[2026-10-12 10:28:22,214] DEEPMD INFO    -- mptrj/data_mixed/train/126     126      28      18  1.421e-03    T
+[2026-10-12 10:28:22,214] DEEPMD INFO    -- mptrj/data_mixed/train/14      14     250     207  1.478e-02    T
+[2026-10-12 10:28:22,214] DEEPMD INFO    -- mptrj/data_mixed/train/92      92      39     117  8.383e-03    T
+[2026-10-12 10:28:22,214] DEEPMD INFO    -- mptrj/data_mixed/train/122     122      29       7  5.683e-04    T
+[2026-10-12 10:28:22,214] DEEPMD INFO    -- mptrj/data_mixed/train/164     164      22      33  2.415e-03    T
+[2026-10-12 10:28:22,214] DEEPMD INFO    -- mptrj/data_mixed/train/160     160      22      75  5.399e-03    T
+[2026-10-12 10:28:22,214] DEEPMD INFO    -- mptrj/data_mixed/train/114     114      31      15  1.137e-03    T
+[2026-10-12 10:28:22,214] DEEPMD INFO    -- mptrj/data_mixed/train/110     110      32      14  1.137e-03    T
+[2026-10-12 10:28:22,214] DEEPMD INFO    -- mptrj/data_mixed/train/17      17     206      34  2.558e-03    T
+[2026-10-12 10:28:22,214] DEEPMD INFO    -- mptrj/data_mixed/train/152     152      24      54  3.978e-03    T
+[2026-10-12 10:28:22,214] DEEPMD INFO    -- mptrj/data_mixed/train/65      65      54      20  1.563e-03    T
+[2026-10-12 10:28:22,214] DEEPMD INFO    -- mptrj/data_mixed/train/194     194      19       1  1.421e-04    T
+[2026-10-12 10:28:22,214] DEEPMD INFO    -- mptrj/data_mixed/train/190     190      19       1  1.421e-04    T
+[2026-10-12 10:28:22,214] DEEPMD INFO    -- mptrj/data_mixed/train/60      60      59     255  1.819e-02    T
+[2026-10-12 10:28:22,215] DEEPMD INFO    -- mptrj/data_mixed/train/140     140      25      45  3.268e-03    T
+[2026-10-12 10:28:22,215] DEEPMD INFO    -- mptrj/data_mixed/train/328     328      11       4  4.263e-04    T
+[2026-10-12 10:28:22,215] DEEPMD INFO    -- mptrj/data_mixed/train/68      68      52     217  1.549e-02    T
+[2026-10-12 10:28:22,215] DEEPMD INFO    -- mptrj/data_mixed/train/291     291      13       1  1.421e-04    T
+[2026-10-12 10:28:22,215] DEEPMD INFO    -- mptrj/data_mixed/train/63      63      56      34  2.558e-03    T
+[2026-10-12 10:28:22,215] DEEPMD INFO    -- mptrj/data_mixed/train/33      33     107      34  2.558e-03    T
+[2026-10-12 10:28:22,215] DEEPMD INFO    -- mptrj/data_mixed/train/312     312      12       1  1.421e-04    T
+[2026-10-12 10:28:22,215] DEEPMD INFO    -- mptrj/data_mixed/train/5       5     700      44  3.268e-03    T
+[2026-10-12 10:28:22,215] DEEPMD INFO    -- mptrj/data_mixed/train/2       2    1750       7  5.683e-04    T
+[2026-10-12 10:28:22,215] DEEPMD INFO    -- mptrj/data_mixed/train/304     304      12       2  1.421e-04    T
+[2026-10-12 10:28:22,215] DEEPMD INFO    -- mptrj/data_mixed/train/392     392       9       2  2.842e-04    T
+[2026-10-12 10:28:22,215] DEEPMD INFO    -- mptrj/data_mixed/train/300     300      12       1  1.421e-04    T
+[2026-10-12 10:28:22,215] DEEPMD INFO    -- mptrj/data_mixed/train/36      36      98     459  3.268e-02    T
+[2026-10-12 10:28:22,215] DEEPMD INFO    -- mptrj/data_mixed/train/31      31     113      49  3.552e-03    T
+[2026-10-12 10:28:22,215] DEEPMD INFO    -- mptrj/data_mixed/train/380     380      10       1  1.421e-04    T
+[2026-10-12 10:28:22,215] DEEPMD INFO    -- mptrj/data_mixed/train/109     109      33       3  2.842e-04    T
+[2026-10-12 10:28:22,215] DEEPMD INFO    -- mptrj/data_mixed/train/39      39      90      39  2.842e-03    T
+[2026-10-12 10:28:22,215] DEEPMD INFO    -- mptrj/data_mixed/train/87      87      41       7  5.683e-04    T
+[2026-10-12 10:28:22,215] DEEPMD INFO    -- mptrj/data_mixed/train/189     189      19       1  1.421e-04    T
+[2026-10-12 10:28:22,215] DEEPMD INFO    -- mptrj/data_mixed/train/82      82      43      40  2.984e-03    T
+[2026-10-12 10:28:22,215] DEEPMD INFO    -- mptrj/data_mixed/train/139     139      26       1  1.421e-04    T
+[2026-10-12 10:28:22,215] DEEPMD INFO    -- mptrj/data_mixed/train/135     135      26       1  1.421e-04    T
+[2026-10-12 10:28:22,215] DEEPMD INFO    -- mptrj/data_mixed/train/177     177      20       1  1.421e-04    T
+[2026-10-12 10:28:22,215] DEEPMD INFO    -- mptrj/data_mixed/train/127     127      28       1  1.421e-04    T
+[2026-10-12 10:28:22,215] DEEPMD INFO    -- mptrj/data_mixed/train/123     123      29       3  2.842e-04    T
+[2026-10-12 10:28:22,215] DEEPMD INFO    -- mptrj/data_mixed/train/169     169      21       1  1.421e-04    T
+[2026-10-12 10:28:22,215] DEEPMD INFO    -- mptrj/data_mixed/train/55      55      64      15  1.137e-03    T
+[2026-10-12 10:28:22,215] DEEPMD INFO    -- mptrj/data_mixed/train/165     165      22       1  1.421e-04    T
+[2026-10-12 10:28:22,215] DEEPMD INFO    -- mptrj/data_mixed/train/161     161      22       4  4.263e-04    T
+[2026-10-12 10:28:22,215] DEEPMD INFO    -- mptrj/data_mixed/train/50      50      70     108  7.815e-03    T
+[2026-10-12 10:28:22,215] DEEPMD INFO    -- mptrj/data_mixed/train/115     115      31       1  1.421e-04    T
+[2026-10-12 10:28:22,215] DEEPMD INFO    -- mptrj/data_mixed/train/111     111      32       5  4.263e-04    T
+[2026-10-12 10:28:22,215] DEEPMD INFO    -- mptrj/data_mixed/train/228     228      16       3  2.842e-04    T
+[2026-10-12 10:28:22,215] DEEPMD INFO    -- mptrj/data_mixed/train/153     153      23       1  1.421e-04    T
+[2026-10-12 10:28:22,215] DEEPMD INFO    -- mptrj/data_mixed/train/224     224      16       8  7.104e-04    T
+[2026-10-12 10:28:22,215] DEEPMD INFO    -- mptrj/data_mixed/train/58      58      61      75  5.399e-03    T
+[2026-10-12 10:28:22,215] DEEPMD INFO    -- mptrj/data_mixed/train/195     195      18       1  1.421e-04    T
+[2026-10-12 10:28:22,215] DEEPMD INFO    -- mptrj/data_mixed/train/191     191      19       1  1.421e-04    T
+[2026-10-12 10:28:22,215] DEEPMD INFO    -- mptrj/data_mixed/train/216     216      17      14  1.137e-03    T
+[2026-10-12 10:28:22,215] DEEPMD INFO    -- mptrj/data_mixed/train/23      23     153      48  3.552e-03    T
+[2026-10-12 10:28:22,215] DEEPMD INFO    -- mptrj/data_mixed/train/141     141      25       1  1.421e-04    T
+[2026-10-12 10:28:22,215] DEEPMD INFO    -- mptrj/data_mixed/train/212     212      17       2  2.842e-04    T
+[2026-10-12 10:28:22,215] DEEPMD INFO    -- mptrj/data_mixed/train/4       4     875      95  6.820e-03    T
+[2026-10-12 10:28:22,215] DEEPMD INFO    -- mptrj/data_mixed/train/296     296      12       5  4.263e-04    T
+[2026-10-12 10:28:22,215] DEEPMD INFO    -- mptrj/data_mixed/train/1       1    3500       1  1.421e-04    T
+[2026-10-12 10:28:22,215] DEEPMD INFO    -- mptrj/data_mixed/train/204     204      18       1  1.421e-04    T
+[2026-10-12 10:28:22,215] DEEPMD INFO    -- mptrj/data_mixed/train/292     292      12       2  2.842e-04    T
+[2026-10-12 10:28:22,215] DEEPMD INFO    -- mptrj/data_mixed/train/200     200      18      19  1.421e-03    T
+[2026-10-12 10:28:22,215] DEEPMD INFO    -- mptrj/data_mixed/train/26      26     135     166  1.194e-02    T
+[2026-10-12 10:28:22,215] DEEPMD INFO    -- mptrj/data_mixed/train/74      74      48      43  3.126e-03    T
+[2026-10-12 10:28:22,215] DEEPMD INFO    -- mptrj/data_mixed/train/284     284      13       1  1.421e-04    T
+[2026-10-12 10:28:22,215] DEEPMD INFO    -- mptrj/data_mixed/train/29      29     121      63  4.547e-03    T
+[2026-10-12 10:28:22,215] DEEPMD INFO    -- mptrj/data_mixed/train/272     272      13       3  2.842e-04    T
+[2026-10-12 10:28:22,215] DEEPMD INFO    -- mptrj/data_mixed/train/77      77      46      16  1.279e-03    T
+[2026-10-12 10:28:22,215] DEEPMD INFO    -- mptrj/data_mixed/train/72      72      49     308  2.202e-02    T
+[2026-10-12 10:28:22,215] DEEPMD INFO    -- mptrj/data_mixed/train/444     444       8       2  2.842e-04    T
+[2026-10-12 10:28:22,215] DEEPMD INFO    -- mptrj/data_mixed/train/45      45      78      42  3.126e-03    T
+[2026-10-12 10:28:22,215] DEEPMD INFO    -- mptrj/data_mixed/train/432     432       9       1  1.421e-04    T
+[2026-10-12 10:28:22,215] DEEPMD INFO    -- mptrj/data_mixed/train/178     178      20       4  4.263e-04    T
+[2026-10-12 10:28:22,215] DEEPMD INFO    -- mptrj/data_mixed/train/40      40      88     487  3.467e-02    T
+[2026-10-12 10:28:22,215] DEEPMD INFO    -- mptrj/data_mixed/train/128     128      28      70  5.115e-03    T
+[2026-10-12 10:28:22,215] DEEPMD INFO    -- mptrj/data_mixed/train/124     124      29      37  2.700e-03    T
+[2026-10-12 10:28:22,215] DEEPMD INFO    -- mptrj/data_mixed/train/48      48      73     381  2.714e-02    T
+[2026-10-12 10:28:22,215] DEEPMD INFO    -- mptrj/data_mixed/train/166     166      22       2  2.842e-04    T
+[2026-10-12 10:28:22,215] DEEPMD INFO    -- mptrj/data_mixed/train/96      96      37     183  1.307e-02    T
+[2026-10-12 10:28:22,215] DEEPMD INFO    -- mptrj/data_mixed/train/116     116      31      63  4.547e-03    T
+[2026-10-12 10:28:22,215] DEEPMD INFO    -- mptrj/data_mixed/train/13      13     270      53  3.836e-03    T
+[2026-10-12 10:28:22,215] DEEPMD INFO    -- mptrj/data_mixed/train/91      91      39       4  4.263e-04    T
+[2026-10-12 10:28:22,215] DEEPMD INFO    -- mptrj/data_mixed/train/112     112      32     120  8.667e-03    T
+[2026-10-12 10:28:22,215] DEEPMD INFO    -- mptrj/data_mixed/train/158     158      23       2  2.842e-04    T
+[2026-10-12 10:28:22,215] DEEPMD INFO    -- mptrj/data_mixed/train/154     154      23       4  4.263e-04    T
+[2026-10-12 10:28:22,215] DEEPMD INFO    -- mptrj/data_mixed/train/150     150      24      17  1.279e-03    T
+[2026-10-12 10:28:22,215] DEEPMD INFO    -- mptrj/data_mixed/train/196     196      18       7  5.683e-04    T
+[2026-10-12 10:28:22,215] DEEPMD INFO    -- mptrj/data_mixed/train/104     104      34     119  8.525e-03    T
+[2026-10-12 10:28:22,215] DEEPMD INFO    -- mptrj/data_mixed/train/99      99      36       5  4.263e-04    T
+[2026-10-12 10:28:22,215] DEEPMD INFO    -- mptrj/data_mixed/train/192     192      19      53  3.836e-03    T
+[2026-10-12 10:28:22,215] DEEPMD INFO    -- mptrj/data_mixed/train/100     100      35     236  1.691e-02    T
+[2026-10-12 10:28:22,215] DEEPMD INFO    -- mptrj/data_mixed/train/16      16     219     327  2.330e-02    T
+[2026-10-12 10:28:22,215] DEEPMD INFO    -- mptrj/data_mixed/train/94      94      38      35  2.558e-03    T
+[2026-10-12 10:28:22,215] DEEPMD INFO    -- mptrj/data_mixed/train/142     142      25      10  8.525e-04    T
+[2026-10-12 10:28:22,215] DEEPMD INFO    -- mptrj/data_mixed/train/64      64      55     420  2.998e-02    T
+[2026-10-12 10:28:22,215] DEEPMD INFO    -- mptrj/data_mixed/train/184     184      20      23  1.705e-03    T
+[2026-10-12 10:28:22,215] DEEPMD INFO    -- mptrj/data_mixed/train/180     180      20      19  1.421e-03    T
+[2026-10-12 10:28:22,215] DEEPMD INFO    -- mptrj/data_mixed/train/130     130      27       5  4.263e-04    T
+[2026-10-12 10:28:22,215] DEEPMD INFO    -- mptrj/data_mixed/train/172     172      21      13  9.946e-04    T
+[2026-10-12 10:28:22,215] DEEPMD INFO    -- mptrj/data_mixed/train/67      67      53       8  7.104e-04    T
+[2026-10-12 10:28:22,215] DEEPMD INFO    -- mptrj/data_mixed/train/62      62      57      80  5.826e-03    T
+[2026-10-12 10:28:22,215] DEEPMD INFO    -- mptrj/data_mixed/train/32      32     110     453  3.225e-02    T
+[2026-10-12 10:28:22,215] DEEPMD INFO    -- mptrj/data_mixed/train/273     273      13       1  1.421e-04    T
+[2026-10-12 10:28:22,215] DEEPMD INFO    -- mptrj/data_mixed/train/344     344      11       1  1.421e-04    T
+[2026-10-12 10:28:22,215] DEEPMD INFO    -- mptrj/data_mixed/train/336     336      11       5  4.263e-04    T
+[2026-10-12 10:28:22,215] DEEPMD INFO    -- mptrj/data_mixed/train/35      35     100      28  2.131e-03    T
+[2026-10-12 10:28:22,215] DEEPMD INFO    -- mptrj/data_mixed/train/332     332      11       1  1.421e-04    T
+[2026-10-12 10:28:22,215] DEEPMD INFO    -- mptrj/data_mixed/train/30      30     117     204  1.463e-02    T
+[2026-10-12 10:28:22,215] DEEPMD INFO    -- mptrj/data_mixed/train/324     324      11       1  1.421e-04    T
+[2026-10-12 10:28:22,215] DEEPMD INFO    -- mptrj/data_mixed/train/320     320      11       2  2.842e-04    T
+[2026-10-12 10:28:22,215] DEEPMD INFO    -- mptrj/data_mixed/train/38      38      93     163  1.165e-02    T
+[2026-10-12 10:28:22,215] DEEPMD INFO    -- mptrj/data_mixed/train/86      86      41      55  3.978e-03    T
+[2026-10-12 10:28:22,215] DEEPMD INFO    -- mptrj/data_mixed/train/81      81      44      13  9.946e-04    T
+[2026-10-12 10:28:22,215] DEEPMD INFO    -- mptrj/data_mixed/train/129     129      28       1  1.421e-04    T
+[2026-10-12 10:28:22,215] DEEPMD INFO    -- mptrj/data_mixed/train/167     167      21       1  1.421e-04    T
+[2026-10-12 10:28:22,215] DEEPMD INFO    -- mptrj/data_mixed/train/89      89      40       5  4.263e-04    T
+[2026-10-12 10:28:22,215] DEEPMD INFO    -- mptrj/data_mixed/train/117     117      30       5  4.263e-04    T
+[2026-10-12 10:28:22,215] DEEPMD INFO    -- mptrj/data_mixed/train/84      84      42     182  1.307e-02    T
+[2026-10-12 10:28:22,215] DEEPMD INFO    -- mptrj/data_mixed/train/113     113      31       2  2.842e-04    T
+[2026-10-12 10:28:22,215] DEEPMD INFO    -- mptrj/data_mixed/train/159     159      23       1  1.421e-04    T
+[2026-10-12 10:28:22,216] DEEPMD INFO    -- mptrj/data_mixed/train/54      54      65     140  1.009e-02    T
+[2026-10-12 10:28:22,216] DEEPMD INFO    -- mptrj/data_mixed/train/155     155      23       1  1.421e-04    T
+[2026-10-12 10:28:22,216] DEEPMD INFO    -- mptrj/data_mixed/train/197     197      18       1  1.421e-04    T
+[2026-10-12 10:28:22,216] DEEPMD INFO    -- mptrj/data_mixed/train/105     105      34      36  2.700e-03    T
+[2026-10-12 10:28:22,216] DEEPMD INFO    -- mptrj/data_mixed/train/101     101      35       2  2.842e-04    T
+[2026-10-12 10:28:22,216] DEEPMD INFO    -- mptrj/data_mixed/train/147     147      24       1  1.421e-04    T
+[2026-10-12 10:28:22,216] DEEPMD INFO    -- mptrj/data_mixed/train/218     218      17       1  1.421e-04    T
+[2026-10-12 10:28:22,216] DEEPMD INFO    -- mptrj/data_mixed/train/143     143      25       1  1.421e-04    T
+[2026-10-12 10:28:22,216] DEEPMD INFO    -- mptrj/data_mixed/train/57      57      62      13  9.946e-04    T
+[2026-10-12 10:28:22,216] DEEPMD INFO    -- mptrj/data_mixed/train/185     185      19       2  2.842e-04    T
+[2026-10-12 10:28:22,216] DEEPMD INFO    -- mptrj/data_mixed/train/256     256      14       4  4.263e-04    T
+[2026-10-12 10:28:22,216] DEEPMD INFO    -- mptrj/data_mixed/train/52      52      68     281  2.003e-02    T
+[2026-10-12 10:28:22,216] DEEPMD INFO    -- mptrj/data_mixed/train/206     206      17       1  1.421e-04    T
+[2026-10-12 10:28:22,216] DEEPMD INFO    -- mptrj/data_mixed/train/22      22     160     233  1.662e-02    T
+[2026-10-12 10:28:22,216] DEEPMD INFO    -- mptrj/data_mixed/train/248     248      15       8  7.104e-04    T
+[2026-10-12 10:28:22,216] DEEPMD INFO    -- mptrj/data_mixed/train/244     244      15       2  2.842e-04    T
+[2026-10-12 10:28:22,216] DEEPMD INFO    -- mptrj/data_mixed/train/286     286      13       1  1.421e-04    T
+[2026-10-12 10:28:22,216] DEEPMD INFO    -- mptrj/data_mixed/train/282     282      13       1  1.421e-04    T
+[2026-10-12 10:28:22,216] DEEPMD INFO    -- mptrj/data_mixed/train/236     236      15       1  1.421e-04    T
+[2026-10-12 10:28:22,216] DEEPMD INFO    -- mptrj/data_mixed/train/25      25     140      71  5.115e-03    T
+[2026-10-12 10:28:22,216] DEEPMD INFO    -- mptrj/data_mixed/train/232     232      16       3  2.842e-04    T
+[2026-10-12 10:28:22,216] DEEPMD INFO    -- mptrj/data_mixed/train/20      20     175     403  2.870e-02    T
+[2026-10-12 10:28:22,216] DEEPMD INFO    -- mptrj/data_mixed/train/9       9     389      60  4.405e-03    T
+[2026-10-12 10:28:22,216] DEEPMD INFO    -- mptrj/data_mixed/train/220     220      16       1  1.421e-04    T
+[2026-10-12 10:28:22,216] DEEPMD INFO    -- mptrj/data_mixed/train/408     408       9       1  1.421e-04    T
+[2026-10-12 10:28:22,216] DEEPMD INFO    -- mptrj/data_mixed/train/28      28     125     536  3.822e-02    T
+[2026-10-12 10:28:22,216] DEEPMD INFO    -- mptrj/data_mixed/train/76      76      47     171  1.222e-02    T
+[2026-10-12 10:28:22,216] DEEPMD INFO    -- mptrj/data_mixed/train/71      71      50       8  7.104e-04    T
+[2026-10-12 10:28:22,216] DEEPMD INFO    -- mptrj/data_mixed/train/250     250      14       1  1.421e-04    T
+[2026-10-12 10:28:22,216] DEEPMD INFO    -- mptrj/data_mixed/train/79      79      45      17  1.279e-03    T
+[2026-10-12 10:28:22,216] DEEPMD INFO    -- mptrj/data_mixed/train/426     426       9       2  2.842e-04    T
+[2026-10-12 10:28:22,216] DEEPMD INFO    -- mptrj/data_mixed/train/44      44      80     314  2.245e-02    T
+[2026-10-12 10:28:22,216] DEEPMD INFO    -- mptrj/data_mixed/train/168     168      21      61  4.405e-03    T
+[2026-10-12 10:28:22,216] DEEPMD INFO    -- mptrj/data_mixed/train/118     118      30      15  1.137e-03    T
+[2026-10-12 10:28:22,216] DEEPMD INFO    -- mptrj/data_mixed/train/47      47      75      15  1.137e-03    T
+[2026-10-12 10:28:22,216] DEEPMD INFO    -- mptrj/data_mixed/train/156     156      23      30  2.273e-03    T
+[2026-10-12 10:28:22,216] DEEPMD INFO    -- mptrj/data_mixed/train/95      95      37       8  7.104e-04    T
+[2026-10-12 10:28:22,216] DEEPMD INFO    -- mptrj/data_mixed/train/198     198      18       4  4.263e-04    T
+[2026-10-12 10:28:22,216] DEEPMD INFO    -- mptrj/data_mixed/train/42      42      84     188  1.350e-02    T
+[2026-10-12 10:28:22,216] DEEPMD INFO    -- mptrj/data_mixed/train/106     106      34      36  2.700e-03    T
+[2026-10-12 10:28:22,216] DEEPMD INFO    -- mptrj/data_mixed/train/12      12     292     265  1.890e-02    T
+[2026-10-12 10:28:22,216] DEEPMD INFO    -- mptrj/data_mixed/train/90      90      39      79  5.683e-03    T
+[2026-10-12 10:28:22,216] DEEPMD INFO    -- mptrj/data_mixed/train/102     102      35      38  2.842e-03    T
+[2026-10-12 10:28:22,216] DEEPMD INFO    -- mptrj/data_mixed/train/148     148      24      30  2.273e-03    T
+[2026-10-12 10:28:22,216] DEEPMD INFO    -- mptrj/data_mixed/train/144     144      25     195  1.392e-02    T
+[2026-10-12 10:28:22,216] DEEPMD INFO    -- mptrj/data_mixed/train/186     186      19       4  4.263e-04    T
+[2026-10-12 10:28:22,216] DEEPMD INFO    -- mptrj/data_mixed/train/98      98      36      33  2.415e-03    T
+[2026-10-12 10:28:22,216] DEEPMD INFO    -- mptrj/data_mixed/train/182     182      20       7  5.683e-04    T
+[2026-10-12 10:28:22,216] DEEPMD INFO    -- mptrj/data_mixed/train/136     136      26      57  4.120e-03    T
+[2026-10-12 10:28:22,216] DEEPMD INFO    -- mptrj/data_mixed/train/207     207      17       1  1.421e-04    T
+[2026-10-12 10:28:22,216] DEEPMD INFO    -- mptrj/data_mixed/train/15      15     234      66  4.831e-03    T
+[2026-10-12 10:28:22,216] DEEPMD INFO    -- mptrj/data_mixed/train/93      93      38       7  5.683e-04    T
+[2026-10-12 10:28:22,216] DEEPMD INFO    -- mptrj/data_mixed/train/132     132      27      43  3.126e-03    T
+[2026-10-12 10:28:22,216] DEEPMD INFO    -- mptrj/data_mixed/train/174     174      21       9  7.104e-04    T
+[2026-10-12 10:28:22,216] DEEPMD INFO    -- mptrj/data_mixed/train/10      10     350     179  1.279e-02    T
+[2026-10-12 10:28:22,216] DEEPMD INFO    -- mptrj/data_mixed/train/170     170      21       1  1.421e-04    T
+[2026-10-12 10:28:22,216] DEEPMD INFO    -- mptrj/data_mixed/train/8       8     438     166  1.194e-02    T
+[2026-10-12 10:28:22,216] DEEPMD INFO    -- mptrj/data_mixed/train/120     120      30      80  5.826e-03    T
+[2026-10-12 10:28:22,216] DEEPMD INFO    -- mptrj/data_mixed/train/18      18     195     204  1.463e-02    T
+[2026-10-12 10:28:22,216] DEEPMD INFO    -- mptrj/data_mixed/train/162     162      22       6  5.683e-04    T
+[2026-10-12 10:28:22,216] DEEPMD INFO    -- mptrj/data_mixed/train/66      66      54      64  4.689e-03    T
+[2026-10-12 10:28:22,216] DEEPMD INFO    -- mptrj/data_mixed/train/61      61      58       6  5.683e-04    T
+[2026-10-12 10:28:22,216] DEEPMD INFO    --------------------------------------------------------------------------------------
+[2026-10-12 10:28:23,867] DEEPMD INFO    ---Summary of DataSystem: Validation   -----------------------------------------------
+[2026-10-12 10:28:23,867] DEEPMD INFO    Found 105 System(s):
+[2026-10-12 10:28:23,867] DEEPMD INFO                                        system  natoms  bch_sz  n_bch   prob       pbc
+[2026-10-12 10:28:23,867] DEEPMD INFO    -- mptrj/data_mixed/valid/34      34      59       1  5.236e-03    T
+[2026-10-12 10:28:23,867] DEEPMD INFO    -- mptrj/data_mixed/valid/37      37      55       1  5.236e-03    T
+[2026-10-12 10:28:23,867] DEEPMD INFO    -- mptrj/data_mixed/valid/80      80      25      10  3.141e-02    T
+[2026-10-12 10:28:23,867] DEEPMD INFO    -- mptrj/data_mixed/valid/88      88      23       5  1.571e-02    T
+[2026-10-12 10:28:23,867] DEEPMD INFO    -- mptrj/data_mixed/valid/83      83      25       1  5.236e-03    T
+[2026-10-12 10:28:23,867] DEEPMD INFO    -- mptrj/data_mixed/valid/7       7     286       1  5.236e-03    T
+[2026-10-12 10:28:23,867] DEEPMD INFO    -- mptrj/data_mixed/valid/208     208      10       1  5.236e-03    T
+[2026-10-12 10:28:23,867] DEEPMD INFO    -- mptrj/data_mixed/valid/56      56      36       9  2.618e-02    T
+[2026-10-12 10:28:23,867] DEEPMD INFO    -- mptrj/data_mixed/valid/21      21      96       1  5.236e-03    T
+[2026-10-12 10:28:23,867] DEEPMD INFO    -- mptrj/data_mixed/valid/24      24      84       7  2.094e-02    T
+[2026-10-12 10:28:23,867] DEEPMD INFO    -- mptrj/data_mixed/valid/27      27      75       1  5.236e-03    T
+[2026-10-12 10:28:23,867] DEEPMD INFO    -- mptrj/data_mixed/valid/252     252       8       1  5.236e-03    T
+[2026-10-12 10:28:23,867] DEEPMD INFO    -- mptrj/data_mixed/valid/70      70      29       1  5.236e-03    T
+[2026-10-12 10:28:23,867] DEEPMD INFO    -- mptrj/data_mixed/valid/78      78      26       1  5.236e-03    T
+[2026-10-12 10:28:23,867] DEEPMD INFO    -- mptrj/data_mixed/valid/43      43      47       1  5.236e-03    T
+[2026-10-12 10:28:23,867] DEEPMD INFO    -- mptrj/data_mixed/valid/6       6     334       1  5.236e-03    T
+[2026-10-12 10:28:23,867] DEEPMD INFO    -- mptrj/data_mixed/valid/3       3     667       1  5.236e-03    T
+[2026-10-12 10:28:23,867] DEEPMD INFO    -- mptrj/data_mixed/valid/108     108      19       2  1.047e-02    T
+[2026-10-12 10:28:23,867] DEEPMD INFO    -- mptrj/data_mixed/valid/46      46      44       3  1.047e-02    T
+[2026-10-12 10:28:23,867] DEEPMD INFO    -- mptrj/data_mixed/valid/188     188      11       2  1.047e-02    T
+[2026-10-12 10:28:23,867] DEEPMD INFO    -- mptrj/data_mixed/valid/41      41      49       1  5.236e-03    T
+[2026-10-12 10:28:23,867] DEEPMD INFO    -- mptrj/data_mixed/valid/11      11     182       1  5.236e-03    T
+[2026-10-12 10:28:23,867] DEEPMD INFO    -- mptrj/data_mixed/valid/49      49      41       1  5.236e-03    T
+[2026-10-12 10:28:23,867] DEEPMD INFO    -- mptrj/data_mixed/valid/176     176      12       3  1.047e-02    T
+[2026-10-12 10:28:23,867] DEEPMD INFO    -- mptrj/data_mixed/valid/19      19     106       1  5.236e-03    T
+[2026-10-12 10:28:23,867] DEEPMD INFO    -- mptrj/data_mixed/valid/14      14     143       4  1.571e-02    T
+[2026-10-12 10:28:23,867] DEEPMD INFO    -- mptrj/data_mixed/valid/92      92      22       1  5.236e-03    T
+[2026-10-12 10:28:23,867] DEEPMD INFO    -- mptrj/data_mixed/valid/160     160      13       1  5.236e-03    T
+[2026-10-12 10:28:23,867] DEEPMD INFO    -- mptrj/data_mixed/valid/17      17     118       1  5.236e-03    T
+[2026-10-12 10:28:23,867] DEEPMD INFO    -- mptrj/data_mixed/valid/152     152      14       1  5.236e-03    T
+[2026-10-12 10:28:23,867] DEEPMD INFO    -- mptrj/data_mixed/valid/65      65      31       1  5.236e-03    T
+[2026-10-12 10:28:23,867] DEEPMD INFO    -- mptrj/data_mixed/valid/60      60      34       6  2.094e-02    T
+[2026-10-12 10:28:23,867] DEEPMD INFO    -- mptrj/data_mixed/valid/68      68      30       2  1.047e-02    T
+[2026-10-12 10:28:23,867] DEEPMD INFO    -- mptrj/data_mixed/valid/33      33      61       1  5.236e-03    T
+[2026-10-12 10:28:23,867] DEEPMD INFO    -- mptrj/data_mixed/valid/5       5     400       1  5.236e-03    T
+[2026-10-12 10:28:23,867] DEEPMD INFO    -- mptrj/data_mixed/valid/2       2    1000       1  5.236e-03    T
+[2026-10-12 10:28:23,867] DEEPMD INFO    -- mptrj/data_mixed/valid/36      36      56      10  3.141e-02    T
+[2026-10-12 10:28:23,867] DEEPMD INFO    -- mptrj/data_mixed/valid/31      31      65       1  5.236e-03    T
+[2026-10-12 10:28:23,867] DEEPMD INFO    -- mptrj/data_mixed/valid/39      39      52       1  5.236e-03    T
+[2026-10-12 10:28:23,867] DEEPMD INFO    -- mptrj/data_mixed/valid/82      82      25       2  5.236e-03    T
+[2026-10-12 10:28:23,867] DEEPMD INFO    -- mptrj/data_mixed/valid/127     127      16       1  5.236e-03    T
+[2026-10-12 10:28:23,868] DEEPMD INFO    -- mptrj/data_mixed/valid/55      55      37       1  5.236e-03    T
+[2026-10-12 10:28:23,868] DEEPMD INFO    -- mptrj/data_mixed/valid/50      50      40       2  1.047e-02    T
+[2026-10-12 10:28:23,868] DEEPMD INFO    -- mptrj/data_mixed/valid/58      58      35       2  1.047e-02    T
+[2026-10-12 10:28:23,868] DEEPMD INFO    -- mptrj/data_mixed/valid/23      23      87       1  5.236e-03    T
+[2026-10-12 10:28:23,868] DEEPMD INFO    -- mptrj/data_mixed/valid/4       4     500       1  5.236e-03    T
+[2026-10-12 10:28:23,868] DEEPMD INFO    -- mptrj/data_mixed/valid/1       1    2000       1  5.236e-03    T
+[2026-10-12 10:28:23,868] DEEPMD INFO    -- mptrj/data_mixed/valid/200     200      10       1  5.236e-03    T
+[2026-10-12 10:28:23,868] DEEPMD INFO    -- mptrj/data_mixed/valid/26      26      77       3  1.047e-02    T
+[2026-10-12 10:28:23,868] DEEPMD INFO    -- mptrj/data_mixed/valid/74      74      28       1  5.236e-03    T
+[2026-10-12 10:28:23,868] DEEPMD INFO    -- mptrj/data_mixed/valid/29      29      69       1  5.236e-03    T
+[2026-10-12 10:28:23,868] DEEPMD INFO    -- mptrj/data_mixed/valid/77      77      26       1  5.236e-03    T
+[2026-10-12 10:28:23,868] DEEPMD INFO    -- mptrj/data_mixed/valid/72      72      28       3  1.047e-02    T
+[2026-10-12 10:28:23,868] DEEPMD INFO    -- mptrj/data_mixed/valid/45      45      45       1  5.236e-03    T
+[2026-10-12 10:28:23,868] DEEPMD INFO    -- mptrj/data_mixed/valid/40      40      50      10  3.141e-02    T
+[2026-10-12 10:28:23,868] DEEPMD INFO    -- mptrj/data_mixed/valid/128     128      16       1  5.236e-03    T
+[2026-10-12 10:28:23,868] DEEPMD INFO    -- mptrj/data_mixed/valid/48      48      42       5  1.571e-02    T
+[2026-10-12 10:28:23,868] DEEPMD INFO    -- mptrj/data_mixed/valid/96      96      21       1  5.236e-03    T
+[2026-10-12 10:28:23,868] DEEPMD INFO    -- mptrj/data_mixed/valid/116     116      18       1  5.236e-03    T
+[2026-10-12 10:28:23,868] DEEPMD INFO    -- mptrj/data_mixed/valid/13      13     154       1  5.236e-03    T
+[2026-10-12 10:28:23,868] DEEPMD INFO    -- mptrj/data_mixed/valid/91      91      22       1  5.236e-03    T
+[2026-10-12 10:28:23,868] DEEPMD INFO    -- mptrj/data_mixed/valid/112     112      18       1  5.236e-03    T
+[2026-10-12 10:28:23,868] DEEPMD INFO    -- mptrj/data_mixed/valid/150     150      14       1  5.236e-03    T
+[2026-10-12 10:28:23,868] DEEPMD INFO    -- mptrj/data_mixed/valid/104     104      20       3  1.047e-02    T
+[2026-10-12 10:28:23,868] DEEPMD INFO    -- mptrj/data_mixed/valid/100     100      20       4  1.571e-02    T
+[2026-10-12 10:28:23,868] DEEPMD INFO    -- mptrj/data_mixed/valid/16      16     125       5  1.571e-02    T
+[2026-10-12 10:28:23,868] DEEPMD INFO    -- mptrj/data_mixed/valid/94      94      22       1  5.236e-03    T
+[2026-10-12 10:28:23,868] DEEPMD INFO    -- mptrj/data_mixed/valid/64      64      32       9  2.618e-02    T
+[2026-10-12 10:28:23,868] DEEPMD INFO    -- mptrj/data_mixed/valid/62      62      33       1  5.236e-03    T
+[2026-10-12 10:28:23,868] DEEPMD INFO    -- mptrj/data_mixed/valid/32      32      63       8  2.618e-02    T
+[2026-10-12 10:28:23,868] DEEPMD INFO    -- mptrj/data_mixed/valid/35      35      58       1  5.236e-03    T
+[2026-10-12 10:28:23,868] DEEPMD INFO    -- mptrj/data_mixed/valid/30      30      67       3  1.047e-02    T
+[2026-10-12 10:28:23,868] DEEPMD INFO    -- mptrj/data_mixed/valid/38      38      53       3  1.047e-02    T
+[2026-10-12 10:28:23,868] DEEPMD INFO    -- mptrj/data_mixed/valid/86      86      24       1  5.236e-03    T
+[2026-10-12 10:28:23,868] DEEPMD INFO    -- mptrj/data_mixed/valid/81      81      25       1  5.236e-03    T
+[2026-10-12 10:28:23,868] DEEPMD INFO    -- mptrj/data_mixed/valid/129     129      16       1  5.236e-03    T
+[2026-10-12 10:28:23,868] DEEPMD INFO    -- mptrj/data_mixed/valid/84      84      24       5  1.571e-02    T
+[2026-10-12 10:28:23,868] DEEPMD INFO    -- mptrj/data_mixed/valid/54      54      38       1  5.236e-03    T
+[2026-10-12 10:28:23,868] DEEPMD INFO    -- mptrj/data_mixed/valid/105     105      20       1  5.236e-03    T
+[2026-10-12 10:28:23,868] DEEPMD INFO    -- mptrj/data_mixed/valid/57      57      36       1  5.236e-03    T
+[2026-10-12 10:28:23,868] DEEPMD INFO    -- mptrj/data_mixed/valid/52      52      39       6  2.094e-02    T
+[2026-10-12 10:28:23,868] DEEPMD INFO    -- mptrj/data_mixed/valid/22      22      91       4  1.571e-02    T
+[2026-10-12 10:28:23,868] DEEPMD INFO    -- mptrj/data_mixed/valid/25      25      80       1  5.236e-03    T
+[2026-10-12 10:28:23,868] DEEPMD INFO    -- mptrj/data_mixed/valid/232     232       9       1  5.236e-03    T
+[2026-10-12 10:28:23,868] DEEPMD INFO    -- mptrj/data_mixed/valid/20      20     100       6  2.094e-02    T
+[2026-10-12 10:28:23,868] DEEPMD INFO    -- mptrj/data_mixed/valid/9       9     223       1  5.236e-03    T
+[2026-10-12 10:28:23,868] DEEPMD INFO    -- mptrj/data_mixed/valid/28      28      72       6  2.094e-02    T
+[2026-10-12 10:28:23,868] DEEPMD INFO    -- mptrj/data_mixed/valid/76      76      27       2  1.047e-02    T
+[2026-10-12 10:28:23,868] DEEPMD INFO    -- mptrj/data_mixed/valid/79      79      26       1  5.236e-03    T
+[2026-10-12 10:28:23,868] DEEPMD INFO    -- mptrj/data_mixed/valid/44      44      46       8  2.618e-02    T
+[2026-10-12 10:28:23,868] DEEPMD INFO    -- mptrj/data_mixed/valid/168     168      12       1  5.236e-03    T
+[2026-10-12 10:28:23,868] DEEPMD INFO    -- mptrj/data_mixed/valid/42      42      48       2  1.047e-02    T
+[2026-10-12 10:28:23,868] DEEPMD INFO    -- mptrj/data_mixed/valid/106     106      19       2  1.047e-02    T
+[2026-10-12 10:28:23,868] DEEPMD INFO    -- mptrj/data_mixed/valid/12      12     167       4  1.571e-02    T
+[2026-10-12 10:28:23,868] DEEPMD INFO    -- mptrj/data_mixed/valid/90      90      23       1  5.236e-03    T
+[2026-10-12 10:28:23,868] DEEPMD INFO    -- mptrj/data_mixed/valid/148     148      14       1  5.236e-03    T
+[2026-10-12 10:28:23,868] DEEPMD INFO    -- mptrj/data_mixed/valid/144     144      14       5  1.571e-02    T
+[2026-10-12 10:28:23,868] DEEPMD INFO    -- mptrj/data_mixed/valid/98      98      21       1  5.236e-03    T
+[2026-10-12 10:28:23,868] DEEPMD INFO    -- mptrj/data_mixed/valid/136     136      15       1  5.236e-03    T
+[2026-10-12 10:28:23,868] DEEPMD INFO    -- mptrj/data_mixed/valid/15      15     134       1  5.236e-03    T
+[2026-10-12 10:28:23,868] DEEPMD INFO    -- mptrj/data_mixed/valid/10      10     200       2  1.047e-02    T
+[2026-10-12 10:28:23,868] DEEPMD INFO    -- mptrj/data_mixed/valid/8       8     250       3  1.047e-02    T
+[2026-10-12 10:28:23,868] DEEPMD INFO    -- mptrj/data_mixed/valid/120     120      17       4  1.571e-02    T
+[2026-10-12 10:28:23,868] DEEPMD INFO    -- mptrj/data_mixed/valid/18      18     112       4  1.571e-02    T
+[2026-10-12 10:28:23,868] DEEPMD INFO    -- mptrj/data_mixed/valid/66      66      31       2  1.047e-02    T
+[2026-10-12 10:28:23,868] DEEPMD INFO    --------------------------------------------------------------------------------------
+[2026-10-12 10:28:24,018] DEEPMD INFO    Model Params:  0.655 M   (Trainable: 0.655 M)
+[2026-10-12 10:28:24,022] DEEPMD INFO    Start to train 69740 steps.
+[2026-10-12 10:28:24,022] DEEPMD INFO    Rank: 0/2
+[2026-10-12 10:28:24,020] DEEPMD INFO    Start to train 69740 steps.
+[2026-10-12 10:28:24,023] DEEPMD INFO    Rank: 1/2
+[2026-10-12 10:28:33,923] DEEPMD INFO    SeZM: start tracing and compiling (mode=train, coord_corr=False)
+[2026-10-12 10:28:33,929] DEEPMD INFO    SeZM: start tracing and compiling (mode=train, coord_corr=False)
+[2026-10-12 10:29:16,354] DEEPMD INFO    SeZM: finished compiling (mode=train, coord_corr=False) in 42.43s
+[2026-10-12 10:29:16,361] DEEPMD INFO    SeZM: finished compiling (mode=train, coord_corr=False) in 42.44s
+[2026-10-12 10:29:20,344] DEEPMD INFO    SeZM: start tracing and compiling (mode=eval, coord_corr=False)
+[2026-10-12 10:29:20,344] DEEPMD INFO    SeZM: start tracing and compiling (mode=eval, coord_corr=False)
+[2026-10-12 10:30:09,465] DEEPMD INFO    SeZM: finished compiling (mode=eval, coord_corr=False) in 49.12s
+[2026-10-12 10:30:09,471] DEEPMD INFO    SeZM: finished compiling (mode=eval, coord_corr=False) in 49.13s
+[2026-10-12 10:30:09,604] DEEPMD INFO    Batch       1: trn: mae_e = 6.00e-01, mae_f = 2.62e-01, mae_v = 7.89e-02, rmse = 4.20e+00, lr = 4.00e-04
+[2026-10-12 10:30:09,604] DEEPMD INFO    Batch       1: val: mae_e = 6.52e-01, mae_f = 4.36e-01, mae_v = 3.76e-02, rmse = 4.66e+00
+[2026-10-12 10:30:09,605] DEEPMD INFO    Batch       1: total wall time = 105.58 s
+[2026-10-12 10:33:17,822] DEEPMD INFO    Batch    1000: trn: mae_e = 1.04e-01, mae_f = 2.27e-01, mae_v = 4.61e-02, rmse = 2.62e+00, lr = 2.00e-03
+[2026-10-12 10:33:17,822] DEEPMD INFO    Batch    1000: val: mae_e = 1.29e-01, mae_f = 3.05e-01, mae_v = 6.07e-02, rmse = 3.00e+00
+[2026-10-12 10:33:17,823] DEEPMD INFO    Batch    1000: total wall time = 188.22 s, eta = 3:35:51 at 2026-10-12 14:09
+[2026-10-12 10:36:17,827] DEEPMD INFO    Batch    2000: trn: mae_e = 1.00e-01, mae_f = 2.01e-01, mae_v = 7.07e-02, rmse = 2.52e+00, lr = 2.00e-03
+[2026-10-12 10:36:17,828] DEEPMD INFO    Batch    2000: val: mae_e = 3.45e-01, mae_f = 1.74e-01, mae_v = 1.21e-01, rmse = 3.29e+00
+[2026-10-12 10:36:17,828] DEEPMD INFO    Batch    2000: total wall time = 180.01 s, eta = 3:23:13 at 2026-10-12 13:59
+[2026-10-12 10:39:15,766] DEEPMD INFO    Batch    3000: trn: mae_e = 8.84e-02, mae_f = 3.56e-01, mae_v = 6.73e-02, rmse = 3.04e+00, lr = 2.00e-03
+[2026-10-12 10:39:15,766] DEEPMD INFO    Batch    3000: val: mae_e = 7.12e-02, mae_f = 2.52e-01, mae_v = 4.35e-02, rmse = 2.55e+00
+[2026-10-12 10:39:15,766] DEEPMD INFO    Batch    3000: total wall time = 177.94 s, eta = 3:17:55 at 2026-10-12 13:57
+[2026-10-12 10:42:25,859] DEEPMD INFO    Batch    4000: trn: mae_e = 7.41e-02, mae_f = 2.04e-01, mae_v = 7.32e-02, rmse = 2.43e+00, lr = 2.00e-03
+[2026-10-12 10:42:25,859] DEEPMD INFO    Batch    4000: val: mae_e = 7.01e-02, mae_f = 3.51e-01, mae_v = 7.27e-02, rmse = 2.94e+00
+[2026-10-12 10:42:25,860] DEEPMD INFO    Batch    4000: total wall time = 190.09 s, eta = 3:28:16 at 2026-10-12 14:10
+[2026-10-12 10:45:35,115] DEEPMD INFO    Batch    5000: trn: mae_e = 4.10e-02, mae_f = 2.33e-01, mae_v = 2.40e-02, rmse = 2.37e+00, lr = 2.00e-03
+[2026-10-12 10:45:35,115] DEEPMD INFO    Batch    5000: val: mae_e = 5.54e-02, mae_f = 2.05e-01, mae_v = 3.74e-02, rmse = 2.31e+00
+[2026-10-12 10:45:35,115] DEEPMD INFO    Batch    5000: total wall time = 189.26 s, eta = 3:24:12 at 2026-10-12 14:09
+[2026-10-12 10:48:34,726] DEEPMD INFO    Batch    6000: trn: mae_e = 4.99e-02, mae_f = 2.04e-01, mae_v = 3.44e-02, rmse = 2.29e+00, lr = 2.00e-03
+[2026-10-12 10:48:34,726] DEEPMD INFO    Batch    6000: val: mae_e = 4.55e-02, mae_f = 1.72e-01, mae_v = 4.05e-02, rmse = 2.12e+00
+[2026-10-12 10:48:34,727] DEEPMD INFO    Batch    6000: total wall time = 179.61 s, eta = 3:10:48 at 2026-10-12 13:59
+[2026-10-12 10:51:43,848] DEEPMD INFO    Batch    7000: trn: mae_e = 3.66e-02, mae_f = 2.06e-01, mae_v = 3.55e-02, rmse = 2.24e+00, lr = 2.00e-03
+[2026-10-12 10:51:43,848] DEEPMD INFO    Batch    7000: val: mae_e = 7.42e-02, mae_f = 2.05e-01, mae_v = 5.06e-02, rmse = 2.40e+00
+[2026-10-12 10:51:43,848] DEEPMD INFO    Batch    7000: total wall time = 189.12 s, eta = 3:17:45 at 2026-10-12 14:09
+[2026-10-12 10:54:42,165] DEEPMD INFO    Batch    8000: trn: mae_e = 1.03e-01, mae_f = 2.12e-01, mae_v = 8.22e-02, rmse = 2.59e+00, lr = 2.00e-03
+[2026-10-12 10:54:42,165] DEEPMD INFO    Batch    8000: val: mae_e = 6.48e-02, mae_f = 2.11e-01, mae_v = 4.91e-02, rmse = 2.39e+00
+[2026-10-12 10:54:42,166] DEEPMD INFO    Batch    8000: total wall time = 178.32 s, eta = 3:03:29 at 2026-10-12 13:58
+[2026-10-12 10:57:40,888] DEEPMD INFO    Batch    9000: trn: mae_e = 4.99e-02, mae_f = 1.98e-01, mae_v = 3.93e-02, rmse = 2.27e+00, lr = 2.00e-03
+[2026-10-12 10:57:40,889] DEEPMD INFO    Batch    9000: val: mae_e = 7.34e-02, mae_f = 1.85e-01, mae_v = 6.57e-02, rmse = 2.33e+00
+[2026-10-12 10:57:40,889] DEEPMD INFO    Batch    9000: total wall time = 178.72 s, eta = 3:00:55 at 2026-10-12 13:58
+[2026-10-12 11:00:39,866] DEEPMD INFO    Batch   10000: trn: mae_e = 5.78e-02, mae_f = 2.27e-01, mae_v = 5.25e-02, rmse = 2.44e+00, lr = 2.00e-03
+[2026-10-12 11:00:39,866] DEEPMD INFO    Batch   10000: val: mae_e = 5.67e-02, mae_f = 1.58e-01, mae_v = 5.74e-02, rmse = 2.14e+00
+[2026-10-12 11:00:39,866] DEEPMD INFO    Batch   10000: total wall time = 178.98 s, eta = 2:58:12 at 2026-10-12 13:58
+[2026-10-12 11:03:39,687] DEEPMD INFO    Batch   11000: trn: mae_e = 4.84e-02, mae_f = 1.86e-01, mae_v = 2.85e-02, rmse = 2.20e+00, lr = 2.00e-03
+[2026-10-12 11:03:39,688] DEEPMD INFO    Batch   11000: val: mae_e = 4.68e-02, mae_f = 2.33e-01, mae_v = 3.74e-02, rmse = 2.38e+00
+[2026-10-12 11:03:39,688] DEEPMD INFO    Batch   11000: total wall time = 179.82 s, eta = 2:56:02 at 2026-10-12 13:59
+[2026-10-12 11:06:38,705] DEEPMD INFO    Batch   12000: trn: mae_e = 3.95e-02, mae_f = 1.65e-01, mae_v = 2.48e-02, rmse = 2.05e+00, lr = 2.00e-03
+[2026-10-12 11:06:38,706] DEEPMD INFO    Batch   12000: val: mae_e = 4.40e-02, mae_f = 1.62e-01, mae_v = 3.84e-02, rmse = 2.07e+00
+[2026-10-12 11:06:38,706] DEEPMD INFO    Batch   12000: total wall time = 179.02 s, eta = 2:52:16 at 2026-10-12 13:58
+[2026-10-12 11:09:37,836] DEEPMD INFO    Batch   13000: trn: mae_e = 2.82e-02, mae_f = 1.81e-01, mae_v = 2.42e-02, rmse = 2.07e+00, lr = 2.00e-03
+[2026-10-12 11:09:37,836] DEEPMD INFO    Batch   13000: val: mae_e = 5.75e-02, mae_f = 2.02e-01, mae_v = 4.43e-02, rmse = 2.32e+00
+[2026-10-12 11:09:37,837] DEEPMD INFO    Batch   13000: total wall time = 179.13 s, eta = 2:49:23 at 2026-10-12 13:59
+[2026-10-12 11:12:37,103] DEEPMD INFO    Batch   14000: trn: mae_e = 3.60e-02, mae_f = 1.65e-01, mae_v = 1.70e-02, rmse = 2.03e+00, lr = 2.00e-03
+[2026-10-12 11:12:37,104] DEEPMD INFO    Batch   14000: val: mae_e = 2.82e-02, mae_f = 1.71e-01, mae_v = 3.36e-02, rmse = 2.03e+00
+[2026-10-12 11:12:37,104] DEEPMD INFO    Batch   14000: total wall time = 179.27 s, eta = 2:46:32 at 2026-10-12 13:59
+[2026-10-12 11:15:36,033] DEEPMD INFO    Batch   15000: trn: mae_e = 2.13e-02, mae_f = 1.54e-01, mae_v = 1.85e-02, rmse = 1.89e+00, lr = 2.00e-03
+[2026-10-12 11:15:36,033] DEEPMD INFO    Batch   15000: val: mae_e = 2.43e-02, mae_f = 1.99e-01, mae_v = 1.89e-01, rmse = 2.31e+00
+[2026-10-12 11:15:36,034] DEEPMD INFO    Batch   15000: total wall time = 178.93 s, eta = 2:43:14 at 2026-10-12 13:58
+[2026-10-12 11:18:35,311] DEEPMD INFO    Batch   16000: trn: mae_e = 5.07e-02, mae_f = 1.84e-01, mae_v = 4.18e-02, rmse = 2.22e+00, lr = 2.00e-03
+[2026-10-12 11:18:35,311] DEEPMD INFO    Batch   16000: val: mae_e = 3.17e-02, mae_f = 1.83e-01, mae_v = 2.05e-02, rmse = 2.10e+00
+[2026-10-12 11:18:35,311] DEEPMD INFO    Batch   16000: total wall time = 179.28 s, eta = 2:40:34 at 2026-10-12 13:59
+[2026-10-12 11:21:34,553] DEEPMD INFO    Batch   17000: trn: mae_e = 2.65e-02, mae_f = 1.55e-01, mae_v = 2.47e-02, rmse = 1.94e+00, lr = 2.00e-03
+[2026-10-12 11:21:34,554] DEEPMD INFO    Batch   17000: val: mae_e = 2.72e-02, mae_f = 1.55e-01, mae_v = 2.04e-02, rmse = 1.91e+00
+[2026-10-12 11:21:34,554] DEEPMD INFO    Batch   17000: total wall time = 179.24 s, eta = 2:37:33 at 2026-10-12 13:59
+[2026-10-12 11:24:32,857] DEEPMD INFO    Batch   18000: trn: mae_e = 2.82e-02, mae_f = 1.58e-01, mae_v = 1.99e-02, rmse = 1.96e+00, lr = 2.00e-03
+[2026-10-12 11:24:32,858] DEEPMD INFO    Batch   18000: val: mae_e = 3.20e-02, mae_f = 1.59e-01, mae_v = 1.19e-01, rmse = 2.07e+00
+[2026-10-12 11:24:32,858] DEEPMD INFO    Batch   18000: total wall time = 178.30 s, eta = 2:33:45 at 2026-10-12 13:58
+[2026-10-12 11:27:31,688] DEEPMD INFO    Batch   19000: trn: mae_e = 3.02e-02, mae_f = 1.42e-01, mae_v = 3.13e-02, rmse = 1.90e+00, lr = 2.00e-03
+[2026-10-12 11:27:31,688] DEEPMD INFO    Batch   19000: val: mae_e = 3.73e-02, mae_f = 1.53e-01, mae_v = 4.74e-02, rmse = 2.01e+00
+[2026-10-12 11:27:31,689] DEEPMD INFO    Batch   19000: total wall time = 178.83 s, eta = 2:31:13 at 2026-10-12 13:58
+[2026-10-12 11:30:29,634] DEEPMD INFO    Batch   20000: trn: mae_e = 7.96e-02, mae_f = 1.79e-01, mae_v = 6.48e-02, rmse = 2.34e+00, lr = 2.00e-03
+[2026-10-12 11:30:29,634] DEEPMD INFO    Batch   20000: val: mae_e = 5.08e-02, mae_f = 1.78e-01, mae_v = 5.59e-02, rmse = 2.19e+00
+[2026-10-12 11:30:29,635] DEEPMD INFO    Batch   20000: total wall time = 177.95 s, eta = 2:27:31 at 2026-10-12 13:58
+[2026-10-12 11:33:28,925] DEEPMD INFO    Batch   21000: trn: mae_e = 4.00e-02, mae_f = 1.61e-01, mae_v = 2.18e-02, rmse = 2.03e+00, lr = 2.00e-03
+[2026-10-12 11:33:28,926] DEEPMD INFO    Batch   21000: val: mae_e = 3.62e-02, mae_f = 1.33e-01, mae_v = 2.88e-02, rmse = 1.87e+00
+[2026-10-12 11:33:28,926] DEEPMD INFO    Batch   21000: total wall time = 179.29 s, eta = 2:25:38 at 2026-10-12 13:59
+[2026-10-12 11:36:26,686] DEEPMD INFO    Batch   22000: trn: mae_e = 3.04e-02, mae_f = 1.44e-01, mae_v = 3.91e-02, rmse = 1.92e+00, lr = 2.00e-03
+[2026-10-12 11:36:26,686] DEEPMD INFO    Batch   22000: val: mae_e = 3.58e-02, mae_f = 1.41e-01, mae_v = 3.15e-02, rmse = 1.91e+00
+[2026-10-12 11:36:26,686] DEEPMD INFO    Batch   22000: total wall time = 177.76 s, eta = 2:21:26 at 2026-10-12 13:57
+[2026-10-12 11:39:25,287] DEEPMD INFO    Batch   23000: trn: mae_e = 2.57e-02, mae_f = 1.71e-01, mae_v = 2.54e-02, rmse = 2.01e+00, lr = 2.00e-03
+[2026-10-12 11:39:25,287] DEEPMD INFO    Batch   23000: val: mae_e = 4.36e-02, mae_f = 1.64e-01, mae_v = 5.76e-02, rmse = 2.09e+00
+[2026-10-12 11:39:25,288] DEEPMD INFO    Batch   23000: total wall time = 178.60 s, eta = 2:19:07 at 2026-10-12 13:58
+[2026-10-12 11:42:22,886] DEEPMD INFO    Batch   24000: trn: mae_e = 3.31e-02, mae_f = 1.37e-01, mae_v = 2.16e-02, rmse = 1.87e+00, lr = 2.00e-03
+[2026-10-12 11:42:22,887] DEEPMD INFO    Batch   24000: val: mae_e = 4.44e-02, mae_f = 1.34e-01, mae_v = 3.88e-02, rmse = 1.94e+00
+[2026-10-12 11:42:22,887] DEEPMD INFO    Batch   24000: total wall time = 177.60 s, eta = 2:15:23 at 2026-10-12 13:57
+[2026-10-12 11:45:21,153] DEEPMD INFO    Batch   25000: trn: mae_e = 2.97e-02, mae_f = 1.44e-01, mae_v = 4.13e-02, rmse = 1.92e+00, lr = 2.00e-03
+[2026-10-12 11:45:21,153] DEEPMD INFO    Batch   25000: val: mae_e = 2.88e-02, mae_f = 1.23e-01, mae_v = 3.35e-02, rmse = 1.78e+00
+[2026-10-12 11:45:21,154] DEEPMD INFO    Batch   25000: total wall time = 178.27 s, eta = 2:12:55 at 2026-10-12 13:58
+[2026-10-12 11:48:19,901] DEEPMD INFO    Batch   26000: trn: mae_e = 2.77e-02, mae_f = 1.69e-01, mae_v = 2.07e-02, rmse = 2.01e+00, lr = 1.99e-03
+[2026-10-12 11:48:19,901] DEEPMD INFO    Batch   26000: val: mae_e = 3.43e-02, mae_f = 2.04e-01, mae_v = 5.63e-02, rmse = 2.22e+00
+[2026-10-12 11:48:19,902] DEEPMD INFO    Batch   26000: total wall time = 178.75 s, eta = 2:10:18 at 2026-10-12 13:58
+[2026-10-12 11:51:17,689] DEEPMD INFO    Batch   27000: trn: mae_e = 3.59e-02, mae_f = 1.73e-01, mae_v = 3.46e-02, rmse = 2.09e+00, lr = 1.98e-03
+[2026-10-12 11:51:17,690] DEEPMD INFO    Batch   27000: val: mae_e = 2.97e-02, mae_f = 1.23e-01, mae_v = 2.26e-02, rmse = 1.78e+00
+[2026-10-12 11:51:17,690] DEEPMD INFO    Batch   27000: total wall time = 177.79 s, eta = 2:06:38 at 2026-10-12 13:57
+[2026-10-12 11:54:17,378] DEEPMD INFO    Batch   28000: trn: mae_e = 4.06e-02, mae_f = 1.13e-01, mae_v = 5.24e-02, rmse = 1.83e+00, lr = 1.97e-03
+[2026-10-12 11:54:17,379] DEEPMD INFO    Batch   28000: val: mae_e = 3.20e-02, mae_f = 1.77e-01, mae_v = 2.35e-02, rmse = 2.07e+00
+[2026-10-12 11:54:17,379] DEEPMD INFO    Batch   28000: total wall time = 179.69 s, eta = 2:05:00 at 2026-10-12 13:59
+[2026-10-12 11:57:17,242] DEEPMD INFO    Batch   29000: trn: mae_e = 4.36e-02, mae_f = 1.54e-01, mae_v = 4.01e-02, rmse = 2.04e+00, lr = 1.95e-03
+[2026-10-12 11:57:17,242] DEEPMD INFO    Batch   29000: val: mae_e = 2.19e-02, mae_f = 1.35e-01, mae_v = 3.53e-02, rmse = 1.81e+00
+[2026-10-12 11:57:17,242] DEEPMD INFO    Batch   29000: total wall time = 179.86 s, eta = 2:02:07 at 2026-10-12 13:59
+[2026-10-12 12:00:17,367] DEEPMD INFO    Batch   30000: trn: mae_e = 1.74e-02, mae_f = 1.43e-01, mae_v = 1.35e-02, rmse = 1.81e+00, lr = 1.93e-03
+[2026-10-12 12:00:17,368] DEEPMD INFO    Batch   30000: val: mae_e = 2.08e-02, mae_f = 1.33e-01, mae_v = 2.61e-02, rmse = 1.78e+00
+[2026-10-12 12:00:17,368] DEEPMD INFO    Batch   30000: total wall time = 180.13 s, eta = 1:59:18 at 2026-10-12 13:59
+[2026-10-12 12:03:17,084] DEEPMD INFO    Batch   31000: trn: mae_e = 2.88e-02, mae_f = 1.43e-01, mae_v = 2.32e-02, rmse = 1.89e+00, lr = 1.90e-03
+[2026-10-12 12:03:17,084] DEEPMD INFO    Batch   31000: val: mae_e = 4.42e-02, mae_f = 1.46e-01, mae_v = 4.60e-02, rmse = 2.01e+00
+[2026-10-12 12:03:17,085] DEEPMD INFO    Batch   31000: total wall time = 179.72 s, eta = 1:56:02 at 2026-10-12 13:59
+[2026-10-12 12:06:17,863] DEEPMD INFO    Batch   32000: trn: mae_e = 3.04e-02, mae_f = 1.24e-01, mae_v = 1.74e-02, rmse = 1.78e+00, lr = 1.86e-03
+[2026-10-12 12:06:17,863] DEEPMD INFO    Batch   32000: val: mae_e = 2.90e-02, mae_f = 1.35e-01, mae_v = 2.99e-02, rmse = 1.85e+00
+[2026-10-12 12:06:17,863] DEEPMD INFO    Batch   32000: total wall time = 180.78 s, eta = 1:53:42 at 2026-10-12 13:59
+[2026-10-12 12:09:17,763] DEEPMD INFO    Batch   33000: trn: mae_e = 2.73e-02, mae_f = 1.31e-01, mae_v = 2.89e-02, rmse = 1.82e+00, lr = 1.83e-03
+[2026-10-12 12:09:17,763] DEEPMD INFO    Batch   33000: val: mae_e = 2.64e-02, mae_f = 1.11e-01, mae_v = 2.13e-02, rmse = 1.68e+00
+[2026-10-12 12:09:17,763] DEEPMD INFO    Batch   33000: total wall time = 179.90 s, eta = 1:50:09 at 2026-10-12 13:59
+[2026-10-12 12:12:17,008] DEEPMD INFO    Batch   34000: trn: mae_e = 2.34e-02, mae_f = 1.53e-01, mae_v = 3.71e-02, rmse = 1.93e+00, lr = 1.79e-03
+[2026-10-12 12:12:17,008] DEEPMD INFO    Batch   34000: val: mae_e = 3.27e-02, mae_f = 1.31e-01, mae_v = 3.39e-02, rmse = 1.85e+00
+[2026-10-12 12:12:17,009] DEEPMD INFO    Batch   34000: total wall time = 179.25 s, eta = 1:46:46 at 2026-10-12 13:59
+[2026-10-12 12:15:17,248] DEEPMD INFO    Batch   35000: trn: mae_e = 1.83e-02, mae_f = 1.16e-01, mae_v = 1.68e-02, rmse = 1.67e+00, lr = 1.74e-03
+[2026-10-12 12:15:17,248] DEEPMD INFO    Batch   35000: val: mae_e = 3.13e-02, mae_f = 1.29e-01, mae_v = 3.26e-02, rmse = 1.83e+00
+[2026-10-12 12:15:17,248] DEEPMD INFO    Batch   35000: total wall time = 180.24 s, eta = 1:44:21 at 2026-10-12 13:59
+[2026-10-12 12:18:17,542] DEEPMD INFO    Batch   36000: trn: mae_e = 1.92e-02, mae_f = 1.29e-01, mae_v = 2.25e-02, rmse = 1.76e+00, lr = 1.69e-03
+[2026-10-12 12:18:17,543] DEEPMD INFO    Batch   36000: val: mae_e = 1.32e-02, mae_f = 1.53e-01, mae_v = 2.53e-02, rmse = 1.85e+00
+[2026-10-12 12:18:17,543] DEEPMD INFO    Batch   36000: total wall time = 180.29 s, eta = 1:41:23 at 2026-10-12 13:59
+[2026-10-12 12:21:16,149] DEEPMD INFO    Batch   37000: trn: mae_e = 2.25e-02, mae_f = 1.44e-01, mae_v = 2.05e-02, rmse = 1.85e+00, lr = 1.64e-03
+[2026-10-12 12:21:16,149] DEEPMD INFO    Batch   37000: val: mae_e = 1.52e-02, mae_f = 1.33e-01, mae_v = 2.87e-02, rmse = 1.75e+00
+[2026-10-12 12:21:16,149] DEEPMD INFO    Batch   37000: total wall time = 178.61 s, eta = 1:37:27 at 2026-10-12 13:58
+[2026-10-12 12:24:15,071] DEEPMD INFO    Batch   38000: trn: mae_e = 2.67e-02, mae_f = 1.23e-01, mae_v = 1.79e-02, rmse = 1.75e+00, lr = 1.59e-03
+[2026-10-12 12:24:15,071] DEEPMD INFO    Batch   38000: val: mae_e = 2.59e-02, mae_f = 1.22e-01, mae_v = 4.26e-02, rmse = 1.75e+00
+[2026-10-12 12:24:15,071] DEEPMD INFO    Batch   38000: total wall time = 178.92 s, eta = 1:34:38 at 2026-10-12 13:58
+[2026-10-12 12:27:14,188] DEEPMD INFO    Batch   39000: trn: mae_e = 2.60e-02, mae_f = 1.88e-01, mae_v = 3.30e-02, rmse = 2.11e+00, lr = 1.53e-03
+[2026-10-12 12:27:14,188] DEEPMD INFO    Batch   39000: val: mae_e = 2.12e-02, mae_f = 1.35e-01, mae_v = 2.77e-02, rmse = 1.79e+00
+[2026-10-12 12:27:14,189] DEEPMD INFO    Batch   39000: total wall time = 179.12 s, eta = 1:31:46 at 2026-10-12 13:59
+[2026-10-12 12:30:13,662] DEEPMD INFO    Batch   40000: trn: mae_e = 1.78e-02, mae_f = 1.19e-01, mae_v = 1.79e-02, rmse = 1.68e+00, lr = 1.47e-03
+[2026-10-12 12:30:13,662] DEEPMD INFO    Batch   40000: val: mae_e = 1.61e-02, mae_f = 8.98e-02, mae_v = 1.80e-02, rmse = 1.47e+00
+[2026-10-12 12:30:13,663] DEEPMD INFO    Batch   40000: total wall time = 179.47 s, eta = 1:28:57 at 2026-10-12 13:59
+[2026-10-12 12:33:13,602] DEEPMD INFO    Batch   41000: trn: mae_e = 1.65e-02, mae_f = 1.27e-01, mae_v = 2.00e-02, rmse = 1.72e+00, lr = 1.41e-03
+[2026-10-12 12:33:13,602] DEEPMD INFO    Batch   41000: val: mae_e = 2.05e-02, mae_f = 9.24e-02, mae_v = 1.80e-02, rmse = 1.52e+00
+[2026-10-12 12:33:13,603] DEEPMD INFO    Batch   41000: total wall time = 179.94 s, eta = 1:26:11 at 2026-10-12 13:59
+[2026-10-12 12:36:12,383] DEEPMD INFO    Batch   42000: trn: mae_e = 2.06e-02, mae_f = 2.08e-01, mae_v = 3.26e-02, rmse = 2.18e+00, lr = 1.34e-03
+[2026-10-12 12:36:12,383] DEEPMD INFO    Batch   42000: val: mae_e = 1.95e-02, mae_f = 1.18e-01, mae_v = 3.10e-02, rmse = 1.69e+00
+[2026-10-12 12:36:12,383] DEEPMD INFO    Batch   42000: total wall time = 178.78 s, eta = 1:22:39 at 2026-10-12 13:58
+[2026-10-12 12:39:11,930] DEEPMD INFO    Batch   43000: trn: mae_e = 1.81e-02, mae_f = 1.04e-01, mae_v = 9.66e-03, rmse = 1.58e+00, lr = 1.28e-03
+[2026-10-12 12:39:11,930] DEEPMD INFO    Batch   43000: val: mae_e = 1.70e-02, mae_f = 1.15e-01, mae_v = 2.16e-02, rmse = 1.65e+00
+[2026-10-12 12:39:11,931] DEEPMD INFO    Batch   43000: total wall time = 179.55 s, eta = 1:20:01 at 2026-10-12 13:59
+[2026-10-12 12:42:12,550] DEEPMD INFO    Batch   44000: trn: mae_e = 2.26e-02, mae_f = 1.18e-01, mae_v = 2.50e-02, rmse = 1.71e+00, lr = 1.21e-03
+[2026-10-12 12:42:12,550] DEEPMD INFO    Batch   44000: val: mae_e = 2.52e-02, mae_f = 1.19e-01, mae_v = 3.60e-02, rmse = 1.74e+00
+[2026-10-12 12:42:12,550] DEEPMD INFO    Batch   44000: total wall time = 180.62 s, eta = 1:17:29 at 2026-10-12 13:59
+[2026-10-12 12:45:11,570] DEEPMD INFO    Batch   45000: trn: mae_e = 2.56e-02, mae_f = 1.18e-01, mae_v = 3.12e-02, rmse = 1.74e+00, lr = 1.14e-03
+[2026-10-12 12:45:11,570] DEEPMD INFO    Batch   45000: val: mae_e = 1.44e-02, mae_f = 1.21e-01, mae_v = 2.06e-02, rmse = 1.68e+00
+[2026-10-12 12:45:11,570] DEEPMD INFO    Batch   45000: total wall time = 179.02 s, eta = 1:13:48 at 2026-10-12 13:58
+[2026-10-12 12:48:10,432] DEEPMD INFO    Batch   46000: trn: mae_e = 3.40e-02, mae_f = 1.05e-01, mae_v = 6.86e-02, rmse = 1.77e+00, lr = 1.07e-03
+[2026-10-12 12:48:10,432] DEEPMD INFO    Batch   46000: val: mae_e = 2.89e-02, mae_f = 1.04e-01, mae_v = 3.07e-02, rmse = 1.67e+00
+[2026-10-12 12:48:10,432] DEEPMD INFO    Batch   46000: total wall time = 178.86 s, eta = 1:10:46 at 2026-10-12 13:58
+[2026-10-12 12:51:08,568] DEEPMD INFO    Batch   47000: trn: mae_e = 1.38e-02, mae_f = 1.30e-01, mae_v = 2.30e-02, rmse = 1.73e+00, lr = 1.01e-03
+[2026-10-12 12:51:08,569] DEEPMD INFO    Batch   47000: val: mae_e = 3.82e-02, mae_f = 9.47e-02, mae_v = 4.61e-02, rmse = 1.70e+00
+[2026-10-12 12:51:08,570] DEEPMD INFO    Batch   47000: total wall time = 178.14 s, eta = 1:07:30 at 2026-10-12 13:58
+[2026-10-12 12:54:06,708] DEEPMD INFO    Batch   48000: trn: mae_e = 4.18e-02, mae_f = 7.18e-02, mae_v = 5.92e-02, rmse = 1.60e+00, lr = 9.37e-04
+[2026-10-12 12:54:06,708] DEEPMD INFO    Batch   48000: val: mae_e = 1.51e-02, mae_f = 9.83e-02, mae_v = 2.25e-02, rmse = 1.54e+00
+[2026-10-12 12:54:06,709] DEEPMD INFO    Batch   48000: total wall time = 178.14 s, eta = 1:04:32 at 2026-10-12 13:58
+[2026-10-12 12:57:04,926] DEEPMD INFO    Batch   49000: trn: mae_e = 2.05e-02, mae_f = 1.39e-01, mae_v = 5.09e-02, rmse = 1.86e+00, lr = 8.68e-04
+[2026-10-12 12:57:04,927] DEEPMD INFO    Batch   49000: val: mae_e = 2.60e-02, mae_f = 1.77e-01, mae_v = 2.60e-02, rmse = 2.01e+00
+[2026-10-12 12:57:04,928] DEEPMD INFO    Batch   49000: total wall time = 178.22 s, eta = 1:01:36 at 2026-10-12 13:58
+[2026-10-12 13:00:03,496] DEEPMD INFO    Batch   50000: trn: mae_e = 1.75e-02, mae_f = 9.31e-02, mae_v = 3.00e-02, rmse = 1.54e+00, lr = 7.99e-04
+[2026-10-12 13:00:03,497] DEEPMD INFO    Batch   50000: val: mae_e = 1.92e-02, mae_f = 1.24e-01, mae_v = 3.55e-02, rmse = 1.73e+00
+[2026-10-12 13:00:03,497] DEEPMD INFO    Batch   50000: total wall time = 178.57 s, eta = 0:58:44 at 2026-10-12 13:58
+[2026-10-12 13:00:03,582] DEEPMD INFO    Saved model to model.ckpt-50000.pt
+[2026-10-12 13:03:02,835] DEEPMD INFO    Batch   51000: trn: mae_e = 1.10e-02, mae_f = 9.52e-02, mae_v = 1.34e-02, rmse = 1.48e+00, lr = 7.32e-04
+[2026-10-12 13:03:02,835] DEEPMD INFO    Batch   51000: val: mae_e = 1.45e-02, mae_f = 8.82e-02, mae_v = 1.96e-02, rmse = 1.46e+00
+[2026-10-12 13:03:02,835] DEEPMD INFO    Batch   51000: total wall time = 179.34 s, eta = 0:56:00 at 2026-10-12 13:59
+[2026-10-12 13:06:01,023] DEEPMD INFO    Batch   52000: trn: mae_e = 1.49e-02, mae_f = 8.89e-02, mae_v = 2.17e-02, rmse = 1.48e+00, lr = 6.66e-04
+[2026-10-12 13:06:01,023] DEEPMD INFO    Batch   52000: val: mae_e = 1.28e-02, mae_f = 1.19e-01, mae_v = 2.81e-02, rmse = 1.66e+00
+[2026-10-12 13:06:01,023] DEEPMD INFO    Batch   52000: total wall time = 178.19 s, eta = 0:52:41 at 2026-10-12 13:58
+[2026-10-12 13:08:59,279] DEEPMD INFO    Batch   53000: trn: mae_e = 1.19e-02, mae_f = 9.27e-02, mae_v = 1.88e-02, rmse = 1.48e+00, lr = 6.02e-04
+[2026-10-12 13:08:59,279] DEEPMD INFO    Batch   53000: val: mae_e = 1.47e-02, mae_f = 1.01e-01, mae_v = 2.76e-02, rmse = 1.56e+00
+[2026-10-12 13:08:59,280] DEEPMD INFO    Batch   53000: total wall time = 178.26 s, eta = 0:49:44 at 2026-10-12 13:58
+[2026-10-12 13:11:56,963] DEEPMD INFO    Batch   54000: trn: mae_e = 9.92e-03, mae_f = 9.43e-02, mae_v = 1.57e-02, rmse = 1.47e+00, lr = 5.39e-04
+[2026-10-12 13:11:56,963] DEEPMD INFO    Batch   54000: val: mae_e = 1.02e-02, mae_f = 7.95e-02, mae_v = 1.72e-02, rmse = 1.34e+00
+[2026-10-12 13:11:56,963] DEEPMD INFO    Batch   54000: total wall time = 177.68 s, eta = 0:46:36 at 2026-10-12 13:58
+[2026-10-12 13:14:55,343] DEEPMD INFO    Batch   55000: trn: mae_e = 2.75e-02, mae_f = 1.18e-01, mae_v = 3.67e-02, rmse = 1.76e+00, lr = 4.79e-04
+[2026-10-12 13:14:55,344] DEEPMD INFO    Batch   55000: val: mae_e = 1.43e-02, mae_f = 1.11e-01, mae_v = 2.37e-02, rmse = 1.61e+00
+[2026-10-12 13:14:55,344] DEEPMD INFO    Batch   55000: total wall time = 178.38 s, eta = 0:43:49 at 2026-10-12 13:58
+[2026-10-12 13:17:53,054] DEEPMD INFO    Batch   56000: trn: mae_e = 1.45e-02, mae_f = 8.90e-02, mae_v = 1.85e-02, rmse = 1.47e+00, lr = 4.21e-04
+[2026-10-12 13:17:53,054] DEEPMD INFO    Batch   56000: val: mae_e = 1.43e-02, mae_f = 9.32e-02, mae_v = 2.54e-02, rmse = 1.48e+00
+[2026-10-12 13:17:53,055] DEEPMD INFO    Batch   56000: total wall time = 177.71 s, eta = 0:40:41 at 2026-10-12 13:58
+[2026-10-12 13:20:53,612] DEEPMD INFO    Batch   57000: trn: mae_e = 1.65e-02, mae_f = 7.05e-02, mae_v = 4.22e-02, rmse = 1.40e+00, lr = 3.66e-04
+[2026-10-12 13:20:53,612] DEEPMD INFO    Batch   57000: val: mae_e = 1.07e-02, mae_f = 1.08e-01, mae_v = 2.48e-02, rmse = 1.54e+00
+[2026-10-12 13:20:53,613] DEEPMD INFO    Batch   57000: total wall time = 180.56 s, eta = 0:38:20 at 2026-10-12 13:59
+[2026-10-12 13:23:52,651] DEEPMD INFO    Batch   58000: trn: mae_e = 1.57e-02, mae_f = 8.02e-02, mae_v = 2.47e-02, rmse = 1.43e+00, lr = 3.14e-04
+[2026-10-12 13:23:52,651] DEEPMD INFO    Batch   58000: val: mae_e = 7.10e-03, mae_f = 1.03e-01, mae_v = 1.45e-02, rmse = 1.48e+00
+[2026-10-12 13:23:52,652] DEEPMD INFO    Batch   58000: total wall time = 179.04 s, eta = 0:35:01 at 2026-10-12 13:58
+[2026-10-12 13:26:52,988] DEEPMD INFO    Batch   59000: trn: mae_e = 1.81e-02, mae_f = 9.04e-02, mae_v = 3.43e-02, rmse = 1.53e+00, lr = 2.65e-04
+[2026-10-12 13:26:52,989] DEEPMD INFO    Batch   59000: val: mae_e = 1.63e-02, mae_f = 7.65e-02, mae_v = 3.40e-02, rmse = 1.40e+00
+[2026-10-12 13:26:52,989] DEEPMD INFO    Batch   59000: total wall time = 180.34 s, eta = 0:32:16 at 2026-10-12 13:59
+[2026-10-12 13:29:54,945] DEEPMD INFO    Batch   60000: trn: mae_e = 9.72e-03, mae_f = 8.90e-02, mae_v = 2.01e-02, rmse = 1.44e+00, lr = 2.20e-04
+[2026-10-12 13:29:54,945] DEEPMD INFO    Batch   60000: val: mae_e = 1.69e-02, mae_f = 9.71e-02, mae_v = 3.15e-02, rmse = 1.56e+00
+[2026-10-12 13:29:54,946] DEEPMD INFO    Batch   60000: total wall time = 181.96 s, eta = 0:29:32 at 2026-10-12 13:59
+[2026-10-12 13:32:53,442] DEEPMD INFO    Batch   61000: trn: mae_e = 2.22e-02, mae_f = 7.48e-02, mae_v = 4.45e-02, rmse = 1.47e+00, lr = 1.79e-04
+[2026-10-12 13:32:53,443] DEEPMD INFO    Batch   61000: val: mae_e = 1.32e-02, mae_f = 1.11e-01, mae_v = 2.74e-02, rmse = 1.61e+00
+[2026-10-12 13:32:53,443] DEEPMD INFO    Batch   61000: total wall time = 178.50 s, eta = 0:26:00 at 2026-10-12 13:58
+[2026-10-12 13:35:53,664] DEEPMD INFO    Batch   62000: trn: mae_e = 1.24e-02, mae_f = 7.70e-02, mae_v = 2.59e-02, rmse = 1.38e+00, lr = 1.41e-04
+[2026-10-12 13:35:53,664] DEEPMD INFO    Batch   62000: val: mae_e = 1.25e-02, mae_f = 9.65e-02, mae_v = 2.11e-02, rmse = 1.50e+00
+[2026-10-12 13:35:53,664] DEEPMD INFO    Batch   62000: total wall time = 180.22 s, eta = 0:23:14 at 2026-10-12 13:59
+[2026-10-12 13:38:52,584] DEEPMD INFO    Batch   63000: trn: mae_e = 1.14e-02, mae_f = 7.50e-02, mae_v = 1.20e-02, rmse = 1.34e+00, lr = 1.08e-04
+[2026-10-12 13:38:52,584] DEEPMD INFO    Batch   63000: val: mae_e = 2.14e-02, mae_f = 1.59e-01, mae_v = 3.84e-02, rmse = 1.95e+00
+[2026-10-12 13:38:52,585] DEEPMD INFO    Batch   63000: total wall time = 178.92 s, eta = 0:20:05 at 2026-10-12 13:58
+[2026-10-12 13:41:52,038] DEEPMD INFO    Batch   64000: trn: mae_e = 7.86e-03, mae_f = 8.83e-02, mae_v = 6.89e-03, rmse = 1.40e+00, lr = 7.91e-05
+[2026-10-12 13:41:52,038] DEEPMD INFO    Batch   64000: val: mae_e = 1.83e-02, mae_f = 1.01e-01, mae_v = 3.75e-02, rmse = 1.60e+00
+[2026-10-12 13:41:52,039] DEEPMD INFO    Batch   64000: total wall time = 179.45 s, eta = 0:17:10 at 2026-10-12 13:59
+[2026-10-12 13:44:52,269] DEEPMD INFO    Batch   65000: trn: mae_e = 2.95e-02, mae_f = 1.16e-01, mae_v = 1.99e-02, rmse = 1.73e+00, lr = 5.45e-05
+[2026-10-12 13:44:52,269] DEEPMD INFO    Batch   65000: val: mae_e = 9.77e-03, mae_f = 1.00e-01, mae_v = 2.06e-02, rmse = 1.51e+00
+[2026-10-12 13:44:52,269] DEEPMD INFO    Batch   65000: total wall time = 180.23 s, eta = 0:14:14 at 2026-10-12 13:59
+[2026-10-12 13:47:52,133] DEEPMD INFO    Batch   66000: trn: mae_e = 1.43e-02, mae_f = 9.10e-02, mae_v = 2.54e-02, rmse = 1.49e+00, lr = 3.44e-05
+[2026-10-12 13:47:52,134] DEEPMD INFO    Batch   66000: val: mae_e = 1.14e-02, mae_f = 1.10e-01, mae_v = 9.56e-02, rmse = 1.67e+00
+[2026-10-12 13:47:52,134] DEEPMD INFO    Batch   66000: total wall time = 179.86 s, eta = 0:11:12 at 2026-10-12 13:59
+[2026-10-12 13:50:51,423] DEEPMD INFO    Batch   67000: trn: mae_e = 1.41e-02, mae_f = 1.06e-01, mae_v = 1.70e-02, rmse = 1.58e+00, lr = 1.90e-05
+[2026-10-12 13:50:51,424] DEEPMD INFO    Batch   67000: val: mae_e = 2.18e-02, mae_f = 7.29e-02, mae_v = 3.34e-02, rmse = 1.41e+00
+[2026-10-12 13:50:51,424] DEEPMD INFO    Batch   67000: total wall time = 179.29 s, eta = 0:08:11 at 2026-10-12 13:59
+[2026-10-12 13:53:51,196] DEEPMD INFO    Batch   68000: trn: mae_e = 6.76e-03, mae_f = 9.77e-02, mae_v = 1.67e-02, rmse = 1.47e+00, lr = 8.27e-06
+[2026-10-12 13:53:51,196] DEEPMD INFO    Batch   68000: val: mae_e = 1.70e-02, mae_f = 9.18e-02, mae_v = 3.35e-02, rmse = 1.52e+00
+[2026-10-12 13:53:51,197] DEEPMD INFO    Batch   68000: total wall time = 179.77 s, eta = 0:05:12 at 2026-10-12 13:59
+[2026-10-12 13:56:50,003] DEEPMD INFO    Batch   69000: trn: mae_e = 8.85e-03, mae_f = 6.73e-02, mae_v = 1.96e-02, rmse = 1.27e+00, lr = 2.32e-06
+[2026-10-12 13:56:50,003] DEEPMD INFO    Batch   69000: val: mae_e = 1.63e-02, mae_f = 1.17e-01, mae_v = 1.94e-02, rmse = 1.65e+00
+[2026-10-12 13:56:50,004] DEEPMD INFO    Batch   69000: total wall time = 178.81 s, eta = 0:02:12 at 2026-10-12 13:59
+[2026-10-12 13:59:01,984] DEEPMD INFO    Saved model to model.ckpt-69740.pt
+[2026-10-12 13:59:02,020] DEEPMD INFO    average training time: 0.1796 s/batch (1740 batches excluded)
+[2026-10-12 13:59:02,020] DEEPMD INFO    Trained model has been saved to: model.ckpt

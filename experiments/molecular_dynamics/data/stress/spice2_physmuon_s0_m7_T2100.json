@@ -1,0 +1,114 @@
+{
+ "dataset": "spice2",
+ "opt": "physmuon",
+ "seed": 0,
+ "mol": 7,
+ "natoms": 60,
+ "frame": 306,
+ "formula": {
+  "O": 3,
+  "C": 25,
+  "N": 5,
+  "H": 27
+ },
+ "temps": [
+  2100.0,
+  2100.0,
+  2100.0,
+  2100.0,
+  2100.0,
+  2100.0,
+  2100.0
+ ],
+ "stress_T": 2100.0,
+ "replica_failures": [
+  null,
+  {
+   "t_ps": 37.69,
+   "fragments": 2,
+   "dmin": 0.947,
+   "finite": true,
+   "fragment_formulas": [
+    "HO",
+    "C25H26N5O2"
+   ],
+   "broken_bonds": [
+    "O1-C4 2.13A",
+    "N24-H45 3.47A"
+   ],
+   "confirmed_ps": 37.78,
+   "broken_bonds_confirmed": [
+    "O1-C4 4.49A",
+    "N24-H45 4.23A"
+   ]
+  },
+  null,
+  null,
+  {
+   "t_ps": 31.51,
+   "fragments": 2,
+   "dmin": 0.927,
+   "finite": true,
+   "fragment_formulas": [
+    "H",
+    "C25H26N5O3"
+   ],
+   "broken_bonds": [
+    "C17-H42 1.80A"
+   ],
+   "confirmed_ps": 31.6,
+   "broken_bonds_confirmed": [
+    "C17-H42 6.73A"
+   ]
+  },
+  {
+   "t_ps": 24.24,
+   "fragments": 2,
+   "dmin": 0.977,
+   "finite": true,
+   "fragment_formulas": [
+    "H",
+    "C25H26N5O3"
+   ],
+   "broken_bonds": [
+    "N23-H44 1.64A"
+   ],
+   "confirmed_ps": 24.33,
+   "broken_bonds_confirmed": [
+    "N23-H44 8.33A"
+   ]
+  },
+  null
+ ],
+ "transient_splits": [
+  1,
+  1,
+  0,
+  4,
+  1,
+  2,
+  3
+ ],
+ "longest_transient_checks": [
+  1,
+  1,
+  0,
+  1,
+  1,
+  1,
+  1
+ ],
+ "persist_checks": 10,
+ "open_split_at_end_ps": [
+  null,
+  null,
+  null,
+  null,
+  null,
+  null,
+  null
+ ],
+ "ms_per_call": 13.25,
+ "ps_per_replica": 42.0,
+ "stopped_at_ps": 42.0
+}

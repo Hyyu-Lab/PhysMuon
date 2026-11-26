@@ -1,0 +1,20 @@
+seed 0, optimal memory n* (steps), median of each group of directions in the early and in the late window
+  group 1: 2.1 -> 2.7   (late / early 1.28)
+  group 2: 0.9 -> 1.3   (late / early 1.42)
+  group 3: 1.4 -> 2.1   (late / early 1.50)
+  group 4: 2.1 -> 3.8   (late / early 1.79)
+  group 5: 4.2 -> 10.2   (late / early 2.43)
+
+late / early ratio of n* in the eight runs
+  seed 0: 1.28  1.42  1.50  1.79  2.43
+  seed 1: 1.16  1.35  1.61  1.86  2.37
+  seed 2: 1.13  1.31  1.42  1.76  2.32
+  seed 3: 1.25  1.36  1.47  1.80  2.28
+  seed 4: 1.15  1.36  1.46  1.76  2.25
+  seed 5: 1.20  1.38  1.53  1.95  2.41
+  seed 6: 1.32  1.30  1.44  1.87  2.25
+  seed 7: 1.16  1.31  1.44  1.82  2.31
+  40 of 40 ratios above 1; smallest 1.13, largest 2.43
+  mean over the runs, by group: 1.21  1.35  1.48  1.83  2.33
+
+seed 0, 360 measuring units (matrix x group): interquartile range of ln K* 0.743 (early) -> 0.940 (late); Spearman rank correlation between the two windows 0.89

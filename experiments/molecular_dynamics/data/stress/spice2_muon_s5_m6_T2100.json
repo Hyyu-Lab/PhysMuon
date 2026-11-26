@@ -1,0 +1,80 @@
+{
+ "dataset": "spice2",
+ "opt": "muon",
+ "seed": 5,
+ "mol": 6,
+ "natoms": 54,
+ "frame": 289,
+ "formula": {
+  "O": 5,
+  "C": 21,
+  "N": 3,
+  "H": 25
+ },
+ "temps": [
+  2100.0,
+  2100.0,
+  2100.0,
+  2100.0,
+  2100.0,
+  2100.0,
+  2100.0
+ ],
+ "stress_T": 2100.0,
+ "replica_failures": [
+  null,
+  null,
+  null,
+  null,
+  null,
+  null,
+  {
+   "t_ps": 26.49,
+   "fragments": 2,
+   "dmin": 0.857,
+   "finite": true,
+   "fragment_formulas": [
+    "H",
+    "C21H24N3O5"
+   ],
+   "broken_bonds": [
+    "C11-H34 1.92A"
+   ],
+   "confirmed_ps": 26.58,
+   "broken_bonds_confirmed": [
+    "C11-H34 5.44A"
+   ]
+  }
+ ],
+ "transient_splits": [
+  4,
+  1,
+  3,
+  3,
+  0,
+  2,
+  2
+ ],
+ "longest_transient_checks": [
+  1,
+  1,
+  1,
+  2,
+  0,
+  1,
+  1
+ ],
+ "persist_checks": 10,
+ "open_split_at_end_ps": [
+  null,
+  null,
+  null,
+  null,
+  null,
+  null,
+  null
+ ],
+ "ms_per_call": 12.5,
+ "ps_per_replica": 42.0,
+ "stopped_at_ps": 42.0
+}

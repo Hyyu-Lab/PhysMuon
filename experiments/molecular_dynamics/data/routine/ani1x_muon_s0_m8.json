@@ -1,0 +1,69 @@
+{
+ "dataset": "ani1x",
+ "opt": "muon",
+ "seed": 0,
+ "mol": 8,
+ "natoms": 21,
+ "frame": 164,
+ "formula": {
+  "C": 9,
+  "H": 8,
+  "N": 2,
+  "O": 2
+ },
+ "temps": [
+  300.0,
+  1000.0,
+  1000.0,
+  1000.0,
+  1500.0,
+  1500.0,
+  1500.0
+ ],
+ "stress_T": null,
+ "replica_failures": [
+  null,
+  null,
+  null,
+  null,
+  null,
+  null,
+  null
+ ],
+ "transient_splits": [
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0
+ ],
+ "longest_transient_checks": [
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0
+ ],
+ "persist_checks": 1,
+ "open_split_at_end_ps": [
+  null,
+  null,
+  null,
+  null,
+  null,
+  null,
+  null
+ ],
+ "ms_per_call": 24.7,
+ "ps_per_replica": 42.0,
+ "stopped_at_ps": 42.0,
+ "nve_ps": 40.0,
+ "nve_drift_meV_atom_ps": -0.0008767615185003749,
+ "nve_std_meV_atom": 0.0456070764983807,
+ "nve_maxdev_meV_atom": 0.2847729649545177,
+ "nve_T_mean": 348.6294376700211
+}

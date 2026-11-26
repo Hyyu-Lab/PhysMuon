@@ -1,0 +1,42 @@
+wrote input.json: steps=20000 seed=4 lr_mult=8.0 sched=exp batch=auto:2048 types=['H', 'B', 'C', 'N', 'O', 'F', 'Si', 'P', 'S', 'Cl', 'Br', 'I']
+[run] task=spice2_lb arm=bm steps=20000 seed=4 lr_mult=8 batch=auto:2048 mu=0.98 pm=1 gate=1 wmax=0.3 iso=1 bf=0.90 bs=0.995 bm_start=6154
+[muon_bm_dp] iso installed: lam=0.5 clamp=2.0 beta=0.95 K=4
+[muon_bm_dp] installed arm=bm iso=1
+[muon_bm_dp] arm=bm muon_params=1300992 adam_params=10049 lr=0.008 wd=0.0 mu=0.98 bm_phases=[(6154, 0.9, 0.995, 0.3)]
+[muon_bm_dp] iso split: inputs {'coord': (57, 36, 3), 'atype': (57, 36)} labels {'find_numb_copy': np.float32(0.0), 'numb_copy': (57, 1), 'find_coord': np.float32(1.0), 'find_box': np.float32(1.0), 'find_energy': np.float32(1.0), 'energy': (57, 1), 'find_force': np.float32(1.0), 'force': (57, 36, 3), 'real_natoms_vec': (57, 14), 'natoms': (57, 14)}
+[muon_bm_dp] iso t=1000 matrices=40 split_steps=1000/1000 mean_frames=58.6 log_heat_std row 1.740 col 2.748 clamped row 0.579 col 0.710
+[muon_bm_dp] iso t=2000 matrices=40 split_steps=2000/2000 mean_frames=59.2 log_heat_std row 1.737 col 2.646 clamped row 0.557 col 0.675
+[muon_bm_dp] iso t=3000 matrices=40 split_steps=3000/3000 mean_frames=59.3 log_heat_std row 1.769 col 2.568 clamped row 0.571 col 0.690
+[muon_bm_dp] iso t=4000 matrices=40 split_steps=4000/4000 mean_frames=58.8 log_heat_std row 1.744 col 2.439 clamped row 0.558 col 0.680
+[muon_bm_dp] iso t=5000 matrices=40 split_steps=5000/5000 mean_frames=58.5 log_heat_std row 1.738 col 2.458 clamped row 0.552 col 0.654
+[muon_bm_dp] iso t=6000 matrices=40 split_steps=6000/6000 mean_frames=58.2 log_heat_std row 1.751 col 2.445 clamped row 0.555 col 0.646
+[muon_bm_dp] BM phase 0 from t=6154: b1=0.9 b2=0.995 w1=0.3  (units seeded from the single EMA; kernel active from the next step)
+[muon_bm_dp] iso t=7000 matrices=40 split_steps=7000/7000 mean_frames=58.1 log_heat_std row 1.704 col 2.307 clamped row 0.548 col 0.630
+[muon_bm_dp] iso t=8000 matrices=40 split_steps=8000/8000 mean_frames=57.9 log_heat_std row 1.744 col 2.330 clamped row 0.555 col 0.632
+[muon_bm_dp] iso t=9000 matrices=40 split_steps=9000/9000 mean_frames=58.0 log_heat_std row 1.776 col 2.321 clamped row 0.557 col 0.630
+[muon_bm_dp] iso t=10000 matrices=40 split_steps=10000/10000 mean_frames=58.2 log_heat_std row 1.760 col 2.296 clamped row 0.555 col 0.638
+[muon_bm_dp] iso t=11000 matrices=40 split_steps=11000/11000 mean_frames=58.1 log_heat_std row 1.765 col 2.255 clamped row 0.555 col 0.606
+[muon_bm_dp] iso t=12000 matrices=40 split_steps=12000/12000 mean_frames=58.1 log_heat_std row 1.735 col 2.212 clamped row 0.545 col 0.610
+[muon_bm_dp] iso t=13000 matrices=40 split_steps=13000/13000 mean_frames=58.2 log_heat_std row 1.771 col 2.226 clamped row 0.558 col 0.609
+[muon_bm_dp] iso t=14000 matrices=40 split_steps=14000/14000 mean_frames=58.2 log_heat_std row 1.752 col 2.216 clamped row 0.556 col 0.605
+[muon_bm_dp] iso t=15000 matrices=40 split_steps=15000/15000 mean_frames=58.0 log_heat_std row 1.736 col 2.179 clamped row 0.548 col 0.586
+[muon_bm_dp] iso t=16000 matrices=40 split_steps=16000/16000 mean_frames=58.0 log_heat_std row 1.765 col 2.181 clamped row 0.556 col 0.598
+[muon_bm_dp] iso t=17000 matrices=40 split_steps=17000/17000 mean_frames=58.1 log_heat_std row 1.777 col 2.206 clamped row 0.565 col 0.600
+[muon_bm_dp] iso t=18000 matrices=40 split_steps=18000/18000 mean_frames=58.0 log_heat_std row 1.723 col 2.190 clamped row 0.553 col 0.568
+[muon_bm_dp] iso t=19000 matrices=40 split_steps=19000/19000 mean_frames=58.0 log_heat_std row 1.728 col 2.149 clamped row 0.545 col 0.568
+[muon_bm_dp] iso t=20000 matrices=40 split_steps=20000/20000 mean_frames=58.1 log_heat_std row 1.732 col 2.153 clamped row 0.547 col 0.572
+[2026-11-26 12:10:30,303] DEEPMD INFO    average training time: 0.3585 s/batch (100 batches excluded)
+[done] train 7246 s
+[2026-11-26 12:13:03,785] DEEPMD INFO    Energy RMSE        : 4.989238e-01 eV
+[2026-11-26 12:13:03,785] DEEPMD INFO    Energy MAE/Natoms  : 3.582851e-03 eV
+[2026-11-26 12:13:03,785] DEEPMD INFO    Energy RMSE/Natoms : 4.535671e-03 eV
+[2026-11-26 12:13:03,785] DEEPMD INFO    Force  MAE         : 5.721773e-02 eV/Å
+[2026-11-26 12:13:03,785] DEEPMD INFO    Force  RMSE        : 2.286445e-01 eV/Å
+[2026-11-26 12:13:03,785] DEEPMD INFO    # ----------weighted average of errors----------- 
+[2026-11-26 12:13:03,785] DEEPMD INFO    Energy MAE         : 1.199608e-01 eV
+[2026-11-26 12:13:03,785] DEEPMD INFO    Energy RMSE        : 2.056155e-01 eV
+[2026-11-26 12:13:03,785] DEEPMD INFO    Energy MAE/Natoms  : 4.806792e-03 eV
+[2026-11-26 12:13:03,785] DEEPMD INFO    Energy RMSE/Natoms : 1.553113e-02 eV
+[2026-11-26 12:13:03,785] DEEPMD INFO    Force  MAE         : 2.801905e-02 eV/Å
+[2026-11-26 12:13:03,785] DEEPMD INFO    Force  RMSE        : 5.252999e-02 eV/Å
+[done] test 153 s

@@ -1,0 +1,176 @@
+{
+ "dataset": "spice2",
+ "opt": "muon",
+ "seed": 2,
+ "mol": 1,
+ "natoms": 24,
+ "frame": 832,
+ "formula": {
+  "O": 2,
+  "C": 8,
+  "N": 1,
+  "H": 13
+ },
+ "temps": [
+  2100.0,
+  2100.0,
+  2100.0,
+  2100.0,
+  2100.0,
+  2100.0,
+  2100.0
+ ],
+ "stress_T": 2100.0,
+ "replica_failures": [
+  {
+   "t_ps": 11.26,
+   "fragments": 2,
+   "dmin": 0.999,
+   "finite": true,
+   "fragment_formulas": [
+    "H",
+    "C8H12NO2"
+   ],
+   "broken_bonds": [
+    "C10-H23 2.86A"
+   ],
+   "confirmed_ps": 11.35,
+   "broken_bonds_confirmed": [
+    "C10-H23 15.29A"
+   ]
+  },
+  {
+   "t_ps": 7.08,
+   "fragments": 2,
+   "dmin": 1.036,
+   "finite": true,
+   "fragment_formulas": [
+    "H",
+    "C8H12NO2"
+   ],
+   "broken_bonds": [
+    "C10-H23 1.72A"
+   ],
+   "confirmed_ps": 7.17,
+   "broken_bonds_confirmed": [
+    "C10-H23 5.04A"
+   ]
+  },
+  {
+   "t_ps": 5.1,
+   "fragments": 2,
+   "dmin": 0.937,
+   "finite": true,
+   "fragment_formulas": [
+    "H",
+    "C8H12NO2"
+   ],
+   "broken_bonds": [
+    "C10-H23 1.97A"
+   ],
+   "confirmed_ps": 5.19,
+   "broken_bonds_confirmed": [
+    "C10-H23 3.37A"
+   ]
+  },
+  {
+   "t_ps": 23.28,
+   "fragments": 2,
+   "dmin": 1.062,
+   "finite": true,
+   "fragment_formulas": [
+    "H",
+    "C8H12NO2"
+   ],
+   "broken_bonds": [
+    "C10-H23 1.74A"
+   ],
+   "confirmed_ps": 23.37,
+   "broken_bonds_confirmed": [
+    "C10-H23 10.97A"
+   ]
+  },
+  {
+   "t_ps": 0.6,
+   "fragments": 2,
+   "dmin": 1.005,
+   "finite": true,
+   "fragment_formulas": [
+    "H",
+    "C8H12NO2"
+   ],
+   "broken_bonds": [
+    "C9-H21 2.04A"
+   ],
+   "confirmed_ps": 0.69,
+   "broken_bonds_confirmed": [
+    "C9-H21 4.43A"
+   ]
+  },
+  {
+   "t_ps": 6.49,
+   "fragments": 2,
+   "dmin": 1.011,
+   "finite": true,
+   "fragment_formulas": [
+    "H",
+    "C8H12NO2"
+   ],
+   "broken_bonds": [
+    "C10-H23 1.67A"
+   ],
+   "confirmed_ps": 6.58,
+   "broken_bonds_confirmed": [
+    "C10-H23 11.54A"
+   ]
+  },
+  {
+   "t_ps": 1.14,
+   "fragments": 2,
+   "dmin": 1.033,
+   "finite": true,
+   "fragment_formulas": [
+    "H",
+    "C8H12NO2"
+   ],
+   "broken_bonds": [
+    "C9-H20 1.70A"
+   ],
+   "confirmed_ps": 1.23,
+   "broken_bonds_confirmed": [
+    "C9-H20 6.30A"
+   ]
+  }
+ ],
+ "transient_splits": [
+  2,
+  3,
+  0,
+  6,
+  0,
+  0,
+  0
+ ],
+ "longest_transient_checks": [
+  1,
+  1,
+  0,
+  1,
+  0,
+  0,
+  0
+ ],
+ "persist_checks": 10,
+ "open_split_at_end_ps": [
+  null,
+  null,
+  null,
+  null,
+  null,
+  null,
+  null
+ ],
+ "ms_per_call": 8.1,
+ "ps_per_replica": 42.0,
+ "stopped_at_ps": 23.37
+}
